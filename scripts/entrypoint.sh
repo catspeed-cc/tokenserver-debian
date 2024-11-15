@@ -14,9 +14,7 @@ git clone https://github.com/YunzheZJU/youtube-po-token-generator.git
 
 cd /scripts/youtube-po-token-generator/
 
-npm install
-
-/root/.nvm/versions/node/${NODE_VERSION}/bin/node examples/one-shot.js >> entrypoint.log
+/usr/local/bin/node examples/one-shot.js >> entrypoint.log
 
 cd /scripts/
 
