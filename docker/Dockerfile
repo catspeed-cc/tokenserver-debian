@@ -15,6 +15,8 @@ RUN chmod +x /scripts/*.sh
 
 ENV NVM_DIR /root/.nvm/
 
+RUN mkdir $NVM_DIR
+
 ENV NODE_VERSION v22.11.0
 
 # Install nvm with node and npm
