@@ -16,7 +16,7 @@ cd /scripts/youtube-po-token-generator/
 
 npm install
 
-node examples/one-shot.js >> entrypoint.log
+/root/.nvm/versions/node/${NODE_VERSION}/bin/node examples/one-shot.js >> entrypoint.log
 
 cd /scripts/
 
