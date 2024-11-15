@@ -5,7 +5,7 @@ MAINTAINER mooleshacat / catspeed <admin@catspeed.cc>
 
 RUN apk update
 RUN apk upgrade
-RUN apk add htop nano git wget curl cpulimit timeout
+RUN apk add htop nano git wget curl cpulimit
 
 COPY ./scripts/ /scripts/
 
