@@ -4,7 +4,7 @@
 
 echo "entrypoint.sh - for generating tokens - due to technical reasons, only works with catspeed fork!"
 
-read -a theinstances <<< "${INSTANCES}"
+IFS='|' read -a theinstances <<< "${INSTANCES}"
 
 echo "" > /scripts/entrypoint.log
 echo "" > /scripts/generate-tokens.log
