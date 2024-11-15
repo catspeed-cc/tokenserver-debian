@@ -13,7 +13,7 @@ COPY ./scripts/ /scripts/
 
 RUN chmod +x /scripts/*.sh
 
-ENV NVM_DIR /usr/local/nvm # or ~/.nvm 
+ENV NVM_DIR /root/.nvm/
 
 ENV NODE_VERSION v22.11.0
 
