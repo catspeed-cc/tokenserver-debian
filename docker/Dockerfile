@@ -1,6 +1,6 @@
 # Dockerfile for tokengenerator-alpine - due to technical reasons, only works with catspeed fork!
 
-FROM alpine:latest
+FROM ubuntu:latest
 MAINTAINER mooleshacat / catspeed <admin@catspeed.cc>
 
 FROM node:current-alpine AS node
