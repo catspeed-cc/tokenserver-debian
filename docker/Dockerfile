@@ -7,7 +7,7 @@ USER root
 
 RUN apk update
 RUN apk upgrade
-RUN apk add htop nano git wget curl cpulimit bash
+RUN apk add htop nano git wget curl cpulimit bash redis
 
 COPY ./scripts/ /scripts/
 
