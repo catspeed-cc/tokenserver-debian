@@ -15,7 +15,7 @@ services:
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
-    command: /scripts/entrypoint.sh
+    #command: /scripts/entrypoint.sh
     environment:
      - REDIS_HOST=172.91.0.52
      - REDIS_PORT=6379
