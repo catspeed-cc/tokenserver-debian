@@ -3,6 +3,8 @@
 FROM alpine:latest
 MAINTAINER mooleshacat / catspeed <admin@catspeed.cc>
 
+USER root
+
 RUN apk update
 RUN apk upgrade
 RUN apk add htop nano git wget curl cpulimit bash
