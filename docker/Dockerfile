@@ -1,26 +1,35 @@
 # Dockerfile for tokengenerator-alpine - due to technical reasons, only works with catspeed fork!
 
-FROM ubuntu:latest
+FROM ubuntu:22.04
 MAINTAINER mooleshacat / catspeed <admin@catspeed.cc>
 
-FROM node:current-alpine AS node
+#FROM node:current-alpine AS node
 
 USER root
 
-RUN apk update
-RUN apk upgrade
-RUN apk add htop nano git wget curl cpulimit bash redis
-RUN apk add libc6-compat gcompat
+
+RUN echo 'APT::Install-Suggests "0";' >> /etc/apt/apt.conf.d/00-docker
+RUN echo 'APT::Install-Recommends "0";' >> /etc/apt/apt.conf.d/00-docker
+
+#RUN apk update
+#RUN apk upgrade
+#RUN apk add htop nano git wget curl cpulimit bash redis
+#RUN apk add libc6-compat gcompat
+
+RUN DEBIAN_FRONTEND=noninteractive \
+  apt-get update \
+  && apt-get install -y htop nano git wget curl cpulimit bash redis libc6-compat gcompat \
+  && rm -rf /var/lib/apt/lists/*
 
 COPY ./scripts/ /scripts/
 
 RUN chmod +x /scripts/*.sh
 
 # install node?
-COPY --from=node /usr/lib /usr/lib
-COPY --from=node /usr/local/lib /usr/local/lib
-COPY --from=node /usr/local/include /usr/local/include
-COPY --from=node /usr/local/bin /usr/local/bin
+#COPY --from=node /usr/lib /usr/lib
+#COPY --from=node /usr/local/lib /usr/local/lib
+#COPY --from=node /usr/local/include /usr/local/include
+#COPY --from=node /usr/local/bin /usr/local/bin
 
 RUN echo $(node -v)
 
