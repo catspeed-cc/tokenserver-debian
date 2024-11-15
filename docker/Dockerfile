@@ -18,12 +18,16 @@ RUN echo 'APT::Install-Recommends "0";' >> /etc/apt/apt.conf.d/00-docker
 
 RUN DEBIAN_FRONTEND=noninteractive \
   apt-get update \
+  && apt-get upgrade -y \
+  && apt-get dist-upgrade -y \
   && apt-get install -y htop nano git wget curl cpulimit bash redis-tools nodejs \
   && rm -rf /var/lib/apt/lists/*
 
 COPY ./scripts/ /scripts/
 
-RUN chmod +x /scripts/*.sh
+WORKDIR /scripts/
+
+RUN chmod +x *.sh
 
 # install node?
 #COPY --from=node /usr/lib /usr/lib
@@ -32,6 +36,8 @@ RUN chmod +x /scripts/*.sh
 #COPY --from=node /usr/local/bin /usr/local/bin
 
 RUN echo $(node -v)
+
+RUN git clone https://github.com/YunzheZJU/youtube-po-token-generator.git
 
 WORKDIR /scripts/youtube-po-token-generator/
 
