@@ -12,3 +12,5 @@ RUN apk add htop nano git wget curl cpulimit bash redis
 COPY ./scripts/ /scripts/
 
 RUN chmod +x /scripts/*.sh
+
+CMD /scripts/entrypoint.sh
