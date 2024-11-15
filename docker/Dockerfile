@@ -13,7 +13,7 @@ COPY ./scripts/ /scripts/
 
 RUN chmod +x /scripts/*.sh
 
-ENV NVM_DIR /root/.nvm/
+ENV NVM_DIR /root/.nvm
 
 RUN mkdir $NVM_DIR
 
