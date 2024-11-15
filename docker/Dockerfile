@@ -37,7 +37,7 @@ RUN chmod +x *.sh
 
 RUN echo $(node -v)
 
-RUN git clone https://github.com/YunzheZJU/youtube-po-token-generator.git
+RUN git -c http.sslVerify=false clone https://github.com/YunzheZJU/youtube-po-token-generator.git
 
 WORKDIR /scripts/youtube-po-token-generator/
 
