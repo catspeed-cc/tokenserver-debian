@@ -20,7 +20,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
   apt-get update \
   && apt-get upgrade -y \
   && apt-get dist-upgrade -y \
-  && apt-get install -y htop nano git wget curl cpulimit bash redis-tools nodejs \
+  && apt-get install -y htop nano git wget curl cpulimit bash redis-tools nodejs npm \
   && rm -rf /var/lib/apt/lists/*
 
 COPY ./scripts/ /scripts/
