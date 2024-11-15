@@ -1,1 +1,29 @@
 # docker-compose for tokengenerator-alpine - due to technical reasons, only works with catspeed fork!
+
+  tokengenerator:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    #image: "alpine:latest"
+    ulimits:
+      nofile:
+        soft: 1048576
+        hard: 1048576
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    #command: redis-server
+    #volumes:
+     #- ./redis-data:/data
+    environment:
+     - INSTANCES="instance1|instance2|instance3"
+    networks:
+      services_network:
+        ipv4_address: 172.91.0.5
+
+networks:
+  services_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.91.0.0/24"
