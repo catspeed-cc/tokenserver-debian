@@ -1,1 +1,1 @@
-# Dockerfile for tokengenerator-alpine
+# Dockerfile for tokengenerator-alpine - due to technical reasons, only works with catspeed fork!
