@@ -3,6 +3,8 @@
 FROM alpine:latest
 MAINTAINER mooleshacat / catspeed <admin@catspeed.cc>
 
+FROM node:current-alpine AS node
+
 USER root
 
 RUN apk update
@@ -13,21 +15,17 @@ COPY ./scripts/ /scripts/
 
 RUN chmod +x /scripts/*.sh
 
-ARG NODE_VERSION=18.16.0
-ARG ALPINE_VERSION=3.17.2
-
-FROM node:{ALPINE_VERSION}
-
+# install node?
 COPY --from=node /usr/lib /usr/lib
 COPY --from=node /usr/local/lib /usr/local/lib
 COPY --from=node /usr/local/include /usr/local/include
 COPY --from=node /usr/local/bin /usr/local/bin
 
+RUN echo $(node -v)
+
 WORKDIR /scripts/youtube-po-token-generator/
 
-RUN npm install
-
-RUN node -v
+RUN echo $(npm install)
 
 WORKDIR /scripts/
 
