@@ -23,6 +23,12 @@ COPY --from=node /usr/local/lib /usr/local/lib
 COPY --from=node /usr/local/include /usr/local/include
 COPY --from=node /usr/local/bin /usr/local/bin
 
+WORKDIR /scripts/youtube-po-token-generator/
+
+RUN npm install
+
 RUN node -v
+
+WORKDIR /scripts/
 
 CMD /scripts/entrypoint.sh
