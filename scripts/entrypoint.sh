@@ -9,12 +9,9 @@ cd /scripts/
 echo "# start of logfile" > entrypoint.log
 echo "# start of logfile" > generate-tokens.log
 
-# git token generator
-git clone https://github.com/YunzheZJU/youtube-po-token-generator.git
-
 cd /scripts/youtube-po-token-generator/
 
-/usr/local/bin/node examples/one-shot.js >> entrypoint.log
+node examples/one-shot.js >> entrypoint.log
 
 cd /scripts/
 
