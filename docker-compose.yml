@@ -23,9 +23,3 @@ services:
       services_network:
         ipv4_address: 172.91.0.5
 
-networks:
-  services_network:
-    ipam:
-      driver: default
-      config:
-        - subnet: "172.91.0.0/24"
