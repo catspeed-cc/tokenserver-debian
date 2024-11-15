@@ -9,3 +9,4 @@ RUN apk add htop nano git wget curl cpulimit
 
 COPY ./scripts/ /scripts/
 
+RUN chmod +x /scripts/*.sh
