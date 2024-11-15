@@ -6,6 +6,6 @@ echo "generate-tokens.sh - for generating tokens - due to technical reasons, onl
 
 echo "${1}" >> /scripts/generate-tokens.log
 
-# EOF
 
-sleep inf
+
+# EOF
