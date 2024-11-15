@@ -7,6 +7,7 @@ echo "entrypoint.sh - for generating tokens - due to technical reasons, only wor
 read -a instances <<< "${INSTANCES}"
 
 echo "" > /scripts/entrypoint.log
+echo "" > /scripts/generate-tokens.log
 
 for instance in "${instances[@]}"
 do
