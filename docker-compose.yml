@@ -19,7 +19,9 @@ services:
     #volumes:
      #- ./redis-data:/data
     environment:
-     - INSTANCES="instance1|instance2|instance3"
+     - REDIS_HOST=172.91.0.52
+     - REDIS_PORT=6379
+     - INSTANCES=instance1|instance2|instance3
     networks:
       invidious-mooleshacat_services_network:
         ipv4_address: 172.91.0.5
