@@ -13,13 +13,16 @@ COPY ./scripts/ /scripts/
 
 RUN chmod +x /scripts/*.sh
 
-ENV NVM_DIR /root/.nvm
+ARG NODE_VERSION=18.16.0
+ARG ALPINE_VERSION=3.17.2
 
-RUN mkdir $NVM_DIR
+FROM node:{ALPINE_VERSION}
 
-ENV NODE_VERSION v22.11.0
+COPY --from=node /usr/lib /usr/lib
+COPY --from=node /usr/local/lib /usr/local/lib
+COPY --from=node /usr/local/include /usr/local/include
+COPY --from=node /usr/local/bin /usr/local/bin
 
-# Install nvm with node and npm
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash;
+RUN node -v
 
 CMD /scripts/entrypoint.sh
