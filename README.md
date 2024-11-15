@@ -1,3 +1,3 @@
 # tokengenerator-alpine
 
-Token generator for catspeed fork, based on Alpine
+Dockerized token generator for catspeed fork, based on Alpine
