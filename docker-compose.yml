@@ -20,6 +20,9 @@ services:
     environment:
      - INSTANCES="instance1|instance2|instance3"
     networks:
-      services_network:
+      invidious-mooleshacat_services_network:
         ipv4_address: 172.91.0.5
 
+networks:
+  invidious-mooleshacat_services_network:
+    external: true
