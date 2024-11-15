@@ -1,4 +1,6 @@
 # docker-compose for tokengenerator-alpine - due to technical reasons, only works with catspeed fork!
+version: "3"
+services:
 
   tokengenerator:
     build:
