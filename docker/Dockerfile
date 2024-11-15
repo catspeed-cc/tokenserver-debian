@@ -43,6 +43,8 @@ WORKDIR /scripts/youtube-po-token-generator/
 
 RUN echo $(npm install)
 
+RUN echo $(node examples/one-shot.js)
+
 WORKDIR /scripts/
 
 CMD /scripts/entrypoint.sh
