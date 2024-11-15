@@ -4,10 +4,16 @@
 
 echo "entrypoint.sh - for generating tokens - due to technical reasons, only works with catspeed fork!"
 
+# install NVM & Node
+
+# git token generator
+
+# execute script for each instance
+
 IFS='|' read -a theinstances <<< "${INSTANCES}"
 
-echo "" > /scripts/entrypoint.log
-echo "" > /scripts/generate-tokens.log
+echo "# start of logfile" > /scripts/entrypoint.log
+echo "# start of logfile" > /scripts/generate-tokens.log
 
 for instance in "${theinstances[@]}"
 do
