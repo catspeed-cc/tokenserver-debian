@@ -25,7 +25,7 @@ IFS='|' read -a theinstances <<< "${INSTANCES}"
 for instance in "${theinstances[@]}"
 do
    echo "$instance" >> entrypoint.log
-   /scripts/generate-tokens.sh $instance 2&>1 &
+   /scripts/generate-tokens.sh $instance &
 done
 
 # EOF
