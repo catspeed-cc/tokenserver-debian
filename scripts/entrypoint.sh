@@ -5,7 +5,14 @@
 echo "entrypoint.sh - for generating tokens - due to technical reasons, only works with catspeed fork!"
 
 read -a instances <<< "${INSTANCES}"
-echo "${array[0]} ${array[1]}"
+
+echo "" > /scripts/entrypoint.log
+
+for instance in "${instances[@]}"
+do
+   echo "$instance" >> /scripts/entrypoint.log
+   /scripts/generate-tokens.sh 2&>1 &
+done
 
 # EOF
 
