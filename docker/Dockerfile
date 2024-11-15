@@ -10,6 +10,7 @@ USER root
 RUN apk update
 RUN apk upgrade
 RUN apk add htop nano git wget curl cpulimit bash redis
+RUN apk add libc6-compat gcompat
 
 COPY ./scripts/ /scripts/
 
