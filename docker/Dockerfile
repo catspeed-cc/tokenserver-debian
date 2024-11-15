@@ -18,7 +18,7 @@ RUN echo 'APT::Install-Recommends "0";' >> /etc/apt/apt.conf.d/00-docker
 
 RUN DEBIAN_FRONTEND=noninteractive \
   apt-get update \
-  && apt-get install -y htop nano git wget curl cpulimit bash redis libc6-compat gcompat node \
+  && apt-get install -y htop nano git wget curl cpulimit bash redis-tools nodejs \
   && rm -rf /var/lib/apt/lists/*
 
 COPY ./scripts/ /scripts/
