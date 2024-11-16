@@ -28,7 +28,7 @@ do
     #IFS=$'\n'
 
     #users=($tmp_data)
-    for IFS=$'\n' the_user in $the_users
+    IFS=$'\n' for the_user in $the_users
     do
         
         echo "User: $the_user" | tee -a /scripts/generate-user-tokens.log
