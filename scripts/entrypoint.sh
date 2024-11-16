@@ -30,6 +30,7 @@ do
    /scripts/generate-tokens.sh $instance &
 done
 
-# this will keep container awake and running
+# this 'hack' will keep container awake and running
+# may remove at future date/time
 sleep inf
 # EOF
