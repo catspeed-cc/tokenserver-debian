@@ -2,7 +2,7 @@
 
 Dockerized token generator for catspeed fork, based on Debian
 
-#### Due to technical reasons, this will only work for catspeed fork, found at https://github.com/catspeed-cc/invidious
+#### Due to technical reasons, token pre-generation will only work for catspeed fork, found at https://github.com/catspeed-cc/invidious
 
 The project was basically finished in ~12 hours for the anonymous token pre-generator. I am working on adding the user token pre-generator as well. Then I can rip the CPU intensive code out of the invidious code/container, and it will be siloed in it's own container here. This should reduce the impact that the cpu-intensive token generation has on the invidious process/container.
 
@@ -13,6 +13,8 @@ Invidious has enough troubles, serving content in a timely manner, and reliably 
 So far in testing, the load on the invidious process/container has been massively reduced, because I no longer use the invidious main process to generate tokens (which was a bad idea anyways)
 
 I suspect this will eventually include "token server" and you will be able to choose between one docker container pre-generating tokens, or a token server instance that you can set up multiple and have reverse proxy to multiple token servers with tokens being requested on the fly as users need them.
+
+#### Token server will be compatible with other forks, as long as you know how to program in the request and extraction of tokens from the response.
 
 Planned features:
 - Token pregeneration for users (in process)
