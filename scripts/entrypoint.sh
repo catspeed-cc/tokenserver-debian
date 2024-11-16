@@ -22,6 +22,8 @@ cd /scripts/
 
 echo "executing generator scripts" | tee -a /scripts/entrypoint.log
 
+/scripts/generate-user-tokens.sh
+
 # execute script for each instance
 IFS='|' read -a theinstances <<< "${INSTANCES}"
 for instance in "${theinstances[@]}"
