@@ -4,13 +4,20 @@ Dockerized token generator for catspeed fork, based on Debian
 
 #### Due to technical reasons, this will only work for catspeed fork, found at https://github.com/catspeed-cc/invidious
 
-The project was basically finished in ~12 hours for the anonymous token pre-generator. I am working on adding the user token pre-generator as well. Then I can rip the CPU intensive code out of the invidious code/container, and it will be siloed in it's own container here.
+The project was basically finished in ~12 hours for the anonymous token pre-generator. I am working on adding the user token pre-generator as well. Then I can rip the CPU intensive code out of the invidious code/container, and it will be siloed in it's own container here. This should reduce the impact that the cpu-intensive token generation has on the invidious process/container.
+
+I will also be moving the stats calculator here, to keep everything neat and tidy in this project, and also remove even more load off the invidious process/container. Eventually all that the invidious process/container will be doing is making redis calls.
+
+Invidious has enough troubles, serving content in a timely manner, and reliably as it is - after all the current recommendation is to restart it hourly, and I've even had to minutely just to stop it eating CPU and memory after the sig-helper crashes. Spawning cpu-intensive processes from within invidious when invidious is expected to make a timely response to a client is a bad idea.
+
+So far in testing, the load on the invidious process/container has been massively reduced, because I no longer use the invidious main process to generate tokens (which was a bad idea anyways)
 
 I suspect this will eventually include "token server" and you will be able to choose between one docker container pre-generating tokens, or a token server instance that you can set up multiple and have reverse proxy to multiple token servers with tokens being requested on the fly as users need them.
 
 Planned features:
 - Token pregeneration for users
 - Token pregeneration for anon users
+- Stats monitor
 - Token server
 
 Will make documentation, images and upload to dockerhub or other later.
