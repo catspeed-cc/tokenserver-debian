@@ -28,7 +28,7 @@ I'll see myself out of this channel, or you can kick me. Insult me all you wish,
 
 In the meantime, I'm going back to work. I have better things to do with my time than get shit on by you.
 
-P.S. I've removed token generator, now my fork is only template mods. Token generator is in separate project now. If you still somehow think my fork is "weird" you are calling every public instance owners forks weird also. You can check my code while you cope & seethe https://gitea.catspeed.cc/catspeed-cc/tokengenerator-debian
+P.S. I've removed token generator, now my fork is only template mods. Token generator is in separate project now. Completed it in about 12 hours. If you still somehow think my fork is "weird" you are calling every public instance owners forks weird also. You can check my code while you cope & seethe https://gitea.catspeed.cc/catspeed-cc/tokengenerator-debian
 
 EOF
 
