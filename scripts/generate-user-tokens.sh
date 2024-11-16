@@ -6,8 +6,6 @@ echo "" | tee -a /scripts/generate-user-tokens.log
 echo "generate-user-tokens.sh - for generating tokens - due to technical reasons, only works with catspeed fork!" | tee -a /scripts/generate-user-tokens.log
 echo "" | tee -a /scripts/generate-user-tokens.log
 
-echo "[${1}] generating ${NUM_TOKENS} tokens for ${1}" | tee -a /scripts/generate-user-tokens.log
-
 function ltrim ()
 {
     sed -E 's/^[[:space:]]+//'
