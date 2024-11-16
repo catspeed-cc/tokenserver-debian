@@ -4,6 +4,15 @@
 FROM debian:latest
 MAINTAINER mooleshacat / catspeed <admin@catspeed.cc>
 
+# Only use the build arg for local development:
+ARG THEPASSWORD
+
+# copy use_secret.sh
+COPY ./etc/use_secret.sh /scripts/use_secret.sh
+
+# Mount the secret to /run/secrets:
+RUN --mount=type=secret,id=thepassword ./etc/use_secret.sh
+
 # switch user to root or some commands will fail
 USER root
 
