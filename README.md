@@ -8,7 +8,7 @@ The project was basically finished in ~12 hours for the anonymous token pre-gene
 
 I will also be moving the stats calculator here, to keep everything neat and tidy in this project, and also remove even more load off the invidious process/container. Eventually all that the invidious process/container will be doing is making redis calls.
 
-Invidious has enough troubles, serving content in a timely manner, and reliably as it is - after all the current recommendation is to restart it hourly, and I've even had to minutely just to stop it eating CPU and memory after the sig-helper crashes. Spawning cpu-intensive processes from within invidious when invidious is expected to make a timely response to a client is a bad idea.
+Invidious has enough troubles, serving content in a timely manner, and reliably as it is - after all the current recommendation is to restart it hourly, and I've even had to minutely just to stop it eating CPU and memory after the sig-helper crashes. Spawning cpu-intensive processes from within invidious when invidious is expected to make a timely response to a client is a bad idea. Invidious should be dedicated to serving users video in a timely manner. Slight delays are unacceptable.
 
 So far in testing, the load on the invidious process/container has been massively reduced, because I no longer use the invidious main process to generate tokens (which was a bad idea anyways)
 
