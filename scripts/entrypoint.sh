@@ -28,7 +28,6 @@ if [[ ${TOKEN_SERVER_ENABLED} ]]; then
 
    # todo: tokenserver
 
-
 else
 
    # init token generation
