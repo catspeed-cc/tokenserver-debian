@@ -6,15 +6,6 @@ echo "" | tee -a /scripts/generate-user-tokens.log
 echo "generate-user-tokens.sh - for generating tokens - due to technical reasons, only works with catspeed fork!" | tee -a /scripts/generate-user-tokens.log
 echo "" | tee -a /scripts/generate-user-tokens.log
 
-function ltrim ()
-{
-    sed -E 's/^[[:space:]]+//'
-}
-function rtrim ()
-{
-    sed -E 's/[[:space:]]+$//'
-}
-
 # infinite loop because
 while true; 
 do
