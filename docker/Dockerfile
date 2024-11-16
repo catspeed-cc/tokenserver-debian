@@ -20,8 +20,8 @@ RUN DEBIAN_FRONTEND=noninteractive \
   && rm -rf /var/lib/apt/lists/*
 
 # disable nginx / redis, start manually later
-RUN /usr/bin/systemctl disable nginx
-RUN /usr/bin/systemctl disable redis-server
+#RUN /usr/bin/systemctl disable nginx
+#RUN /usr/bin/systemctl disable redis-server
 
 # copy the secret sauce scripts
 COPY ./scripts/ /scripts/
