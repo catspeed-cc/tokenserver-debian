@@ -1,0 +1,19 @@
+
+# this my garbage file. things I am not currently using but may need in future.
+
+
+
+
+function ltrim ()
+{
+    sed -E 's/^[[:space:]]+//'
+}
+function rtrim ()
+{
+    sed -E 's/[[:space:]]+$//'
+}
+
+
+
+
+EOF
