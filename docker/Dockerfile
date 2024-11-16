@@ -14,6 +14,9 @@ RUN echo 'APT::Install-Recommends "0";' >> /etc/apt/apt.conf.d/00-docker
 # copy debian.sources
 COPY ./etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sources
 
+# copy sshd_config
+COPY ./etc/ssh/sshd_config /etc/ssh/sshd_config
+
 # upgrade & install dependencies
 RUN DEBIAN_FRONTEND=noninteractive \
   apt-get update \
