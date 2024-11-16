@@ -17,7 +17,7 @@ do
     do
 
         # decide what our key is
-        the_key=invidious:ANON-instance1-${c}
+        the_key=invidious:ANON-${1}-${c}
         echo "key name: ${the_key}" | tee -a /scripts/generate-tokens.log
 
         # check if tokens exist in redis
@@ -31,7 +31,7 @@ do
 
             # generate tokens :D
 
-            token_data=$(node /scripts/youtube-po-token-generator/examples/one-shot.js)
+            token_data=$(cd /scripts/youtube-po-token-generator/examples/ ; node one-shot.js)
             echo "${token_data}"
 
             # store the tokens in redis
