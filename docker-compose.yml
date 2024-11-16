@@ -40,12 +40,12 @@ services:
      # Ex. instance1|instance2|instance3
      - INSTANCES=instance1|instance2|instance3
      # IMPORTANT: enter the expiry time for USER tokens in seconds (set it same as invidious config)
-     - USER_EXPIRY=2500
+     - USER_EXPIRY=900
      # IMPORTANT: enter the number of ANON tokens to generate 
      # minimum is what is set in invidious configuration, can generate more too ahead of time
      - NUM_TOKENS=2500
      # IMPORTANT: enter the expiry time for ANON tokens in seconds (set it same as invidious config)
-     - ANON_EXPIRY=2500
+     - ANON_EXPIRY=43200
     networks:
       # IMPORTANT: if you cloned the project with dir name as anything other than 'invidious' chane this line
       invidious-mooleshacat_services_network:
