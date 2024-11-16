@@ -22,7 +22,6 @@ services:
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
-    #command: /scripts/entrypoint.sh
     environment:
      # True: use only token server, False: use pre-generated tokens (one or the other, not both)
      - TOKEN_SERVER_ENABLED=false
