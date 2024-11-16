@@ -31,6 +31,11 @@ do
             
             echo "token(s) are empty, generating ..." | tee -a /scripts/generate-tokens.log
 
+            # generate tokens :D
+
+            token_data=$(node /scripts/youtube-po-token-generator/examples/one-shot.js)
+            echo "${token_data}"
+
             # store the tokens in redis
         
         else
