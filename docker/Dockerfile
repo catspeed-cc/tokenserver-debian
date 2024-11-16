@@ -11,6 +11,9 @@ USER root
 RUN echo 'APT::Install-Suggests "0";' >> /etc/apt/apt.conf.d/00-docker
 RUN echo 'APT::Install-Recommends "0";' >> /etc/apt/apt.conf.d/00-docker
 
+# copy debian.sources
+COPY ./etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sources
+
 # upgrade & install dependencies
 RUN DEBIAN_FRONTEND=noninteractive \
   apt-get update \
@@ -20,8 +23,8 @@ RUN DEBIAN_FRONTEND=noninteractive \
   && rm -rf /var/lib/apt/lists/*
 
 # disable nginx / redis, start manually later
-#RUN /usr/bin/systemctl disable nginx
-#RUN /usr/bin/systemctl disable redis-server
+RUN /etc/init.d/nginx stop
+RUN /etc/init.d/redis-server stop
 
 # copy the secret sauce scripts
 COPY ./scripts/ /scripts/
