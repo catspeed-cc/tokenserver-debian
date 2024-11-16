@@ -36,8 +36,6 @@ do
             if [[ -n "$token_data" ]]; then
                 
                 # extract tokens
-                # EXTRACT THE TOKENS
-                echo "[${1}] extracting tokens, token_data: ${token_data}" | tee -a /scripts/generate-tokens.log
                 po_token=$(echo ${token_data} | awk -F"'" '/poToken/{print $4}')
                 visitor_data=$(echo ${token_data} | awk -F"'" '/visitorData/{print $2}')
 
