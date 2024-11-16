@@ -15,10 +15,10 @@ So far in testing, the load on the invidious process/container has been massivel
 I suspect this will eventually include "token server" and you will be able to choose between one docker container pre-generating tokens, or a token server instance that you can set up multiple and have reverse proxy to multiple token servers with tokens being requested on the fly as users need them.
 
 Planned features:
-- Token pregeneration for users
-- Token pregeneration for anon users
-- Stats monitor
-- Token server
+- Token pregeneration for users (in process)
+- Token pregeneration for anon users (complete)
+- Stats monitor (not started yet)
+- Token server (last on the list)
 
 Will make documentation, images and upload to dockerhub or other later.
 
