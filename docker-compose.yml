@@ -16,7 +16,7 @@ services:
       resources:
         limits:
           # modify CPU limit for token generator as you please
-          cpus: '0.60'
+          cpus: '0.75'
           # modify MEMORY limit for token generator as you please
           memory: 100M
     restart: unless-stopped
