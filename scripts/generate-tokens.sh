@@ -23,8 +23,6 @@ do
         # check if tokens exist in redis
         po_token=$(redis-cli -h ${REDIS_HOST} -p ${REDIS_PORT} GET ${the_key}:po_token)
         visitor_data=$(redis-cli -h ${REDIS_HOST} -p ${REDIS_PORT} GET ${the_key}:visitor_data)
-        echo "po_token: '${po_token}'" | tee -a /scripts/generate-tokens.log
-        echo "visitor_data: '${visitor_data}'" | tee -a /scripts/generate-tokens.log
 
         # if no tokens exist, generate them
         if [[ -z "${po_token}" ]] || [[ -z "${visitor_data}" ]]; then
