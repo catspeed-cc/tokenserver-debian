@@ -28,14 +28,16 @@ do
     IFS=$'\n'
 
     #users=($tmp_data)
-    for user in $the_users
+    for the_user in $the_users
     do
         
+        echo "User: $the_user" | tee -a /scripts/generate-user-tokens.log
+
         # execute script for each instance
         IFS='|' read -a theinstances <<< "${INSTANCES}"
         for instance in "${theinstances[@]}"
         do
-            the_key=invidious:USER-${user}-${$instance}
+            the_key=invidious:USER-${the_user}-${$instance}
             echo "[${the_key}] Generating tokens" | tee -a /scripts/generate-user-tokens.log
 
             token_data=$(/usr/bin/node /scripts/youtube-po-token-generator/examples/one-shot.js)
