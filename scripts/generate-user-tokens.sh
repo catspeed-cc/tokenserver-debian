@@ -25,10 +25,10 @@ do
     the_users=`psql -h ${PGSQL_HOST} -p ${PGSQL_PORT} -d ${PGSQL_DB} -U ${PGSQL_USER} -AXqtc "SELECT email FROM users"`
 
     #Set the field separator to new line
-    #IFS=$'\n'
+    IFS=$'\n'
 
     #users=($tmp_data)
-    IFS=$'\n' for the_user in $the_users
+    for the_user in $the_users
     do
         
         echo "User: $the_user" | tee -a /scripts/generate-user-tokens.log
