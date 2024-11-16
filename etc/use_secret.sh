@@ -4,4 +4,4 @@ if [ -f /run/secrets/thepassword ]; then
    export ROOTPASSWORD=$(cat /run/secrets/thepassword)
 fi
 
-echo "Secret is: $ROOTPASSWORD"
+echo "Root password is: $ROOTPASSWORD"
