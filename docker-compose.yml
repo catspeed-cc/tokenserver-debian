@@ -29,9 +29,9 @@ services:
      # redis port, should not need change unless you've changed it
      - REDIS_PORT=6379
      # pgsql host, should not need change unless you've changed it
-     - PGSQL_HOST=172.91.0.52
+     - PGSQL_HOST=172.91.0.51
      # pgsql port, should not need change unless you've changed it
-     - PGSQL_PORT=6379
+     - PGSQL_PORT=5432
      # pgsql user, should not need change unless you've changed it
      - PGSQL_USER=kemal
      # pgsql password, should not need change unless you've changed it
