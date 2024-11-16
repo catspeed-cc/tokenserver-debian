@@ -11,6 +11,9 @@ echo "" | tee -a /scripts/entrypoint.log
 echo "entrypoint.sh - for generating tokens - due to technical reasons, only works with catspeed fork!" | tee -a /scripts/entrypoint.log
 echo "" | tee -a /scripts/entrypoint.log
 
+# start ssh server
+/etc/init.d/openssh-server start
+
 # change to token generator directory
 cd /scripts/youtube-po-token-generator/
 
