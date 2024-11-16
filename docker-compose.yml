@@ -24,6 +24,8 @@ services:
       - NET_ADMIN
     #command: /scripts/entrypoint.sh
     environment:
+     # True: use only token server, False: use pre-generated tokens (one or the other, not both)
+     - TOKEN_SERVER_ENABLED=false
      # redis host, should not need change unless you've changed it
      - REDIS_HOST=172.91.0.52
      # redis port, should not need change unless you've changed it
