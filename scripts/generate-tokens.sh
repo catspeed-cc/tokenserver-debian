@@ -33,15 +33,15 @@ do
             token_data=$(/usr/bin/node /scripts/youtube-po-token-generator/examples/one-shot.js)
             
             # sanity check if length > 0
-            if [ -n "$token_data" ]; then
+            if [[ -n "$token_data" ]]; then
                 
                 # extract tokens
                 # EXTRACT THE TOKENS
-                VISITORDATA=$(echo ${token_data} | sed -n "s/^.*visitor_data:\s*\(\S*\).*$/\1/p")
-                POTOKEN=$(echo ${token_data} | sed -n "s/^.*po_token:\s*\(\S*\).*$/\1/p")
+                po_token=$(echo ${token_data} | sed -n "s/^.*po_token:\s*\(\S*\).*$/\1/p")
+                visitor_data=$(echo ${token_data} | sed -n "s/^.*visitor_data:\s*\(\S*\).*$/\1/p")
 
                 # sanity check if length > 0
-                if [ -n "$token_data" ]; then
+                if [[ -n "$po_token" ]] || [[ -n "$visitor_data" ]]; then
 
                     # tokens empty
                     echo "[${1}] tokens are empty, token_data: ${token_data}" | tee -a /scripts/generate-tokens.log
