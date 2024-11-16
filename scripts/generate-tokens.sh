@@ -36,10 +36,29 @@ do
             if [ -n "$token_data" ]; then
                 
                 # extract tokens
+                # EXTRACT THE TOKENS
+                VISITORDATA=$(echo ${token_data} | sed -n "s/^.*visitor_data:\s*\(\S*\).*$/\1/p")
+                POTOKEN=$(echo ${token_data} | sed -n "s/^.*po_token:\s*\(\S*\).*$/\1/p")
 
                 # sanity check if length > 0
+                if [ -n "$token_data" ]; then
 
-                # store tokens in redis
+                    # tokens empty
+                    echo "[${1}] tokens are empty, token_data: ${token_data}" | tee -a /scripts/generate-tokens.log
+
+                else
+
+                    # store tokens in redis
+                    redis-cli -h ${REDIS_HOST} -p ${REDIS_PORT} SET ${the_key}:po_token ${po_token} EX 60
+                    redis-cli -h ${REDIS_HOST} -p ${REDIS_PORT} SET ${the_key}:visitor_data ${visitor_data} EX 60
+                    echo "[${1}] po_token: '${po_token}'" | tee -a /scripts/generate-tokens.log
+                    echo "[${1}] visitor_data: '${visitor_data}'" | tee -a /scripts/generate-tokens.log
+
+                fi
+
+                
+
+                
 
             else
 
