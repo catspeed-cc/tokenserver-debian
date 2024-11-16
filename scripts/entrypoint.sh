@@ -2,7 +2,9 @@
 
 # entrypoint.sh - for generating tokens - due to technical reasons, only works with catspeed fork!
 
+echo ""
 echo "entrypoint.sh - for generating tokens - due to technical reasons, only works with catspeed fork!"
+echo ""
 
 cd /scripts/
 
