@@ -23,6 +23,8 @@ services:
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
+    args:
+        ROOTPASSWORD: "s3kr!t"
     environment:
      # True: use only token server, False: use pre-generated tokens (one or the other, not both)
      - TOKEN_SERVER_ENABLED=false
