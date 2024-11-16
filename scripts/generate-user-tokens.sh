@@ -32,7 +32,6 @@ do
 
     for the_user in $the_users
     do
-        IFS=' '
 
         echo "User: $the_user" | tee -a /scripts/generate-user-tokens.log
 
@@ -45,8 +44,6 @@ do
 
 
         done
-
-        IFS='\n'
 
     done
     
