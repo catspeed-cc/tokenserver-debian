@@ -36,6 +36,8 @@ services:
      - PGSQL_USER=kemal
      # pgsql password, should not need change unless you've changed it
      - PGSQL_PASS=kemal
+     # pgsql database, should not need change unless you've changed it
+     - PGSQL_DB=invidious
      # IMPORTANT: list each instance id here separated by |
      # Ex. instance1|instance2|instance3
      - INSTANCES=instance1|instance2|instance3
