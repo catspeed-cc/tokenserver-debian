@@ -31,8 +31,8 @@ do
 
             # generate tokens :D
 
-            token_data=$(cd /scripts/youtube-po-token-generator/examples/ ; node one-shot.js)
-            echo "${token_data}"
+            token_data=$(cd /scripts/youtube-po-token-generator/examples/ ; /usr/bin/node one-shot.js)
+            echo "Token Data: ${token_data}"
 
             # store the tokens in redis
         
