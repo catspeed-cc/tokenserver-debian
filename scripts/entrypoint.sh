@@ -20,20 +20,33 @@ node examples/one-shot.js | tee -a /scripts/entrypoint.log
 # change to scripts directory
 cd /scripts/
 
-echo "executing generator scripts" | tee -a /scripts/entrypoint.log
+if [[ ${TOKEN_SERVER_ENABLED} ]]; then
 
-/scripts/generate-user-tokens.sh &
+   # init token server
 
-# execute script for each instance
-IFS='|' read -a theinstances <<< "${INSTANCES}"
-for instance in "${theinstances[@]}"
-do
-   echo "$instance" | tee -a /scripts/entrypoint.log
-   /scripts/generate-tokens.sh $instance &
-done
-IFS=' '
+   echo "starting token server" | tee -a /scripts/entrypoint.log
 
-echo "done executing generator scripts" | tee -a /scripts/entrypoint.log
+   # todo: tokenserver
+
+
+else
+
+   # init token generation
+
+   echo "executing generator scripts" | tee -a /scripts/entrypoint.log
+
+   /scripts/generate-user-tokens.sh &
+
+   # execute script for each instance
+   IFS='|' read -a theinstances <<< "${INSTANCES}"
+   for instance in "${theinstances[@]}"
+   do
+      echo "$instance" | tee -a /scripts/entrypoint.log
+      /scripts/generate-tokens.sh $instance &
+   done
+   IFS=' '
+
+fi
 
 # this 'hack' will keep container awake and running
 # may remove at future date/time
