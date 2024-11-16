@@ -17,7 +17,7 @@ do
     do
 
         # decide what our key is
-        the_key=invidious:invidious:ANON-instance1-${c}
+        the_key=invidious:ANON-instance1-${c}
         echo "key name: ${the_key}" | tee -a /scripts/generate-tokens.log
 
         # check if tokens exist in redis
