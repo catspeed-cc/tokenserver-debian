@@ -30,10 +30,10 @@ do
     #Set the field separator to new line
     IFS=$'\n'
 
-    #users=($tmp_data)
     for the_user in $the_users
     do
-        
+        IFS=' '
+
         echo "User: $the_user" | tee -a /scripts/generate-user-tokens.log
 
         # execute script for each instance        
@@ -76,6 +76,8 @@ do
             fi
 
         done
+
+        IFS='\n'
 
     done
     
