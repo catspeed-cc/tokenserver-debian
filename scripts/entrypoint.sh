@@ -5,6 +5,7 @@
 # clear out logs
 echo "# start of logfile" | tee /scripts/entrypoint.log
 echo "# start of logfile" | tee /scripts/generate-tokens.log
+echo "# start of logfile" | tee /scripts/generate-user-tokens.log
 
 echo "" | tee -a /scripts/entrypoint.log
 echo "entrypoint.sh - for generating tokens - due to technical reasons, only works with catspeed fork!" | tee -a /scripts/entrypoint.log
@@ -28,6 +29,7 @@ do
    echo "$instance" | tee -a /scripts/entrypoint.log
    /scripts/generate-tokens.sh $instance &
 done
+IFS=' '
 
 echo "done executing generator scripts" | tee -a /scripts/entrypoint.log
 
