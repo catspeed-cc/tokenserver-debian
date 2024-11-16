@@ -59,5 +59,7 @@ services:
 
 networks:
   # IMPORTANT: if you cloned the project with dir name as anything other than 'invidious' change this line
+  # Currently I've cloned to directory: invidious-mooleshacat/
+  # services_network is the network / subnet for services (redis, pgsql, unbound, haproxy, etc.)
   invidious-mooleshacat_services_network:
     external: true
