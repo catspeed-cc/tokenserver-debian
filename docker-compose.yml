@@ -6,12 +6,17 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile
-    #image: "alpine:latest"
+    #image: "debian:latest"
     init: true
     ulimits:
       nofile:
         soft: 1048576
         hard: 1048576
+    deploy:
+      resources:
+        limits:
+          cpus: '0.60'
+          memory: 600M
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
@@ -20,6 +25,7 @@ services:
      - REDIS_HOST=172.91.0.52
      - REDIS_PORT=6379
      - INSTANCES=instance1|instance2|instance3
+     - NUM_TOKENS=2500
     networks:
       invidious-mooleshacat_services_network:
         ipv4_address: 172.91.0.5
