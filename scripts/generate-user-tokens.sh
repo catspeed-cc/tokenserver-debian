@@ -28,6 +28,7 @@ do
     IFS=$'\n'
 
     num_users=${#the_users[*]}
+    echo "num_users: ${num_users}" | tee -a /scripts/generate-user-tokens.log
 
     for (( c=0; c<=$num_users; c++ ))
     do
@@ -37,6 +38,7 @@ do
         IFS='|' read -a theinstances <<< "${INSTANCES}"
 
         num_instances=${#theinstances[*]}
+        echo "num_instances: ${num_instances}" | tee -a /scripts/generate-user-tokens.log
 
         # execute script for each instance        
         for (( d=0; d<=$num_instances; d++ ))
