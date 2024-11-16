@@ -43,7 +43,8 @@ do
                 if [[ -n "$po_token" ]] && [[ -n "$visitor_data" ]]; then
 
                     # tokens empty
-                    echo "[${1}] tokens are empty, token_data: ${token_data}" | tee -a /scripts/generate-tokens.log
+                    echo "[${1}] EMPTY TOKENS? po_token: '${po_token}'" | tee -a /scripts/generate-tokens.log
+                    echo "[${1}] EMPTY TOKENS? visitor_data: '${visitor_data}'" | tee -a /scripts/generate-tokens.log
 
                 else
 
