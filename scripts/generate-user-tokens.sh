@@ -12,6 +12,8 @@ echo "[${1}] generating ${NUM_TOKENS} tokens for ${1}" | tee -a /scripts/generat
 while true; 
 do
 
-    vartest=`psql -d $db -U $user -AXqtc "SELECT gid FROM testtable WHERE aid='1'"`
+    vartest=`psql -d ${PGSQL_DB} -U ${PGSQL_USER} -AXqtc "SELECT email FROM users"`
+
+    
 
 done
