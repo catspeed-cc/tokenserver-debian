@@ -51,13 +51,13 @@ services:
      # IMPORTANT: enter the expiry time for ANON tokens in seconds (set it same as invidious config)
      - ANON_EXPIRY=43200
     networks:
-      # IMPORTANT: if you cloned the project with dir name as anything other than 'invidious' chane this line
+      # IMPORTANT: if you cloned the project with dir name as anything other than 'invidious' change this line
       invidious-mooleshacat_services_network:
         # just a formality. I always set static IP on every machine I own
         # in the case of docker, it cuts out un-needed and un-reliable docker embedded DNS
         ipv4_address: 172.91.0.5
 
 networks:
-  # IMPORTANT: if you cloned the project with dir name as anything other than 'invidious' chane this line
+  # IMPORTANT: if you cloned the project with dir name as anything other than 'invidious' change this line
   invidious-mooleshacat_services_network:
     external: true
