@@ -15,21 +15,33 @@ services:
     deploy:
       resources:
         limits:
+          # modify CPU limit for token generator as you please
           cpus: '0.60'
+          # modify MEMORY limit for token generator as you please
           memory: 600M
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
     #command: /scripts/entrypoint.sh
     environment:
+     # redis host, should not need change unless you've changed it
      - REDIS_HOST=172.91.0.52
+     # redis port, should not need change unless you've changed it
      - REDIS_PORT=6379
+     # IMPORTANT: list each instance id here separated by |
+     # Ex. instance1|instance2|instance3
      - INSTANCES=instance1|instance2|instance3
+     # IMPORTANT: enter the number of ANON tokens to generate 
+     # minimum is what is set in invidious configuration, can generate more too ahead of time
      - NUM_TOKENS=2500
     networks:
+      # IMPORTANT: if you cloned the project with dir name as anything other than 'invidious' chane this line
       invidious-mooleshacat_services_network:
+        # just a formality. I always set static IP on every machine I own
+        # in the case of docker, it cuts out un-needed and un-reliable docker embedded DNS
         ipv4_address: 172.91.0.5
 
 networks:
+  # IMPORTANT: if you cloned the project with dir name as anything other than 'invidious' chane this line
   invidious-mooleshacat_services_network:
     external: true
