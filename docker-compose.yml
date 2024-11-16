@@ -18,7 +18,7 @@ services:
           # modify CPU limit for token generator as you please
           cpus: '0.60'
           # modify MEMORY limit for token generator as you please
-          memory: 600M
+          memory: 100M
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
