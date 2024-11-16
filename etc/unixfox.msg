@@ -29,3 +29,4 @@ I'll see myself out of this channel, or you can kick me. Insult me all you wish,
 In the meantime, I'm going back to work. I have better things to do with my time than get shit on by you.
 
 EOF
+
