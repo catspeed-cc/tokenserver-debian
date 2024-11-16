@@ -22,13 +22,13 @@ do
     echo "Generating user tokens" | tee -a /scripts/generate-user-tokens.log
 
     export PGPASSWORD=${PGSQL_PASS}
-    users=`psql -h ${PGSQL_HOST} -p ${PGSQL_PORT} -d ${PGSQL_DB} -U ${PGSQL_USER} -AXqtc "SELECT email FROM users"`
+    the_users=`psql -h ${PGSQL_HOST} -p ${PGSQL_PORT} -d ${PGSQL_DB} -U ${PGSQL_USER} -AXqtc "SELECT email FROM users"`
 
     #Set the field separator to new line
     IFS=$'\n'
 
     #users=($tmp_data)
-    for user in $users
+    for user in $the_users
     do
         
         # execute script for each instance
