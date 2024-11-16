@@ -32,7 +32,7 @@ do
             # generate tokens :D
 
             token_data=$(/usr/bin/node /scripts/youtube-po-token-generator/examples/one-shot.js)
-            echo "Token Data: ${token_data}"
+            echo "token Data: ${token_data}" | tee -a /scripts/generate-tokens.log
 
             # store the tokens in redis
         
