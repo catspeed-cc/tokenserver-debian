@@ -38,8 +38,8 @@ do
                 # extract tokens
                 # EXTRACT THE TOKENS
                 echo "[${1}] extracting tokens, token_data: ${token_data}" | tee -a /scripts/generate-tokens.log
-                po_token=$(echo ${token_data} | sed -E 's/^.*po_token:\s*\(\S*\).*$/\1/p')
-                visitor_data=$(echo ${token_data} | sed -E 's/^.*visitor_data:\s*\(\S*\).*$/\1/p')
+                po_token=$(echo "${token_data}" | sed -n -E 's/^.*po_token:\s*\(\S*\).*$/\1/p')
+                visitor_data=$(echo "${token_data}" | sed -n -E 's/^.*visitor_data:\s*\(\S*\).*$/\1/p')
 
                 # sanity check if length > 0
                 if [[ -n "$po_token" ]] && [[ -n "$visitor_data" ]]; then
