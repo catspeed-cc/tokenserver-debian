@@ -24,6 +24,9 @@ do
     export PGPASSWORD=${PGSQL_PASS}
     the_users=`psql -h ${PGSQL_HOST} -p ${PGSQL_PORT} -d ${PGSQL_DB} -U ${PGSQL_USER} -AXqtc "SELECT email FROM users"`
 
+    # get isntances before we need IFS for a while
+    IFS='|' read -a theinstances <<< "${INSTANCES}"
+
     #Set the field separator to new line
     IFS=$'\n'
 
@@ -33,8 +36,7 @@ do
         
         echo "User: $the_user" | tee -a /scripts/generate-user-tokens.log
 
-        # execute script for each instance
-        IFS='|' read -a theinstances <<< "${INSTANCES}"
+        # execute script for each instance        
         for instance in "${theinstances[@]}"
         do
             the_key=invidious:USER-${the_user}-${$instance}
