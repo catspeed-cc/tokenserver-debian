@@ -49,16 +49,12 @@ do
                 else
 
                     # store tokens in redis
-                    redis-cli -h ${REDIS_HOST} -p ${REDIS_PORT} SET ${the_key}:po_token ${po_token} EX 60
-                    redis-cli -h ${REDIS_HOST} -p ${REDIS_PORT} SET ${the_key}:visitor_data ${visitor_data} EX 60
+                    redis-cli -h ${REDIS_HOST} -p ${REDIS_PORT} SET ${the_key}:po_token ${po_token} EX ${ANON_EXPIRY}
+                    redis-cli -h ${REDIS_HOST} -p ${REDIS_PORT} SET ${the_key}:visitor_data ${visitor_data} EX ${ANON_EXPIRY}
                     echo "[${1}] po_token: '${po_token}'" | tee -a /scripts/generate-tokens.log
                     echo "[${1}] visitor_data: '${visitor_data}'" | tee -a /scripts/generate-tokens.log
 
                 fi
-
-                
-
-                
 
             else
 
