@@ -16,7 +16,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
   apt-get update \
   && apt-get upgrade -y \
   && apt-get dist-upgrade -y \
-  && apt-get install -y htop nano git wget curl cpulimit bash redis-tools nodejs npm \
+  && apt-get install -y htop nano git wget curl cpulimit bash redis-tools nodejs npm postgresql-client \
   && rm -rf /var/lib/apt/lists/*
 
 # copy the secret sauce scripts
