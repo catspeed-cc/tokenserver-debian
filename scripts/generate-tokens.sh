@@ -30,10 +30,12 @@ do
 
             # generate tokens :D
 
-            token_data= #$(/usr/bin/node /scripts/youtube-po-token-generator/examples/one-shot.js)
+            token_data=$(/usr/bin/node /scripts/youtube-po-token-generator/examples/one-shot.js)
             
             # sanity check if length > 0
             if [[ -n "$token_data" ]]; then
+
+                echo "[${1}] extracting tokens ..." | tee -a /scripts/generate-tokens.log
                 
                 # extract tokens
                 po_token=$(echo ${token_data} | awk -F"'" '/poToken/{print $4}')
