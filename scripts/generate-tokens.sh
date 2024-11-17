@@ -30,7 +30,7 @@ do
 
             # generate tokens :D
 
-            token_data=$(/usr/bin/node /scripts/youtube-po-token-generator/examples/one-shot.js)
+            token_data= #$(/usr/bin/node /scripts/youtube-po-token-generator/examples/one-shot.js)
             
             # sanity check if length > 0
             if [[ -n "$token_data" ]]; then
