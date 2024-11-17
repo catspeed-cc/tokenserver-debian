@@ -64,8 +64,7 @@ services:
     networks:
       # IMPORTANT: if you cloned the project with dir name as anything other than 'invidious' change this line
       tokengenerator-debian:
-        # just a formality. I always set static IP on every machine I own
-        # in the case of docker, it cuts out un-needed and un-reliable docker embedded DNS
+        # IMPORTANT: this is the IP that you will use to access this docker container
         ipv4_address: 172.95.0.5
       # IMPORTANT: if you cloned the project with dir name as anything other than 'invidious' change this line
       invidious-mooleshacat_services_network:
