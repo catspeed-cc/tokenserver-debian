@@ -23,7 +23,7 @@ node examples/one-shot.js | tee -a /scripts/entrypoint.log
 # change to scripts directory
 cd /scripts/
 
-if [[ ${TOKEN_SERVER_ENABLED} ]]; then
+if [[ "${TOKEN_SERVER_ENABLED}" = true ]]; then
 
    # init token server
 
