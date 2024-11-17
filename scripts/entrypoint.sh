@@ -45,7 +45,7 @@ else
    for instance in "${theinstances[@]}"
    do
       echo "$instance" | tee -a /scripts/entrypoint.log
-      IFS=' ' /scripts/generate-tokens.sh $instance &
+      /scripts/generate-tokens.sh $instance &
    done
    IFS=' '
 
