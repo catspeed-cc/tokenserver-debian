@@ -6,11 +6,11 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile
-    # todo: upload initial image and update following line
-    #image: "debian:latest"
-    args:
-      # set your root password (for ssh, etc)
-      ROOTPASSWORD: "debianftw!"
+      # todo: upload initial image and update following line
+      #image: "debian:latest"
+      args:
+        # set your root password (for ssh, etc)
+        ROOTPASSWORD: "debianftw!"
     init: true
     ulimits:
       nofile:
