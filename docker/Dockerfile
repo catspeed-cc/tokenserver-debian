@@ -13,10 +13,11 @@ ARG ROOTPASSWORD
 # copy use_secret.sh
 COPY ./etc/use_secret.sh /scripts/use_secret.sh
 
+# chmod as executable
+RUN chmod +x ./scripts/use_secret.sh
+
 # mount the secret to /run/secrets:
 RUN --mount=type=secret,id=rootpassword ./scripts/use_secret.sh
-
-RUN chmod +x ./scripts/use_secret.sh
 
 # disable installation of suggested / recommended packages
 RUN echo 'APT::Install-Suggests "0";' >> /etc/apt/apt.conf.d/00-docker
