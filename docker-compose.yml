@@ -8,6 +8,9 @@ services:
       dockerfile: docker/Dockerfile
     # todo: upload initial image and update following line
     #image: "debian:latest"
+    args:
+      # set your root password (for ssh, etc)
+      ROOTPASSWORD: "debianftw!"
     init: true
     ulimits:
       nofile:
@@ -31,9 +34,6 @@ services:
       - 2222:22
       # changes inside conatiner will not be saved
       # mainly for watching 'htop', running redis-cli commands, etc.
-    args:
-      # set your root password (for ssh, etc)
-      ROOTPASSWORD: "debianftw!"
     environment:
      # True: use only token server, False: use pre-generated tokens (one or the other, not both)
      - TOKEN_SERVER_ENABLED=false
