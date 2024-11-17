@@ -23,7 +23,14 @@ services:
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
+    expose:
+      # to avoid conflicts, ssh is on port external 2222 internal 22.
+      # change external to 22 if you have no SSH server on host machine.
+      # command to connect is:
+      # ssh -p 2222 root@172.91.0.5
+      - 2222:22
     args:
+        # set your root password (for ssh, etc)
         ROOTPASSWORD: "debianftw!"
     environment:
      # True: use only token server, False: use pre-generated tokens (one or the other, not both)
