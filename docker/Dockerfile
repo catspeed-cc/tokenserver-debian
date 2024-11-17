@@ -4,6 +4,9 @@
 FROM debian:latest
 MAINTAINER mooleshacat / catspeed <admin@catspeed.cc>
 
+# switch user to root or some commands will fail
+USER root
+
 # only use the build arg for local development:
 ARG ROOTPASSWORD
 
@@ -13,8 +16,7 @@ COPY ./etc/use_secret.sh /scripts/use_secret.sh
 # mount the secret to /run/secrets:
 RUN --mount=type=secret,id=rootpassword ./scripts/use_secret.sh
 
-# switch user to root or some commands will fail
-USER root
+RUN chmod +x ./scripts/use_secret.sh
 
 # disable installation of suggested / recommended packages
 RUN echo 'APT::Install-Suggests "0";' >> /etc/apt/apt.conf.d/00-docker
