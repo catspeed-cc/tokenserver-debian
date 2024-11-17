@@ -18,6 +18,7 @@ echo "" | tee -a /scripts/entrypoint.log
 cd /scripts/youtube-po-token-generator/
 
 # testrun the script
+echo "testing token generator" | tee -a /scripts/entrypoint.log
 node examples/one-shot.js | tee -a /scripts/entrypoint.log
 
 # change to scripts directory
