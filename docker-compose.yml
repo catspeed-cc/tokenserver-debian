@@ -23,7 +23,7 @@ services:
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
-    expose:
+    ports:
       # to avoid conflicts, ssh is on port external 2222 internal 22.
       # change external to 22 if you have no SSH server on host machine.
       # command to connect is:
