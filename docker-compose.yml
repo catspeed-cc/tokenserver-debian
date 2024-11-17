@@ -83,6 +83,7 @@ networks:
   # This is for INVIDIOUS catspeed fork integration.
   # Currently I've cloned catspeed fork to directory: invidious-mooleshacat/
   # services_network is the network / subnet for services (redis, pgsql, unbound, haproxy, etc.)
+  # makes my development and integration easier, will be removed.
   invidious-mooleshacat_services_network:
     external: true
 
