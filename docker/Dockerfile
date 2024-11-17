@@ -11,7 +11,7 @@ ARG ROOTPASSWORD
 COPY ./etc/use_secret.sh /scripts/use_secret.sh
 
 # mount the secret to /run/secrets:
-RUN --mount=type=secret,id=rootpassword ./etc/use_secret.sh
+RUN --mount=type=secret,id=rootpassword ./scripts/use_secret.sh
 
 # switch user to root or some commands will fail
 USER root
