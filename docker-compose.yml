@@ -32,8 +32,8 @@ services:
       # changes inside conatiner will not be saved
       # mainly for watching 'htop', running redis-cli commands, etc.
     args:
-        # set your root password (for ssh, etc)
-        ROOTPASSWORD: "debianftw!"
+      # set your root password (for ssh, etc)
+      ROOTPASSWORD: "debianftw!"
     environment:
      # True: use only token server, False: use pre-generated tokens (one or the other, not both)
      - TOKEN_SERVER_ENABLED=false
