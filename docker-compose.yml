@@ -29,6 +29,8 @@ services:
       # command to connect is:
       # ssh -p 2222 root@172.91.0.5
       - 2222:22
+      # changes inside conatiner will not be saved
+      # mainly for watching 'htop', running redis-cli commands, etc.
     args:
         # set your root password (for ssh, etc)
         ROOTPASSWORD: "debianftw!"
