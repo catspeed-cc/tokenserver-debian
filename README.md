@@ -1,10 +1,10 @@
-# tokengenerator-debian
+# tokenserver-debian
 
-Dockerized token generator for catspeed fork, based on Debian
+### Description
 
-#### Due to technical reasons, token pre-generation will only work for catspeed fork, found at https://github.com/catspeed-cc/invidious
+Dockerized token server for catspeed fork, based on Debian
 
-The project was basically finished in ~12 hours for the anonymous token pre-generator. I am working on adding the user token pre-generator as well. Then I can rip the CPU intensive code out of the invidious code/container, and it will be siloed in it's own container here. This should reduce the impact that the cpu-intensive token generation has on the invidious process/container.
+The project was basically finished in ~12 hours for the anonymous token pre-generator. Everything _was_ working, however something got buggered up and I cannot find the problem. So I've decided to move on to the token server and abandon the token pre-generator. You will still be pre-generating tokens though, because pulling them out of redis is the fastest way to get a response to the client.
 
 I will also be moving the stats calculator here, to keep everything neat and tidy in this project, and also remove even more load off the invidious process/container. Eventually all that the invidious process/container will be doing is making redis calls.
 
@@ -12,19 +12,21 @@ Invidious has enough troubles, serving content in a timely manner, and reliably 
 
 So far in testing, the load on the invidious process/container has been massively reduced, because I no longer use the invidious main process to generate tokens (which was a bad idea anyways)
 
-I suspect this will eventually include "token server" and you will be able to choose between one docker container pre-generating tokens, or a token server instance that you can set up multiple and have reverse proxy to multiple token servers with tokens being requested on the fly as users need them.
+Token server will be able to be set up behind a reverse proxy, and you will be able to have infinite number of token servers.
+
+### Features
+
+Planned features:
+- Stats monitor (not started yet)
+- Token server (in process)
 
 #### Token server will be compatible with other forks, as long as you know how to program in the request and extraction of tokens from the response.
 
-Planned features:
-- Token pregeneration for users (paused)
-- Token pregeneration for anon users (broken since changing docker to use buildkit, investigating)
-- Stats monitor (not started yet)
-- Token server (last on the list)
-
-#### Note: I am considering abandoning token pre-generation due to issues caused by bash retardation
+### Documentation
 
 Will make documentation, images and upload to dockerhub or other later.
+
+### FAQ
 
 **Why Debian?** Well the alpine image is so stripped down, I had issues with installing node and getting it to work even though I did in a different alpine image. So I chose my next favorite, Debian. From what I understand the size difference is probably ~200MB.
 
