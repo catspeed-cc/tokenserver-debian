@@ -16,7 +16,6 @@ Token server will be able to be set up behind a reverse proxy, and you will be a
 
 ### Features
 
-Planned features:
 - Stats monitor (not started yet)
 - Token server (in process)
 
