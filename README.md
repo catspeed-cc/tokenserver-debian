@@ -17,8 +17,8 @@ I suspect this will eventually include "token server" and you will be able to ch
 #### Token server will be compatible with other forks, as long as you know how to program in the request and extraction of tokens from the response.
 
 Planned features:
-- Token pregeneration for users (in process)
-- Token pregeneration for anon users (complete)
+- Token pregeneration for users (paused)
+- Token pregeneration for anon users (broken since changing docker to use buildkit, investigating)
 - Stats monitor (not started yet)
 - Token server (last on the list)
 
