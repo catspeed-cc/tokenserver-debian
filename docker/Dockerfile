@@ -37,10 +37,6 @@ RUN DEBIAN_FRONTEND=noninteractive \
   && apt-get install -y htop nano git wget curl cpulimit bash nginx redis-server openssh-server redis-tools nodejs npm postgresql-client \
   && rm -rf /var/lib/apt/lists/*
 
-# disable nginx / redis, start manually later
-RUN /etc/init.d/nginx stop
-RUN /etc/init.d/redis-server stop
-
 # copy the secret sauce scripts
 COPY ./scripts/ /scripts/
 
