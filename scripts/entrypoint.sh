@@ -12,7 +12,7 @@ echo "entrypoint.sh - for generating tokens - due to technical reasons, only wor
 echo "" | tee -a /scripts/entrypoint.log
 
 # initialize services
-/etc/init.d/openssh-server start &
+/etc/init.d/ssh start &
 /etc/init.d/redis-server start &
 /etc/init.d/nginx start &
 
