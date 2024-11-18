@@ -29,6 +29,9 @@ COPY ./etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sour
 # copy sshd_config
 COPY ./etc/ssh/sshd_config /etc/ssh/sshd_config
 
+# chown redis folder
+RUN chown -R redis: /var/lib/redis/
+
 # upgrade & install dependencies
 RUN DEBIAN_FRONTEND=noninteractive \
   apt-get update \
