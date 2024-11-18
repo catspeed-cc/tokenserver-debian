@@ -39,7 +39,7 @@ do
             PID=$!
             echo "PID: $PID" | tee -a /scripts/generate-tokens.log
 
-            token_data=$(/usr/bin/node youtube-po-token-generator/examples/one-shot.js)
+            token_data=$(/usr/bin/node youtube-po-token-generator/examples/one-shot.js ; wait)
             echo "[${1}] token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
 
             PID=$!
