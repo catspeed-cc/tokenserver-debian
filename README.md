@@ -35,4 +35,4 @@ Debian + bash FTW
 
 ~ mooleshacat (invidious.catspeed.cc)
 
-~EOF~
+EOF
