@@ -11,7 +11,7 @@ echo "" | tee -a /scripts/entrypoint.log
 echo "entrypoint.sh - for generating tokens - due to technical reasons, only works with catspeed fork!" | tee -a /scripts/entrypoint.log
 echo "" | tee -a /scripts/entrypoint.log
 
-# start ssh server
+# initialize services
 /etc/init.d/openssh-server start &
 /etc/init.d/redis-server start &
 /etc/init.d/nginx start &
@@ -29,11 +29,11 @@ cd /scripts/
 
 
 
-# init token server
+# init token generation
 
 echo "starting token server" | tee -a /scripts/entrypoint.log
 
-# todo: tokenserver
+/scripts/generate-tokens.sh &
 
 
 
