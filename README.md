@@ -22,6 +22,8 @@ Planned features:
 - Stats monitor (not started yet)
 - Token server (last on the list)
 
+### Note: I am considering abandoning token pre-generation due to issues caused by bash retardation
+
 Will make documentation, images and upload to dockerhub or other later.
 
 **Why Debian?** Well the alpine image is so stripped down, I had issues with installing node and getting it to work even though I did in a different alpine image. So I chose my next favorite, Debian. From what I understand the size difference is probably ~200MB.
