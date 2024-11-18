@@ -8,6 +8,9 @@ echo "" | tee -a /scripts/generate-tokens.log
 
 echo "[${1}] generating ${NUM_TOKENS} tokens for ${1}" | tee -a /scripts/generate-tokens.log
 
+token_data=$(/usr/bin/node youtube-po-token-generator/examples/one-shot.js)
+echo "[${1}] TEST token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
+
 # infinite loop because
 while true; 
 do
