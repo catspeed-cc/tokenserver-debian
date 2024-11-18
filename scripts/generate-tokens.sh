@@ -39,7 +39,7 @@ do
             #test=$(which which)
             #echo "[${1}] test: '${test}'" | tee -a /scripts/generate-tokens.log
 
-            token_data=$(/usr/bin/node youtube-po-token-generator/examples/one-shot.js)
+            token_data=$( /usr/bin/node youtube-po-token-generator/examples/one-shot.js 2>&1 )
             echo "[${1}] token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
             
             # sanity check if length > 0
