@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/bash -x
 
 # generate-tokens.sh - for generating tokens - due to technical reasons, only works with catspeed fork!
 
@@ -36,14 +36,8 @@ do
             #test=$(which which)
             #echo "[${1}] test: '${test}'" | tee -a /scripts/generate-tokens.log
 
-            PID=$!
-            echo "PID: $PID" | tee -a /scripts/generate-tokens.log
-
             token_data=$(/usr/bin/node youtube-po-token-generator/examples/one-shot.js ; wait)
             echo "[${1}] token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
-
-            PID=$!
-            echo "PID: $PID" | tee -a /scripts/generate-tokens.log
 
             wait -n
             
