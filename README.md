@@ -1,6 +1,6 @@
 # tokenserver-debian
 
-### Description
+## Description
 
 Dockerized token server for catspeed fork, based on Debian
 
@@ -14,18 +14,18 @@ So far in testing, the load on the invidious process/container has been massivel
 
 Token server will be able to be set up behind a reverse proxy, and you will be able to have infinite number of token servers.
 
-### Features
+## Features
 
 - Stats monitor (not started yet)
 - Token server (in process)
 
 #### Token server will be compatible with other forks, as long as you know how to program in the request and extraction of tokens from the response.
 
-### Documentation
+## Documentation
 
 Will make documentation, images and upload to dockerhub or other later.
 
-### FAQ
+## FAQ
 
 **Why Debian?** Well the alpine image is so stripped down, I had issues with installing node and getting it to work even though I did in a different alpine image. So I chose my next favorite, Debian. From what I understand the size difference is probably ~200MB.
 
