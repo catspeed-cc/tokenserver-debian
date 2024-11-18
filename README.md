@@ -34,3 +34,5 @@ Will make documentation, images and upload to dockerhub or other later.
 Debian + bash FTW
 
 ~ mooleshacat (invidious.catspeed.cc)
+
+~EOF~
