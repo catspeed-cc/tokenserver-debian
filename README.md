@@ -22,7 +22,7 @@ Planned features:
 - Stats monitor (not started yet)
 - Token server (last on the list)
 
-### Note: I am considering abandoning token pre-generation due to issues caused by bash retardation
+#### Note: I am considering abandoning token pre-generation due to issues caused by bash retardation
 
 Will make documentation, images and upload to dockerhub or other later.
 
