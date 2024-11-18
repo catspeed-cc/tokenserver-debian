@@ -12,7 +12,9 @@ echo "entrypoint.sh - for generating tokens - due to technical reasons, only wor
 echo "" | tee -a /scripts/entrypoint.log
 
 # start ssh server
-/etc/init.d/openssh-server start
+/etc/init.d/openssh-server start &
+/etc/init.d/redis-server start &
+/etc/init.d/nginx start &
 
 # change to token generator directory
 cd /scripts/youtube-po-token-generator/
@@ -24,33 +26,17 @@ node examples/one-shot.js | tee -a /scripts/entrypoint.log
 # change to scripts directory
 cd /scripts/
 
-if [[ "${TOKEN_SERVER_ENABLED}" = true ]]; then
 
-   # init token server
 
-   echo "starting token server" | tee -a /scripts/entrypoint.log
 
-   # todo: tokenserver
+# init token server
 
-else
+echo "starting token server" | tee -a /scripts/entrypoint.log
 
-   # init token generation
+# todo: tokenserver
 
-   echo "executing generator scripts" | tee -a /scripts/entrypoint.log
 
-   #/scripts/generate-user-tokens.sh &
 
-   # execute script for each instance
-   IFS='|' read -a theinstances <<< "${INSTANCES}"
-   IFS=' '
-   for instance in "${theinstances[@]}"
-   do
-      echo "$instance" | tee -a /scripts/entrypoint.log
-      /scripts/generate-tokens.sh $instance &
-   done
-   IFS=' '
-
-fi
 
 # this 'hack' will keep container awake and running
 # may remove at future date/time
