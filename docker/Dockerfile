@@ -30,7 +30,7 @@ COPY ./etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sour
 COPY ./etc/ssh/sshd_config /etc/ssh/sshd_config
 
 # chown redis folder
-RUN chown -R redis: /var/lib/redis/
+RUN chown -R redis:redis /var/lib/redis/
 
 # upgrade & install dependencies
 RUN DEBIAN_FRONTEND=noninteractive \
