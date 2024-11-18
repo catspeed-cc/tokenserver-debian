@@ -33,7 +33,7 @@ cd /scripts/
 
 echo "starting token server" | tee -a /scripts/entrypoint.log
 
-/scripts/generate-tokens.sh &
+#/scripts/generate-tokens.sh &
 
 
 
