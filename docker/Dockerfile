@@ -29,9 +29,6 @@ COPY ./etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sour
 # copy sshd_config
 COPY ./etc/ssh/sshd_config /etc/ssh/sshd_config
 
-# chown redis folder
-RUN chown -R redis:redis /var/lib/redis/
-
 # upgrade & install dependencies
 RUN DEBIAN_FRONTEND=noninteractive \
   apt-get update \
@@ -39,6 +36,9 @@ RUN DEBIAN_FRONTEND=noninteractive \
   && apt-get dist-upgrade -y \
   && apt-get install -y htop nano git wget curl cpulimit bash net-tools nginx redis-server openssh-server redis-tools nodejs npm postgresql-client \
   && rm -rf /var/lib/apt/lists/*
+
+# chown redis folder
+RUN chown -R redis:redis /var/lib/redis/
 
 # copy the secret sauce scripts
 COPY ./scripts/ /scripts/
