@@ -27,27 +27,32 @@ while(strlen($token_data) <= 25) {
     // generate the keyname
     $the_key = "tokenserver:TOKEN-$rnd:tokendata";
 
-    // Statements to be executed
+    // get the tokens from redis
     $token_data = $redis->get($the_key);
 
 }
 
 // todo: delete redis key, so all keys are unique - may as well :3c
 
+// explode into an array for manipulation using \n
 $token_data_array = explode("\n", $token_data);
 
+// add the SERVER_ID (from env)
 $token_data_add = "  server_id: '$server_id',";
 
+// splice in element to the array at index 1
 array_splice( $token_data_array, 1, 0, $token_data_add );
 
+// implode array back into string using \n
 $token_data = implode("\n", $token_data_array);
 
+// replace these because it bothers me
 $token_data = str_replace("poToken", "po_token", $token_data);
 $token_data = str_replace("visitorData", "visitor_data", $token_data);
 
 // todo: swap element 2 & 3 because it bothers me
 
-// looking at page, it looks like no new lines, but looking at source, newlines are there.
+// output the JSON formatted token data
 echo $token_data;
 
 ?>
