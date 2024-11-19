@@ -11,7 +11,7 @@ $the_key = "tokenserver:TOKEN-$rnd:tokendata";
 $redis = new Redis();
 $redis->connect('localhost', 6379);
 
-$token_data = $redis->keys($the_key);
+$token_data = $redis->get($the_key);
 
 print_r($token_data);
 
