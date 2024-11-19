@@ -26,17 +26,11 @@ node examples/one-shot.js | tee -a /scripts/entrypoint.log
 # change to scripts directory
 cd /scripts/
 
-
-
-
 # init token generation
 
 echo "starting token generation" | tee -a /scripts/entrypoint.log
 
 /scripts/generate-tokens.sh &
-
-
-
 
 # this 'hack' will keep container awake and running
 # may remove at future date/time
