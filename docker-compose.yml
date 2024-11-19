@@ -44,6 +44,7 @@ services:
      - TOKEN_EXPIRY=43200
     volumes:
       - ./etc/redis/redis.conf:/etc/redis/redis.conf
+      - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./etc/nginx/sites-available/default:/etc/nginx/sites-available/default
       - ./var/www/html/:/var/www/html/
       - ./redis-data/:/var/lib/redis/
