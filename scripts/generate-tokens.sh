@@ -36,7 +36,7 @@ do
             # generate tokens :D
 
             token_data=$(/usr/bin/node youtube-po-token-generator/examples/one-shot.js)
-            echo "token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
+            #echo "token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
 
             token_data_len=${#token_data}
 
