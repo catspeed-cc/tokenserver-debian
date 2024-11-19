@@ -12,7 +12,7 @@ Invidious has enough troubles, serving content in a timely manner, and reliably 
 
 So far in testing, the load on the invidious process/container has been massively reduced, because I no longer use the invidious main process to generate tokens (which was a bad idea anyways)
 
-Token server will be able to be set up behind a reverse proxy, and you will be able to have infinite number of token servers.
+Token server will be able to be set up behind a reverse proxy, and you will be able to have infinite number of token servers. Because token data is 200-400 bytes, this can be set up on a relatively low bandwidth connection. I personally have only 10Mbit/sec upload, but it can handle lots at 400 bytes per request. Enough I suspect that should sustain the catspeed invidious instance with high traffic.
 
 Currently the api requires a trailing slash (ex. http://catspeed.cc:480/api/v1/get_tokens/) which is not a big deal, but I will try and fix this. Real API endpoint would not have a trailing slash. It's just some nginx configuration I have to work out.
 
