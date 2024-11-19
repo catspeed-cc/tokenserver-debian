@@ -34,7 +34,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
   apt-get update \
   && apt-get upgrade -y \
   && apt-get dist-upgrade -y \
-  && apt-get install -y htop nano git wget curl cpulimit bash net-tools nginx redis-server openssh-server redis-tools nodejs npm postgresql-client
+  && apt-get install -y htop nano git wget curl cpulimit bash net-tools nginx php8.2-fpm redis-server openssh-server redis-tools nodejs npm postgresql-client
 
 # chown redis folder
 RUN chown -R redis:redis /var/lib/redis/
