@@ -6,10 +6,13 @@ echo "" | tee -a /scripts/generate-tokens.log
 echo "generate-tokens.sh - for generating tokens - due to technical reasons, only works with catspeed fork!" | tee -a /scripts/generate-tokens.log
 echo "" | tee -a /scripts/generate-tokens.log
 
-echo "[${1}] generating ${NUM_TOKENS} tokens for ${1}" | tee -a /scripts/generate-tokens.log
+echo "generating ${NUM_TOKENS} tokens" | tee -a /scripts/generate-tokens.log
 
-token_data=$( IFS=' ' /usr/bin/node youtube-po-token-generator/examples/one-shot.js 2>&1 )
-echo "[${1}] TEST token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
+token_data=$(/usr/bin/node youtube-po-token-generator/examples/one-shot.js)
+echo "TEST token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
+
+REDIS_HOST=127.0.0.1
+REDIS_PORT=6379
 
 # infinite loop because
 while true; 
@@ -19,59 +22,32 @@ do
     do
 
         # decide what our key is
-        the_key=invidious:ANON-${1}-${c}
-        echo "[${1}] key name: ${the_key}" | tee -a /scripts/generate-tokens.log
+        the_key=tokenserver:TOKEN-${c}
+        echo "key name: ${the_key}" | tee -a /scripts/generate-tokens.log
 
         # check if tokens exist in redis
-        po_token=$(redis-cli -h ${REDIS_HOST} -p ${REDIS_PORT} GET ${the_key}:po_token)
-        visitor_data=$(redis-cli -h ${REDIS_HOST} -p ${REDIS_PORT} GET ${the_key}:visitor_data)
+        token_data=$(redis-cli -h ${REDIS_HOST} -p ${REDIS_PORT} GET ${the_key}:tokendata)
 
         # if no tokens exist, generate them
-        if [[ -z "${po_token}" ]] || [[ -z "${visitor_data}" ]]; then
+        if [[ -z "${token_data}" ]]; then
             
-            echo "[${1}] token(s) are empty, generating ..." | tee -a /scripts/generate-tokens.log
+            echo "tokendata is empty, generating ..." | tee -a /scripts/generate-tokens.log
 
             # generate tokens :D
 
-            #node youtube-po-token-generator/examples/one-shot.js | tee -a /scripts/generate-tokens.log
+            token_data=$(/usr/bin/node youtube-po-token-generator/examples/one-shot.js)
+            echo "token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
 
-            # test
-            #test=$(which which)
-            #echo "[${1}] test: '${test}'" | tee -a /scripts/generate-tokens.log
+            token_data_len=${#token_data}
 
-            token_data=$( /usr/bin/node youtube-po-token-generator/examples/one-shot.js 2>&1 )
-            echo "[${1}] token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
-            
-            # sanity check if length > 0
-            if [[ -n "$token_data" ]]; then
+            if [[ $token_data_len -gt 25 ]]; then
 
-                echo "[${1}] extracting tokens ..." | tee -a /scripts/generate-tokens.log
-                
-                # extract tokens
-                po_token=$(echo ${token_data} | awk -F"'" '/poToken/{print $4}')
-                visitor_data=$(echo ${token_data} | awk -F"'" '/visitorData/{print $2}')
-
-                # sanity check if length > 0
-                if [[ -n "$po_token" ]] && [[ -n "$visitor_data" ]]; then
-
-                    # store tokens in redis
-                    redis-cli -h ${REDIS_HOST} -p ${REDIS_PORT} SET ${the_key}:po_token ${po_token} EX ${ANON_EXPIRY}
-                    redis-cli -h ${REDIS_HOST} -p ${REDIS_PORT} SET ${the_key}:visitor_data ${visitor_data} EX ${ANON_EXPIRY}
-                    echo "[${1}] STORED IN REDIS: po_token: '${po_token}'" | tee -a /scripts/generate-tokens.log
-                    echo "[${1}] STORED IN REDIS: visitor_data: '${visitor_data}'" | tee -a /scripts/generate-tokens.log
-
-                else
-
-                    # tokens empty
-                    echo "[${1}] EMPTY TOKENS? po_token: '${po_token}'" | tee -a /scripts/generate-tokens.log
-                    echo "[${1}] EMPTY TOKENS? visitor_data: '${visitor_data}'" | tee -a /scripts/generate-tokens.log
-
-                fi
+                redis-cli -h ${REDIS_HOST} -p ${REDIS_PORT} SET ${the_key}:tokendata ${token_data} EX ${TOKEN_EXPIRY}
+                echo "STORED IN REDIS: token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
 
             else
 
-                # token_data is empty
-                echo "[${1}] token_data: ${token_data}" | tee -a /scripts/generate-tokens.log
+                echo "TOKEN DATA EMPTY - token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
 
             fi
 
@@ -79,8 +55,7 @@ do
         
         else
 
-            echo "[${1}] EXISTING: po_token: '${po_token}'" | tee -a /scripts/generate-tokens.log
-            echo "[${1}] EXISTING: visitor_data: '${visitor_data}'" | tee -a /scripts/generate-tokens.log
+            echo "EXISTING: token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
 
         fi
 
