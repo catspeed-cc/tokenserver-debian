@@ -19,7 +19,7 @@ $token_data_add = "server_id: \"$server_id\",";
 
 array_splice( $token_data_array, 1, 0, $token_data_add );
 
-$token_data = implode("\n", $token_data_array)
+$token_data = implode("\n", $token_data_array);
 
 print_r($token_data);
 
