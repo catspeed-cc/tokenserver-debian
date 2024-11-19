@@ -26,10 +26,9 @@ $token_data_add = "server_id: \"$server_id\",";
 
 array_splice( $token_data_array, 1, 0, $token_data_add );
 
-$token_data = implode("\r\n", $token_data_array);
+$token_data = implode("\n", $token_data_array);
 
-# nl2br will preserve \n - if causes problem use str_replace
-#echo nl2br($token_data);
+# looking at page, it looks like no new lines, but looking at source, newlines are there.
 echo $token_data;
 
 ?>
