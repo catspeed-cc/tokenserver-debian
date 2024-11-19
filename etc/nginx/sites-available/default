@@ -14,24 +14,20 @@ server {
         location / {
                  # First attempt to serve request as file, then
                  # as directory, then fall back to displaying a 404.
-                 try_files $uri $uri.html $uri/ @extensionless-php;
+                 try_files $uri $uri.html $uri/ =404;
         }
 
         # pass PHP scripts to FastCGI server
         #
         location ~ \.php$ {
 
-                try_files $uri =404;
+                try_files $uri $uri.php $uri.html $uri/ =404;
 
                 #include snippets/fastcgi-php.conf;
         
                 # With php-fpm (or other unix sockets):
                 fastcgi_pass unix:/run/php/php8.2-fpm.sock;
 
-        }
-
-        location @extensionless-php {
-                rewrite ^(.*)$ $1.php last;
         }
 
 }
