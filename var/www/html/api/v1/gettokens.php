@@ -13,7 +13,7 @@ $redis->connect('localhost', 6379);
 
 $token_data = $redis->get($the_key);
 
-while(str_len($token_data) <= 25) {
+while(strlen($token_data) <= 25) {
 
     // Statements to be executed
     $token_data = $redis->get($the_key);
