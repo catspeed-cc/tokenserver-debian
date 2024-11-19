@@ -47,6 +47,8 @@ I deeply respect and appreciate the help from the following:
 
 Invidious can be a real awesome community that encourages learning. Do not be discouraged, ever, by anyone. You can do it :3c
 
+RIP my lesha kitty 2024
+
 ~ mooleshacat (invidious.catspeed.cc) Debian + bash FTW
 
 EOF
