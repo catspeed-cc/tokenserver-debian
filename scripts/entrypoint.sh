@@ -17,6 +17,10 @@ echo "" | tee -a /scripts/entrypoint.log
 /etc/init.d/php8.2-fpm start &
 /etc/init.d/nginx start &
 
+# SET ENVIRONMENT VARS
+echo "NUM_TOKENS=${NUM_TOKENS}" | tee -a /etc/environment
+echo "TOKEN_EXPIRY=${TOKEN_EXPIRY}" | tee -a /etc/environment
+
 # change to token generator directory
 cd /scripts/youtube-po-token-generator/
 
