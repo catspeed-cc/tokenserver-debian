@@ -1,6 +1,6 @@
 <?php
 
-header("Content-Type: text/plain");
+header("Content-Type: text/json");
 
 $server_id = getenv('SERVER_ID');
 $num_tokens = getenv('NUM_TOKENS');
