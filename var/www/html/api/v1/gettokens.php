@@ -13,7 +13,11 @@ $redis->connect('localhost', 6379);
 
 $token_data = $redis->get($the_key);
 
+$jsonarray = json_decode($token_data);
+
+print_r($jsonarray);
+
 # nl2br will preserve \n - if causes problem use str_replace
-echo nl2br($token_data);
+#echo nl2br($token_data);
 
 ?>
