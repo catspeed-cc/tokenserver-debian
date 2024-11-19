@@ -27,13 +27,16 @@ Once the api is finalized, I may add endpoints, but to remove or significantly c
 
 <!-- Explain each endpoint -->
 
+<h3>API endpoints</h3>
+
 <h4><a href='api/v1/get_tokens/'>api/v1/get_tokens/</a></h4>
 Gets a unique set of tokens from the database. Example:<br />
 <pre>
 {
   server_id: 'catspeed1',
   po_token: 'MnRII_rriQ1IMEgbc06NoNxjb6aFd_L0ygLQTFv6c7C00OHZstKYCH1_ZE1NDlzF503tXCpooZzf-NlqpywQ0btzSFCiqNjDyCvqWo9uEKzpjBamtXgCI5N5lpMWTVWIV6AYqDO1yswhwv8pbv6uLR1oUoiEpw==',
-  visitor_data: 'CgtzMUZiemNTc1NJUSjxh_S5BjIKCgJDQRIEGgAgbg%3D%3D'
+  visitor_data: 'CgtzMUZiemNTc1NJUSjxh_S5BjIKCgJDQRIEGgAgbg%3D%3D',
+  error: 'OK'
 }
 </pre>
 <br />
@@ -42,7 +45,8 @@ Gets a unique set of tokens from the database. Example:<br />
 Gets local token server stats. Example:<br />
 <pre>
 {
-  data: 'hello world :3c'
+  data: 'hello world :3c',
+  error: 'OK'
 }
 </pre>
 <br />
@@ -51,7 +55,8 @@ Gets local token server stats. Example:<br />
 Gets global token server stats. Calculated by master server based off each server's localstats. Example:<br />
 <pre>
 {
-  data: 'hello world :3c'
+  data: 'hello world :3c',
+  error: 'OK'
 }
 </pre>>
 <br />
