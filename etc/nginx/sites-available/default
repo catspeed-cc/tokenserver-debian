@@ -20,9 +20,9 @@ server {
         }
 
         location /api {
-		        #index index.php;
-		        rewrite ^/api/(.*)/(.*)$ /api/$1.php?$2;
-	        }
+		#index index.php;
+		rewrite ^/api/(.*)/(.*)$ /api/$1.php?$2;
+	}
 
         # pass PHP scripts to FastCGI server
         #
