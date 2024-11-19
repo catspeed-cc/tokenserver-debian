@@ -45,6 +45,8 @@ I deeply respect and appreciate the help from the following:
 - Fijxu my mentor
 - anyone who's been waiting patiently
 
+Invidious can be a real awesome community that encourages learning.
+
 ~ mooleshacat (invidious.catspeed.cc) Debian + bash FTW
 
 EOF
