@@ -30,6 +30,9 @@ array_splice( $token_data_array, 1, 0, $token_data_add );
 
 $token_data = implode("\n", $token_data_array);
 
+$token_data = str_replace("poToken", "po_token", $token_data);
+$token_data = str_replace("visitorData", "visitor_data", $token_data);
+
 # looking at page, it looks like no new lines, but looking at source, newlines are there.
 echo $token_data;
 
