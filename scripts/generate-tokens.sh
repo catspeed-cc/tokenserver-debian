@@ -26,7 +26,7 @@ do
         echo "key name: ${the_key}" | tee -a /scripts/generate-tokens.log
 
         # check if tokens exist in redis
-        token_data=$(redis-cli -h ${REDIS_HOST} -p ${REDIS_PORT} GET ${the_key}:tokendata)
+        token_data=$(redis-cli GET ${the_key}:tokendata)
 
         # if no tokens exist, generate them
         if [[ -z "${token_data}" ]]; then
@@ -42,7 +42,7 @@ do
 
             if [[ $token_data_len -gt 25 ]]; then
 
-                redis-cli -h ${REDIS_HOST} -p ${REDIS_PORT} SET ${the_key}:tokendata ${token_data} EX ${TOKEN_EXPIRY}
+                redis-cli SET ${the_key}:tokendata ${token_data} EX ${TOKEN_EXPIRY}
                 echo "STORED IN REDIS: token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
 
             else
