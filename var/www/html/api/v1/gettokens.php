@@ -15,7 +15,7 @@ $token_data = $redis->get($the_key);
 
 $jsonarray = json_decode($token_data);
 
-print_r($jsonarray);
+var_dump($jsonarray);
 
 # nl2br will preserve \n - if causes problem use str_replace
 #echo nl2br($token_data);
