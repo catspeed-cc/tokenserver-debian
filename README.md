@@ -18,8 +18,8 @@ Token server will be able to be set up behind a reverse proxy, and you will be a
 
 - Stats monitor (not started yet)
 - Token generation (completed)
-- Token server / API (completed)
-- Catspeed integration (in process)
+- Token server / API (in process, forgot retry loop)
+- Catspeed integration (paused)
 
 #### Token server will be compatible with other forks, as long as you know how to program in the request and extraction of tokens from the response.
 
