@@ -13,7 +13,7 @@ $redis->connect('localhost', 6379);
 
 $token_data = $redis->get($the_key);
 
-$jsonarray = json_decode($token_data);
+$jsonarray = json_decode(nl2br($token_data));
 
 var_dump($jsonarray);
 
