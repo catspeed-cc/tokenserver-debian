@@ -17,7 +17,7 @@ $token_data = str_replace("'", '"', $token_data);
 
 $jsonarray = json_decode($token_data);
 
-var_dump($jsonarray);
+print_r($jsonarray);
 
 echo "<br />token_data:<br >";
 
