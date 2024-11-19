@@ -13,6 +13,10 @@ $redis->connect('localhost', 6379);
 
 $token_data = $redis->keys($the_key);
 
-echo "token_data: $token_data";
+print_r($token_data);
+
+echo "<br /><br />";
+
+echo "token_data: $token_data[0]";
 
 ?>
