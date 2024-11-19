@@ -39,6 +39,7 @@ Will make documentation, images and upload to dockerhub or other later.
 #### Project is in development. No release dates set. Please wait patiently :3c
 
 ## Thanks
+I deeply respect and appreciate the help from the following:
 - unixfox 🦊
 - samantazfox 🦊
 - Fijxu my mentor
