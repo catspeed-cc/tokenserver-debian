@@ -1,11 +1,9 @@
 <?php
 
-$path = getenv('PATH');
-$user = getenv('USER');
 $num_tokens = getenv('NUM_TOKENS');
+$token_expiry = getenv('TOKEN_EXPIRY');
 
-echo "Path: '$path'<br />";
-echo "User: '$user'<br />";
-echo "tokens: '$num_tokens'<br />";
+echo "NUM_TOKENS: '$num_tokens'<br />";
+echo "TOKEN_EXPIRY: '$token_expiry'<br />";
 
 ?>
