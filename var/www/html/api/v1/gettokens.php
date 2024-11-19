@@ -17,7 +17,7 @@ $token_data_array = explode("\n", $token_data);
 
 $token_data_add = 'server_id: "$server_id",';
 
-$token_data_array = array_splice( $token_data_array, 1, 0, $token_data_add );
+array_splice( $token_data_array, 1, 0, $token_data_add );
 
 print_r($token_data_array);
 
