@@ -13,9 +13,18 @@ $redis->connect('localhost', 6379);
 
 $token_data = $redis->get($the_key);
 
-$array = explode("\n", $token_data);
+$token_data_array = explode("\n", $token_data);
 
-print_r($array);
+$token_data_add = array( 'server_id: "$server_id",' );
+
+$token_data_array = array_splice( $token_data_array, 1, 0, $inserted );
+
+print_r($token_data_array);
+
+
+
+
+
 
 echo "<br />";
 
