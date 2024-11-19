@@ -15,7 +15,7 @@ $token_data = $redis->get($the_key);
 
 $token_data_array = explode("\n", $token_data);
 
-$token_data_add = 'server_id: "$server_id",';
+$token_data_add = "server_id: \"$server_id\",";
 
 array_splice( $token_data_array, 1, 0, $token_data_add );
 
