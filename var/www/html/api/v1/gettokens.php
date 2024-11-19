@@ -17,6 +17,6 @@ print_r($token_data);
 
 echo "<br /><br />";
 
-echo "token_data: $token_data";
+echo "token_data: " . nl2br($token_data);
 
 ?>
