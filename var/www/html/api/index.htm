@@ -18,8 +18,6 @@ You _must_ put a trailing slash at the end. I am trying to fix this but it is no
 </ul>
 
 <!-- Explain each endpoint -->
-<h1>api v1:</h1>
-<br />
 
 <h4><a href='api/v1/get_tokens/'>api/v1/get_tokens/</a></h4>
 Gets a unique set of tokens from the database. Example:<br />
@@ -36,7 +34,9 @@ Gets a unique set of tokens from the database. Example:<br />
 <h4><a href='api/v1/get_localstats/'>api/v1/get_localstats/</a></h4>
 Gets local token server stats. Example:<br />
 <pre>
-lorem ispum :3c
+{
+  data: 'hello world :3c'
+}
 </pre>
 <br />
 <br />
@@ -44,8 +44,10 @@ lorem ispum :3c
 <h4><a href='api/v1/get_globalstats/'>api/v1/get_globalstats/</a></h4>
 Gets global token server stats. Calculated based off each server's localstats. Example:<br />
 <pre>
-lorem ispum :3c
-</pre>
+{
+  data: 'hello world :3c'
+}
+</pre>>
 <br />
 <br />
 
