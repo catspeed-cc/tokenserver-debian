@@ -2,7 +2,7 @@
 
 ## Description
 
-Dockerized token server for catspeed fork, based on Debian
+Dockerized token server for catspeed fork found at https://github.com/catspeed-cc/invidious - based on Debian
 
 The project was basically finished in ~12 hours for the anonymous token pre-generator. Everything _was_ working, however something got buggered up and I cannot find the problem. So I've decided to move on to the token server and abandon the token pre-generator. You will still be pre-generating tokens though, because pulling them out of redis is the fastest way to get a response to the client.
 
