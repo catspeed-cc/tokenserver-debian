@@ -6,6 +6,9 @@ header("Content-Type: text/json");
 // grab some env vars
 $server_id = getenv('SERVER_ID');
 $num_tokens = getenv('NUM_TOKENS');
+// todo: remove token expiry from project
+//       will hardcode a very very high expiry in favor of deleting them once handed out
+//       fresh tokens for all :3c
 $token_expiry = getenv('TOKEN_EXPIRY');
 
 // initialize redis connection
