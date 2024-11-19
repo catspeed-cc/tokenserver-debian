@@ -14,6 +14,7 @@ echo "" | tee -a /scripts/entrypoint.log
 # initialize services
 /etc/init.d/ssh start &
 /etc/init.d/redis-server start &
+/etc/init.d/php8.2-fpm start &
 /etc/init.d/nginx start &
 
 # change to token generator directory
