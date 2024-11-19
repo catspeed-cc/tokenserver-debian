@@ -35,7 +35,8 @@ while(strlen($token_data) <= 25) {
 
 }
 
-// todo: delete redis key, so all keys are unique - may as well :3c
+// delete redis key, so all keys are unique - may as well :3c
+$redis->del($the_key);
 
 // explode into an array for manipulation using \n
 $token_data_array = explode("\n", $token_data);
@@ -46,14 +47,26 @@ $token_data_add = "  server_id: '$server_id',";
 // splice in element to the array at index 1
 array_splice( $token_data_array, 1, 0, $token_data_add );
 
+// todo: swap element 2 & 3 because it bothers me
+$element2 = $token_data_array[2];
+$element3 = $token_data_array[3];
+
+# remove comma from element2
+$element2 = str_replace(",", "", $element2);
+
+# add comma to element3
+$element3 = $element3 . ",";
+
+# swap element 2 & 3
+$token_data_array[2] = $element3;
+$token_data_array[3] = $element2;
+
 // implode array back into string using \n
 $token_data = implode("\n", $token_data_array);
 
 // replace these because it bothers me
 $token_data = str_replace("poToken", "po_token", $token_data);
 $token_data = str_replace("visitorData", "visitor_data", $token_data);
-
-// todo: swap element 2 & 3 because it bothers me
 
 // output the JSON formatted token data
 echo $token_data;
