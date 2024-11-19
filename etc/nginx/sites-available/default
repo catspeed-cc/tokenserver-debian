@@ -23,7 +23,7 @@ server {
 
                 try_files $uri =404;
 
-                include snippets/fastcgi-php.conf;
+                #include snippets/fastcgi-php.conf;
         
                 # With php-fpm (or other unix sockets):
                 fastcgi_pass unix:/run/php/php8.2-fpm.sock;
