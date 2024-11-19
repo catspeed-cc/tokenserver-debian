@@ -40,7 +40,8 @@ Will make documentation, images and upload to dockerhub or other later.
 
 ## Thanks
 - unixfox 🦊
-- Fijxu
+- samantazfox 🦊
+- Fijxu my mentor
 - anyone who's been waiting patiently
 
 ~ mooleshacat (invidious.catspeed.cc) Debian + bash FTW
