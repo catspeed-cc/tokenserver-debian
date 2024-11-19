@@ -13,10 +13,7 @@ $redis->connect('localhost', 6379);
 
 $token_data = $redis->get($the_key);
 
-print_r($token_data);
-
-echo "<br /><br />";
-
-echo "token_data: " . nl2br($token_data);
+# nl2br will preserve \n - if causes problem use str_replace
+echo nl2br($token_data);
 
 ?>
