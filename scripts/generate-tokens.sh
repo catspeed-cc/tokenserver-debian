@@ -59,11 +59,8 @@ do
 
         fi
 
-        sleep 0.25;
-
     done
-
-    sleep 15;
+    
 done
 
 # EOF
