@@ -19,20 +19,13 @@ $token_data_add = "server_id: \"$server_id\",";
 
 array_splice( $token_data_array, 1, 0, $token_data_add );
 
-print_r($token_data_array);
+$token_data = implode("\n", $token_data_array)
 
-
-
-
-
+print_r($token_data);
 
 echo "<br />";
 
 $token_data = str_replace("'", '"', $token_data);
-
-$jsonarray = json_decode($token_data);
-
-print_r($jsonarray);
 
 echo "<br />token_data:<br >";
 
