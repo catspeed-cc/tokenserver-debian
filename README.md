@@ -17,7 +17,8 @@ Token server will be able to be set up behind a reverse proxy, and you will be a
 ## Features
 
 - Stats monitor (not started yet)
-- Token server (in process)
+- Token generation (completed)
+- Token server / API (in process)
 
 #### Token server will be compatible with other forks, as long as you know how to program in the request and extraction of tokens from the response.
 
