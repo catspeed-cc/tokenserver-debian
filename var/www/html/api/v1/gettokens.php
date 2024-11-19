@@ -8,6 +8,8 @@ $token_expiry = getenv('TOKEN_EXPIRY');
 
 $rnd = rand(0,$num_tokens);
 
-echo "RND: $rnd";
+$the_key = "tokenserver:TOKEN-$rnd:tokendata"
+
+echo "the_key: $the_key";
 
 ?>
