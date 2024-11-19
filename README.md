@@ -45,7 +45,7 @@ I deeply respect and appreciate the help from the following:
 - Fijxu my mentor
 - anyone who's been waiting patiently
 
-Invidious can be a real awesome community that encourages learning.
+Invidious can be a real awesome community that encourages learning. Do not be discouraged, ever. You can do it :3c
 
 ~ mooleshacat (invidious.catspeed.cc) Debian + bash FTW
 
