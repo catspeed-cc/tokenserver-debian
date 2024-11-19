@@ -13,6 +13,13 @@ $redis->connect('localhost', 6379);
 
 $token_data = $redis->get($the_key);
 
+while(str_len($token_data) <= 25) {
+
+    // Statements to be executed
+    $token_data = $redis->get($the_key);
+
+}
+
 $token_data_array = explode("\n", $token_data);
 
 $token_data_add = "server_id: \"$server_id\",";
