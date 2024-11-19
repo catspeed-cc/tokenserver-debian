@@ -65,16 +65,17 @@ Gets global token server stats. Calculated by master server based off each serve
 There is error if "error" not equals "OK" Example:<br />
 <pre>
 {
-  data: 'hello world :3c',
+  data: 'hello world',
+  moredata: 'hihi :3c',
   error: 'OK'
 }
 
 {
-  error: 'Server out of tokens, please try again later'
+  error: 'out of tokens: server out of tokens, please try again later'
 }
 
 {
-  error: 'Server too busy, please try again later'
+  error: 'too busy: server too busy, please try again later'
 }
 </pre>
 <br />
