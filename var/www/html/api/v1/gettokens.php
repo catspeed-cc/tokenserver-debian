@@ -15,9 +15,9 @@ $token_data = $redis->get($the_key);
 
 $token_data = str_replace("'", '"', $token_data)
 
-$jsonarray = json_decode($token_data);
+#$jsonarray = json_decode($token_data);
 
-var_dump($jsonarray);
+#var_dump($jsonarray);
 
 echo "<br />token_data:<br >";
 
