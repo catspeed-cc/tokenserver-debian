@@ -22,6 +22,7 @@ Currently the api requires a trailing slash (ex. http://catspeed.cc:480/api/v1/g
 - Token generation (completed)
 - Token server / API (completed)
 - Catspeed integration (in process)
+- Arm64 / Aarch64 image for raspi (not started yet)
 
 #### Token server will be compatible with other forks, as long as you know how to program in the request and extraction of tokens from the response.
 
