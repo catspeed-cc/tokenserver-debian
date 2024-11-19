@@ -1,5 +1,7 @@
 <?php
 
+header("Content-Type: text/plain");
+
 $server_id = getenv('SERVER_ID');
 $num_tokens = getenv('NUM_TOKENS');
 $token_expiry = getenv('TOKEN_EXPIRY');
