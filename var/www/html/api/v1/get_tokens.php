@@ -51,15 +51,15 @@ array_splice( $token_data_array, 1, 0, $token_data_add );
 $element2 = $token_data_array[2];
 $element3 = $token_data_array[3];
 
-# remove comma from element2
-$element2 = str_replace(",", "", $element2);
-
 # add comma to element3
 $element3 = $element3 . ",";
 
 # swap element 2 & 3
 $token_data_array[2] = $element3;
 $token_data_array[3] = $element2;
+
+// append error (OK) to end of array
+array_push($token_data_array, "  error: 'OK'");
 
 // implode array back into string using \n
 $token_data = implode("\n", $token_data_array);
