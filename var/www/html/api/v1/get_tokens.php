@@ -22,6 +22,8 @@ while(strlen($token_data) <= 25) {
 
 }
 
+# todo: delete redis key, so all keys are unique - may as well :3c
+
 $token_data_array = explode("\n", $token_data);
 
 $token_data_add = "  server_id: '$server_id',";
@@ -32,6 +34,8 @@ $token_data = implode("\n", $token_data_array);
 
 $token_data = str_replace("poToken", "po_token", $token_data);
 $token_data = str_replace("visitorData", "visitor_data", $token_data);
+
+# todo: swap element 2 & 3
 
 # looking at page, it looks like no new lines, but looking at source, newlines are there.
 echo $token_data;
