@@ -31,9 +31,9 @@ cd /scripts/
 
 # init token generation
 
-echo "starting token server" | tee -a /scripts/entrypoint.log
+echo "starting token generation" | tee -a /scripts/entrypoint.log
 
-#/scripts/generate-tokens.sh &
+/scripts/generate-tokens.sh &
 
 
 
