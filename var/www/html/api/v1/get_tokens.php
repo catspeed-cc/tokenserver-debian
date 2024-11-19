@@ -35,7 +35,7 @@ $token_data = implode("\n", $token_data_array);
 $token_data = str_replace("poToken", "po_token", $token_data);
 $token_data = str_replace("visitorData", "visitor_data", $token_data);
 
-# todo: swap element 2 & 3
+# todo: swap element 2 & 3 because it bothers me
 
 # looking at page, it looks like no new lines, but looking at source, newlines are there.
 echo $token_data;
