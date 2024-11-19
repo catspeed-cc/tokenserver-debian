@@ -58,7 +58,25 @@ Gets global token server stats. Calculated by master server based off each serve
   data: 'hello world :3c',
   error: 'OK'
 }
-</pre>>
+</pre>
+<br />
+
+<h4>errors</h4>
+There is error if "error" not equals "OK" Example:<br />
+<pre>
+{
+  data: 'hello world :3c',
+  error: 'OK'
+}
+
+{
+  error: 'Server out of tokens, please try again later'
+}
+
+{
+  error: 'Server too busy, please try again later'
+}
+</pre>
 <br />
 
 <!-- end of file -->
