@@ -41,7 +41,8 @@ do
 
             if [[ $token_data_len -gt 25 ]]; then
 
-                redis-cli SET ${the_key}:tokendata "${token_data}" EX ${TOKEN_EXPIRY}
+                redis-cli SET ${the_key}:tokendata "${token_data}"
+                # temporarily removed "EX ${TOKEN_EXPIRY}"
                 echo "STORED IN REDIS: token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
 
             else
