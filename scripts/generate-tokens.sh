@@ -22,7 +22,7 @@ do
     do
 
         # decide what our key is
-        the_key="tokenserver:TOKEN:tokendata-${c}";
+        the_key="tokenserver:tokens:tokendata-${c}";
         echo "key name: ${the_key}" | tee -a /scripts/generate-tokens.log
 
         # check if tokens exist in redis
