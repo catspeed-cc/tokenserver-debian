@@ -17,7 +17,9 @@ $jsonarray = json_decode(nl2br($token_data));
 
 var_dump($jsonarray);
 
+echo "<br />token_data:<br >";
+
 # nl2br will preserve \n - if causes problem use str_replace
-#echo nl2br($token_data);
+echo nl2br($token_data);
 
 ?>
