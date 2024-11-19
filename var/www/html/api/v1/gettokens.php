@@ -13,9 +13,9 @@ $redis->connect('localhost', 6379);
 
 $token_data = $redis->get($the_key);
 
-$token_data = str_replace_json("'", "\"", token_data);
+$token_data = str_replace("'", '"', $token_data)
 
-$jsonarray = json_decode(nl2br($token_data));
+$jsonarray = json_decode($token_data);
 
 var_dump($jsonarray);
 
