@@ -29,6 +29,6 @@ array_splice( $token_data_array, 1, 0, $token_data_add );
 $token_data = implode("\r\n", $token_data_array);
 
 # nl2br will preserve \n - if causes problem use str_replace
-echo $token_data;
+echo nl2br($token_data);
 
 ?>
