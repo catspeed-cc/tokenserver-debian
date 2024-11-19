@@ -11,6 +11,10 @@ $rnd = rand(0,$num_tokens);
 
 $the_key = "tokenserver:TOKEN-$rnd:tokendata";
 
-echo "the_key: $the_key";
+$redis = new Redis();
+$redis->connect('localhost', 6379);
+$token_data = $redis->keys('$the_key');
+
+echo "token_data: $token_data";
 
 ?>
