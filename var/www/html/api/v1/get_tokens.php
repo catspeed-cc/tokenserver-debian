@@ -57,7 +57,7 @@ $token_data_array[2] = $element3;
 $token_data_array[3] = $element2;
 
 // append error (OK) to end of array
-$theindex=max($token_data_array)-1;
+$theindex=max(array_keys($token_data_array))-1;
 $addtoarray="  error: 'OK'";
 array_splice($token_data_array, $theindex, 0, $addtoarray);
 
