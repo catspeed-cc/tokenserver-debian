@@ -43,7 +43,7 @@ services:
      # IMPORTANT: enter the expiry time for ANON tokens in seconds (set it same as invidious config)
      - TOKEN_EXPIRY=43200
     volumes:
-      - ./config/redis.conf:/etc/redis/redis.conf
+      - ./etc/redis/redis.conf:/etc/redis/redis.conf
       - ./redis-data/:/var/lib/redis/
     networks:
       # IMPORTANT: if you cloned the project with dir name as anything other than 'invidious' change this line
