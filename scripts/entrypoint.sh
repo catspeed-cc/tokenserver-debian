@@ -20,6 +20,7 @@ echo "" | tee -a /scripts/entrypoint.log
 # SET ENVIRONMENT VARS
 echo "NUM_TOKENS=${NUM_TOKENS}" | tee -a /etc/environment
 echo "TOKEN_EXPIRY=${TOKEN_EXPIRY}" | tee -a /etc/environment
+echo "SERVER_ID=${SERVER_ID}" | tee -a /etc/environment
 
 # change to token generator directory
 cd /scripts/youtube-po-token-generator/
