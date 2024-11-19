@@ -44,6 +44,7 @@ services:
      - TOKEN_EXPIRY=43200
     volumes:
       - ./etc/redis/redis.conf:/etc/redis/redis.conf
+      - ./etc/nginx/sites-available/default:/etc/nginx/sites-available/default
       - ./redis-data/:/var/lib/redis/
     networks:
       # IMPORTANT: if you cloned the project with dir name as anything other than 'invidious' change this line
