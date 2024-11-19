@@ -56,7 +56,8 @@ $token_data_array[2] = $element3;
 $token_data_array[3] = $element2;
 
 // append error (OK) to end of array
-array_splice($token_data_array, (max($token_data_array)-1), 0, "  error: 'OK'");
+$theindex=max($token_data_array)-1
+array_splice($token_data_array, $theindex, 0, "  error: 'OK'");
 
 // implode array back into string using \n
 $token_data = implode("\n", $token_data_array);
