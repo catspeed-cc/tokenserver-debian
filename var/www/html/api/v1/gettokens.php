@@ -8,4 +8,6 @@ $token_expiry = getenv('TOKEN_EXPIRY');
 
 $rnd = rand(0,$num_tokens);
 
+echo "RND: $rnd";
+
 ?>
