@@ -40,7 +40,7 @@ services:
       - SERVER_ID=catspeed1
       # IMPORTANT: enter the number of ANON tokens to generate 
       # minimum is what is set in invidious configuration, can generate more too ahead of time
-      - NUM_TOKENS=2500
+      - NUM_TOKENS=10000
       # IMPORTANT: enter the expiry time for ANON tokens in seconds (set it same as invidious config)
       - TOKEN_EXPIRY=43200
     volumes:
