@@ -14,6 +14,8 @@ So far in testing, the load on the invidious process/container has been massivel
 
 Token server will be able to be set up behind a reverse proxy, and you will be able to have infinite number of token servers.
 
+Currently the api requires a trailing slash (ex. http://catspeed.cc:480/api/v1/get_tokens/) which is not a big deal, but I will try and fix this. Real API endpoint wouldn't have a trailing slash. It's just some nginx configuration I have to work out.
+
 ## Features
 
 - Stats monitor (not started yet)
