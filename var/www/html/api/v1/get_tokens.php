@@ -28,7 +28,7 @@ while(strlen($token_data) <= 25) {
     $rnd = rand(0,$num_tokens);
 
     // generate the keyname
-    $the_key = "tokenserver:TOKEN:tokendata-${rnd}";
+    $the_key = "tokenserver:tokens:tokendata-${rnd}";
 
     // get the tokens from redis
     $token_data = $redis->get($the_key);
