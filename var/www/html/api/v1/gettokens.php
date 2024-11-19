@@ -13,6 +13,12 @@ $redis->connect('localhost', 6379);
 
 $token_data = $redis->get($the_key);
 
+$array = explode("\n", $token_data);
+
+print_r($array);
+
+echo "<br />";
+
 $token_data = str_replace("'", '"', $token_data);
 
 $jsonarray = json_decode($token_data);
