@@ -49,6 +49,8 @@ do
 
                 echo "TOKEN DATA EMPTY - token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
 
+                sleep 1
+
             fi
 
             # store the tokens in redis
