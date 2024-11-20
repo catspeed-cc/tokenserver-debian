@@ -39,18 +39,6 @@ RUN chmod +x *.sh
 # test node
 RUN echo $(node -v)
 
-# git the token generator (using YunzheZJU until iv-org makes significant code changes, then will consider switch)
-RUN git -c http.sslVerify=false clone https://github.com/YunzheZJU/youtube-po-token-generator.git
-
-# change directory to /scripts/youtube-po-token-generator/
-WORKDIR /scripts/youtube-po-token-generator/
-
-# install the token generator dependencies
-RUN echo $(npm install)
-
-# test the token generator
-RUN echo $(node examples/one-shot.js)
-
 # change work directory to /scripts/
 WORKDIR /scripts/
 
