@@ -35,7 +35,7 @@ services:
       # mainly for watching 'htop', running redis-cli commands, etc.
     environment:
       # root password (for ssh, etc) looking for better way to do this
-      - ROOT_PASSWORD="debianftw!"
+      - ROOT_PASSWORD=debianftw!
       # server ID
       - SERVER_ID=catspeed1
       # IMPORTANT: enter the number of ANON tokens to generate 
