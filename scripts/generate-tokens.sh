@@ -49,6 +49,8 @@ do
 
                 echo "TOKEN DATA EMPTY - token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
 
+                # conditional sleep only if tokens empty
+                # prevents high cpu usage
                 sleep 1
 
             fi
@@ -59,6 +61,8 @@ do
 
             echo "EXISTING: token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
 
+            # conditional sleep only if tokens exist
+            # prevents high cpu usage
             sleep 1
 
         fi
