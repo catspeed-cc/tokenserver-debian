@@ -27,6 +27,10 @@ if [[ -f /run/secrets/tokenserver-root-password ]]; then
 
 fi
 
+# chown so we can ensure the servers can start without errors
+chown -R redis: /var/lib/redis/
+chown -R www-data: /var/www/html/
+
 # initialize services
 /etc/init.d/ssh start &
 /etc/init.d/redis-server start &
