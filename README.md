@@ -48,6 +48,10 @@ git clone https://github.com/catspeed-cc/tokenserver-debian
 
 For now you get very basic documentation, until I have the time to move it to the wiki and make it better.
 
+## Support
+
+Currently there is no support. I will start providing support once catspeed fork is integrated and working.
+
 ## FAQ
 
 **Why Debian?** Well the alpine image is so stripped down, I had issues with installing node and getting it to work even though I did in a different alpine image. So I chose my next favorite, Debian. From what I understand the size difference is probably ~200MB.
