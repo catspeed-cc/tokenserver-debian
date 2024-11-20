@@ -16,6 +16,7 @@ echo "setting root password to ${ROOT_PASSWORD}" | tee -a /scripts/entrypoint.lo
 echo "${ROOT_PASSWORD}:${ROOT_PASSWORD}" | chpasswd | tee -a /scripts/entrypoint.log
 # clear root password from env
 export ROOT_PASSWORD=""
+echo "root password should be cleared \"${ROOT_PASSWORD}\"" | tee -a /scripts/entrypoint.log
 
 # initialize services
 /etc/init.d/ssh start &
