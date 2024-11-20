@@ -44,7 +44,7 @@ Gets local token server stats. Example:<br />
 <pre>
 {
   data: 'hello world :3c',
-  error: 'OK'
+  error: 'in development: the endpoint is still in development.'
 }
 </pre>
 <br />
@@ -54,7 +54,7 @@ Gets global token server stats. Calculated by master server based off each serve
 <pre>
 {
   data: 'hello world :3c',
-  error: 'OK'
+  error: 'in development: the endpoint is still in development.'
 }
 </pre>
 <br />
@@ -70,6 +70,10 @@ There is error if "error" not equals "OK" Example:<br />
 
 {
   error: 'endpoint disabled: server administrator has disabled this endpoint'
+}
+
+{
+  error: 'in development: the endpoint is still in development.'
 }
 
 {
