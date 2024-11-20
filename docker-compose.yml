@@ -39,7 +39,7 @@ services:
       # IMPORTANT: enter the number of ANON tokens to generate 
       - NUM_TOKENS=10000
     volumes:
-      - ./redis-data/:/var/lib/redis/
+      - ./ts-redis-data/:/var/lib/redis/
       - ./var/www/html/:/var/www/html/
       - ./etc/redis/redis.conf:/etc/redis/redis.conf
       - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
