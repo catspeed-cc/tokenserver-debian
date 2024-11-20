@@ -37,14 +37,33 @@ fi
 echo "NUM_TOKENS=${NUM_TOKENS}" | tee -a /etc/environment
 echo "SERVER_ID=${SERVER_ID}" | tee -a /etc/environment
 
+# change to scripts/etc directory
+cd /scripts/
+
+# make etc directory
+mkdir etc
+
+# change to scripts/etc directory
+cd /scripts/etc/
+
+# git the REQUIRED token generator (using YunzheZJU until iv-org makes significant code changes, then will consider switch)
+git clone https://github.com/YunzheZJU/youtube-po-token-generator.git
+
+# git the catspeed projects (just do it :3c)
+git clone https://github.com/catspeed-cc/invidious
+git clone https://github.com/catspeed-cc/tokenserver-debian
+
 # change to token generator directory
-cd /scripts/youtube-po-token-generator/
+cd /scripts/etc/youtube-po-token-generator/
+
+# install dependencies
+npm install
 
 # testrun the script
 echo "testing token generator" | tee -a /scripts/entrypoint.log
 node examples/one-shot.js | tee -a /scripts/entrypoint.log
 
-# change to scripts directory
+# change back to scripts directory
 cd /scripts/
 
 # init token generation
