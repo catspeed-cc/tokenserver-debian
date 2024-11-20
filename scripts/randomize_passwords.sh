@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 echo ""
-echo "generating root password"
+echo "generating tokenserver root password"
 echo ""
 
 tmppass=$(tr -dc 'A-Za-z0-9!?@#$%^&*(){-}[+]<>|\/_=,.:;' </dev/urandom | head -c 13)
