@@ -26,11 +26,27 @@ I am considering running a free token service, for anyone to use. It may or may 
 - Catspeed integration (in process)
 - Arm64 / Aarch64 image for raspi (not started yet)
 
+## Releases
+
+- v0.50 is now released. You can find it on the releases/tags page.
+
+Even if you use the dockerhub image, you still require the git repository so you may as well clone it:
+```
+git clone https://github.com/catspeed-cc/tokenserver-debian
+```
+
 #### Token server will be compatible with other forks, as long as you know how to program in the request and extraction of tokens from the response.
 
 ## Documentation
 
-Will make documentation, images and upload to dockerhub or other later.
+#### Installation
+
+- ```git clone https://github.com/catspeed-cc/tokenserver-debian```
+- ```cp docker-compose.example.yml docker-compose.yml```
+- edit the docker-compose.yml file to your liking
+- ```docker-compose up -d```
+
+For now you get very basic documentation, until I have the time to move it to the wiki and make it better.
 
 ## FAQ
 
