@@ -40,8 +40,8 @@ services:
       - NUM_TOKENS=10000
     volumes:
       - ./redis-data/:/var/lib/redis/
-      - ./etc/redis/redis.conf:/etc/redis/redis.conf
       - ./var/www/html/:/var/www/html/
+      - ./etc/redis/redis.conf:/etc/redis/redis.conf
       - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./etc/nginx/sites-available/default:/etc/nginx/sites-available/default
       - ./etc/php/8.2/fpm/php.ini:/etc/php/8.2/fpm/php.ini
