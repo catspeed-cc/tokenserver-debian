@@ -20,6 +20,9 @@ if [[ -f /run/secrets/tokenserver-root-password ]]; then
     # set root password
     echo "${tmppass}:${tmppass}" | chpasswd | tee -a /scripts/entrypoint.log
 
+    # clear root password
+    tmppass=
+
 fi
 
 # initialize services
