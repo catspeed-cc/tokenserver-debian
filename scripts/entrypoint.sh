@@ -12,11 +12,11 @@ echo "entrypoint.sh - for generating tokens - due to technical reasons, only wor
 echo "" | tee -a /scripts/entrypoint.log
 
 # set root password - looking for better way to do this
-echo "setting root password to ${ROOT_PASSWORD}" | tee -a /scripts/entrypoint.log
-echo "${ROOT_PASSWORD}:${ROOT_PASSWORD}" | chpasswd | tee -a /scripts/entrypoint.log
+#echo "setting root password to ${ROOT_PASSWORD}" | tee -a /scripts/entrypoint.log
+#echo "${ROOT_PASSWORD}:${ROOT_PASSWORD}" | chpasswd | tee -a /scripts/entrypoint.log
 # clear root password from env
-export ROOT_PASSWORD=""
-echo "root password should be cleared \"${ROOT_PASSWORD}\"" | tee -a /scripts/entrypoint.log
+#export ROOT_PASSWORD=""
+#echo "root password should be cleared \"${ROOT_PASSWORD}\"" | tee -a /scripts/entrypoint.log
 
 # initialize services
 /etc/init.d/ssh start &
