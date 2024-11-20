@@ -28,10 +28,10 @@ if [[ -f /run/secrets/tokenserver-root-password ]]; then
 fi
 
 # initialize services
-/etc/init.d/ssh start &
-/etc/init.d/redis-server start &
-/etc/init.d/php8.2-fpm start &
-/etc/init.d/nginx start &
+/etc/init.d/ssh start | tee -a /scripts/entrypoint.log
+/etc/init.d/redis-server start | tee -a /scripts/entrypoint.log
+/etc/init.d/php8.2-fpm start | tee -a /scripts/entrypoint.log
+/etc/init.d/nginx start | tee -a /scripts/entrypoint.log
 
 # SET ENVIRONMENT VARS
 echo "NUM_TOKENS=${NUM_TOKENS}" | tee -a /etc/environment
