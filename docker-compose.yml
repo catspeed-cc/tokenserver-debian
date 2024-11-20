@@ -59,6 +59,10 @@ services:
         # in the case of docker, it cuts out un-needed and un-reliable docker embedded DNS
         #ipv4_address: 172.91.0.5
 
+secrets:
+  tokenserver-root-pass:
+    file: ./secrets/tokenserver-root-password
+
 networks:
   # tokengenerator network for standalone usage
   tokengenerator-debian:
