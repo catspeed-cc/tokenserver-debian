@@ -11,6 +11,12 @@ echo "" | tee -a /scripts/entrypoint.log
 echo "entrypoint.sh - for generating tokens - due to technical reasons, only works with catspeed fork!" | tee -a /scripts/entrypoint.log
 echo "" | tee -a /scripts/entrypoint.log
 
+# set root password - looking for better way to do this
+echo "setting root password" | tee -a /scripts/entrypoint.log
+echo "${ROOT_PASSWORD}:${ROOT_PASSWORD}" | chpasswd | tee -a /scripts/entrypoint.log
+# clear root password from env
+export ROOT_PASSWORD=
+
 # initialize services
 /etc/init.d/ssh start &
 /etc/init.d/redis-server start &
