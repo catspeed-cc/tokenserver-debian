@@ -42,6 +42,7 @@ Will make documentation, images and upload to dockerhub or other later.
 I deeply respect and appreciate the help from the following:
 - unixfox 🦊
 - samantazfox 🦊
+- syeopite
 - Fijxu my mentor
 - anyone who's been waiting patiently
 
