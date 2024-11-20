@@ -6,7 +6,6 @@ services:
     #build:
       #context: .
       #dockerfile: docker/Dockerfile
-      # todo: upload initial image and update following line
     image: "catspeedcc/tokenserver-debian:latest"
     init: true
     ulimits:
