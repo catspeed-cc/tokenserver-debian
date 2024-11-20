@@ -48,6 +48,8 @@ services:
       - ./etc/nginx/sites-available/default:/etc/nginx/sites-available/default
       - ./etc/php/8.2/fpm/php.ini:/etc/php/8.2/fpm/php.ini
       - ./etc/php/8.2/fpm/pool.d/www.conf:/etc/php/8.2/fpm/pool.d/www.conf
+    secrets:                    # secrets block only for 'web' service
+     - tokenserver-root-password
     networks:
       # IMPORTANT: if you cloned the project with dir name as anything other than 'invidious' change this line
       tokengenerator-debian:
@@ -60,7 +62,7 @@ services:
         #ipv4_address: 172.91.0.5
 
 secrets:
-  tokenserver-root-pass:
+  tokenserver-root-password:
     file: ./secrets/tokenserver-root-password
 
 networks:
