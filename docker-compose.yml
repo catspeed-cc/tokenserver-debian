@@ -34,7 +34,7 @@ services:
       # changes inside conatiner will not be saved
       # mainly for watching 'htop', running redis-cli commands, etc.
     environment:
-      # root password (for ssh, etc)
+      # root password (for ssh, etc) looking for better way to do this
       - ROOT_PASSWORD="debianftw!"
       # server ID
       - SERVER_ID=catspeed1
