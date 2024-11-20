@@ -61,7 +61,7 @@ services:
 
 secrets:
   tokenserver-root-password:
-    file: ./secrets/tokenserver-root-password
+    file: ./tokenserver-data/secrets/tokenserver-root-password
 
 networks:
   # tokengenerator network for standalone usage
