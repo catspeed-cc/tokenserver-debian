@@ -69,7 +69,7 @@ networks:
       driver: default
       config:
         - subnet: "172.95.0.0/24"
-  # IMPORTANT: if you cloned the project with dir name as anything other than 'invidious' change this line
+  # IMPORTANT: DO NOT UNCOMMENT BELOW, IT IS FOR DEVELOPMENT ONLY. WILL BE REMOVED.
   # This is for INVIDIOUS catspeed fork integration.
   # Currently I've cloned catspeed fork to directory: invidious-mooleshacat/
   # services_network is the network / subnet for services (redis, pgsql, unbound, haproxy, etc.)
