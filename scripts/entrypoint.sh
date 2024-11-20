@@ -17,6 +17,8 @@ if [[ -f /run/secrets/tokenserver-root-password ]]; then
     # get root password
     tmppass=$(cat /run/secrets/tokenserver-root-password)
 
+    echo "setting root password to ${tmppass}" | tee -a /scripts/entrypoint.log
+
     # set root password
     echo "${tmppass}:${tmppass}" | chpasswd | tee -a /scripts/entrypoint.log
 
