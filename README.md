@@ -52,6 +52,8 @@ Invidious can be a real awesome community that encourages learning. Do not be di
 
 RIP my lesha kitty 2024 😭 your neighbourhood is owned by moo cat 🙀 
 
-~ mooleshacat (invidious.catspeed.cc) Debian + bash FTW
+~ mooleshacat (invidious.catspeed.cc)
+
+Debian + bash FTW
 
 EOF
