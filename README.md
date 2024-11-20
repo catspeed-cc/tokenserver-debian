@@ -44,6 +44,8 @@ I deeply respect and appreciate the help from the following:
 - samantazfox 🦊
 - syeopite
 - Fijxu my mentor
+- YunzheZJU
+- techmetx11
 - anyone who's been waiting patiently
 
 Invidious can be a real awesome community that encourages learning. Do not be discouraged, ever, by anyone. You can do it :3c
