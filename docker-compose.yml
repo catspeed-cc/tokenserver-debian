@@ -39,13 +39,13 @@ services:
       # IMPORTANT: enter the number of ANON tokens to generate 
       - NUM_TOKENS=10000
     volumes:
-      - ./ts-redis-data/:/var/lib/redis/
-      - ./var/www/html/:/var/www/html/
-      - ./etc/redis/redis.conf:/etc/redis/redis.conf
-      - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./etc/nginx/sites-available/default:/etc/nginx/sites-available/default
-      - ./etc/php/8.2/fpm/php.ini:/etc/php/8.2/fpm/php.ini
-      - ./etc/php/8.2/fpm/pool.d/www.conf:/etc/php/8.2/fpm/pool.d/www.conf
+      - ./tokenserver-data/redis-data/:/var/lib/redis/
+      - ./tokenserver-data/var/www/html/:/var/www/html/
+      - ./tokenserver-data/etc/redis/redis.conf:/etc/redis/redis.conf
+      - ./tokenserver-data/etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./tokenserver-data/etc/nginx/sites-available/default:/etc/nginx/sites-available/default
+      - ./tokenserver-data/etc/php/8.2/fpm/php.ini:/etc/php/8.2/fpm/php.ini
+      - ./tokenserver-data/etc/php/8.2/fpm/pool.d/www.conf:/etc/php/8.2/fpm/pool.d/www.conf
     secrets:                    # secrets block only for 'web' service
      - tokenserver-root-password
     networks:
