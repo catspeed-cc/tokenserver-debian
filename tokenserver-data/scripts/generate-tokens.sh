@@ -8,7 +8,7 @@ echo "" | tee -a /scripts/generate-tokens.log
 
 echo "generating ${NUM_TOKENS} tokens" | tee -a /scripts/generate-tokens.log
 
-token_data=$(/usr/bin/node cd /scripts/etc/youtube-po-token-generator/examples/one-shot.js)
+token_data=$(/usr/bin/node /scripts/etc/youtube-po-token-generator/examples/one-shot.js)
 echo "TEST token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
 
 REDIS_HOST=127.0.0.1
