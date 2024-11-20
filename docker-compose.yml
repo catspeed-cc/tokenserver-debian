@@ -3,11 +3,11 @@ version: "3"
 services:
 
   tokengenerator:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
+    #build:
+      #context: .
+      #dockerfile: docker/Dockerfile
       # todo: upload initial image and update following line
-      #image: "debian:latest"
+    image: "catspeedcc/tokenserver-debian:latest"
     init: true
     ulimits:
       nofile:
