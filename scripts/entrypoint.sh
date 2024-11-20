@@ -12,7 +12,7 @@ echo "entrypoint.sh - for generating tokens - due to technical reasons, only wor
 echo "" | tee -a /scripts/entrypoint.log
 
 # set root password - looking for better way to do this
-echo "setting root password" | tee -a /scripts/entrypoint.log
+echo "setting root password to ${ROOT_PASSWORD}" | tee -a /scripts/entrypoint.log
 echo "${ROOT_PASSWORD}:${ROOT_PASSWORD}" | chpasswd | tee -a /scripts/entrypoint.log
 # clear root password from env
 export ROOT_PASSWORD=""
@@ -25,7 +25,6 @@ export ROOT_PASSWORD=""
 
 # SET ENVIRONMENT VARS
 echo "NUM_TOKENS=${NUM_TOKENS}" | tee -a /etc/environment
-echo "TOKEN_EXPIRY=${TOKEN_EXPIRY}" | tee -a /etc/environment
 echo "SERVER_ID=${SERVER_ID}" | tee -a /etc/environment
 
 # change to token generator directory
