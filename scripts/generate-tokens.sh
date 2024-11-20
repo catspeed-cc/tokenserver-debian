@@ -51,7 +51,7 @@ do
 
                 # conditional sleep only if tokens empty
                 # prevents high cpu usage
-                sleep 1
+                sleep 0.25
 
             fi
 
@@ -63,7 +63,7 @@ do
 
             # conditional sleep only if tokens exist
             # prevents high cpu usage
-            sleep 1
+            sleep 0.25
 
         fi
 
