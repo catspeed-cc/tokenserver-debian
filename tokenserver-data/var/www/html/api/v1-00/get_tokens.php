@@ -46,8 +46,8 @@ $element2 = $token_data_array[2];
 $element3 = $token_data_array[3];
 
 // ltrim element 2 & 3
-//$element2 ltrim($element2);
-//$element3 ltrim($element3);
+$element2 ltrim($element2);
+$element3 ltrim($element3);
 
 // explode each element
 //$element2_array = explode(" ", $element2);
