@@ -16,7 +16,9 @@ Token server will be able to be set up behind a reverse proxy, and you will be a
 
 Currently the api requires a trailing slash (ex. https://tokenserver.catspeed.cc/api/v1-00/get_tokens/) which is not a big deal, but I will try and fix this. Real API endpoint would not have a trailing slash. It's just some nginx configuration I have to work out.
 
-I am considering running a free token service, for anyone to use. It may or may not happen.
+Turns out the tokens need to be generated from the same IP as the invidious server, and so a public token service will just not be possible.
+
+I have to update the code to add a few things, and add the proxy in.
 
 ## Features
 
