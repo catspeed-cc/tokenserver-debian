@@ -58,8 +58,8 @@ $element2_array[0] = str_replace(":", "", $element2_array[0]);
 $element3_array[0] = str_replace(":", "", $element3_array[0]);
 
 // edit element2 2 & 3
-$element2_array[0] = "\"" . $element2_array[0] . "\":";
-$element3_array[0] = "\"" . $element3_array[0] . "\":";
+$element2_array[0] = "\"" . $element2_array[0] . "\"\:";
+$element3_array[0] = "\"" . $element3_array[0] . "\"\:";
 
 // implode element2 2 & 3
 $element2 = implode(" ", $element2_array);
