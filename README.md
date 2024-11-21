@@ -27,10 +27,10 @@ I am considering running a free token service, for anyone to use. It may or may 
 - Arm64 / Aarch64 image for raspi (not started yet)
 
 ## Docker tags
-- latest - tag for latest version, can include minor version bumps (Ex. v0.50 -> v0.51)
-- stable - tag for stable version, only includes major version bumps (Ex. v1.00 -> v2.00 - COMING SOON!)
-- v0.51 - fixed JSON output
-- v0.50 - initial image
+- catspeedcc/tokenserver-debian:latest - tag for latest version, can include minor version bumps (Ex. v0.50 -> v0.51)
+- catspeedcc/tokenserver-debian:stable - tag for stable version, only includes major version bumps (Ex. v1.00 -> v2.00 - COMING SOON!)
+- catspeedcc/tokenserver-debian:v0.51 - fixed JSON output
+- catspeedcc/tokenserver-debian:v0.50 - initial image
 
 ## Releases
 
