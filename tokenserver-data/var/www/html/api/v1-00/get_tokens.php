@@ -29,6 +29,8 @@ while(strlen($token_data) <= 25) {
     // get the tokens from redis
     $token_data = $redis->get($the_key);
 
+    sleep(1);
+
 }
 
 // delete redis key, so all keys are unique - may as well :3c
