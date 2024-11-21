@@ -48,7 +48,9 @@ $element3 = $token_data_array[3];
 # add comma to element3
 $element3 = $element3 . ",";
 
-# ltrim element 1 & 2
+# ltrim element 2 & 3
+$element2 ltrim($element2);
+$element3 ltrim($element3);
 
 # explode each element
 $element2_array = explode(" ", $element2);
