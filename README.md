@@ -28,7 +28,7 @@ I am considering running a free token service, for anyone to use. It may or may 
 
 ## Releases
 
-- v0.50 is now released. You can find it on the releases/tags page.
+- v0.51 is now released. You can find it on the releases/tags page. Includes JSON fix.
 
 Even if you use the dockerhub image, you still require the git repository so you may as well clone it:
 ```
