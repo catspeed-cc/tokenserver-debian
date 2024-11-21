@@ -66,6 +66,7 @@ I deeply respect and appreciate the help from the following:
 - syeopite
 - YunzheZJU
 - techmetx11
+- [crystal lang matrix](https://matrix.to/#/#crystal-lang_crystal:gitter.im)
 - anyone who's been waiting patiently
 
 Invidious can be a real awesome community that encourages learning. Do not be discouraged, ever, by anyone. You can do it :3c
