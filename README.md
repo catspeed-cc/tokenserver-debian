@@ -26,6 +26,12 @@ I am considering running a free token service, for anyone to use. It may or may 
 - Catspeed integration (in testing)
 - Arm64 / Aarch64 image for raspi (not started yet)
 
+## Docker tags
+- latest - tag for latest version, can include minor version bumps (Ex. v0.50 -> v0.51)
+- stable - tag for stable version, only includes major version bumps (Ex. v1.00 -> v2.00 - COMING SOON!)
+- v0.51 - fixed JSON output
+- v0.50 - initial image
+
 ## Releases
 
 - v0.51 is now released. You can find it on the releases/tags page. Includes JSON fix.
