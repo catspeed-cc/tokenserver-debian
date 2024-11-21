@@ -48,6 +48,18 @@ $element3 = $token_data_array[3];
 # add comma to element3
 $element3 = $element3 . ",";
 
+# ltrim element 1 & 2
+
+# explode each element
+$element2_array = explode(" ", $element2);
+$element3_array = explode(" ", $element3);
+
+# edit element 1
+
+# implode
+
+# add left spaces back
+
 # swap element 2 & 3
 $token_data_array[2] = $element3;
 $token_data_array[3] = $element2;
