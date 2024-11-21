@@ -41,12 +41,9 @@ $token_data_array = explode("\n", $token_data);
 $addtoarray="  \"server_id\": '$server_id',";
 array_splice($token_data_array, 1, 0, $addtoarray);
 
-// todo: swap element 2 & 3 because it bothers me
+// swap element 2 & 3 because it bothers me
 $element2 = $token_data_array[2];
 $element3 = $token_data_array[3];
-
-# add comma to element3
-$element3 = $element3 . ",";
 
 # ltrim element 2 & 3
 $element2 ltrim($element2);
@@ -71,6 +68,9 @@ $element3 = implode(" ", $element3);
 # add left spaces back to element 2 & 3
 $element2 = "  " . $element2;
 $element3 = "  " . $element3;
+
+# add comma to element3
+$element3 = $element3 . ",";
 
 # swap element 2 & 3
 $token_data_array[2] = $element3;
