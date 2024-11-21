@@ -62,8 +62,8 @@ $element2_array[0] = "\"" . $element2_array[0] . ":\"";
 $element3_array[0] = "\"" . $element3_array[0] . ":\"";
 
 // implode element2 2 & 3
-$element2 = implode(" ", $element2);
-$element3 = implode(" ", $element3);
+$element2 = implode(" ", $element2_array);
+$element3 = implode(" ", $element3_array);
 
 // add left spaces back to element 2 & 3
 $element2 = "  " . $element2;
