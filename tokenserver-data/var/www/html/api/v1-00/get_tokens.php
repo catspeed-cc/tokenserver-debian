@@ -54,12 +54,12 @@ $element2_array = explode(" ", $element2);
 $element3_array = explode(" ", $element3);
 
 // remove semi-colon from elementX[0]
-$element2[0] = str_replace(":", "", $element2[0]);
-$element3[0] = str_replace(":", "", $element3[0]);
+$element2_array[0] = str_replace(":", "", $element2_array[0]);
+$element3_array[0] = str_replace(":", "", $element3_array[0]);
 
 // edit element2 2 & 3
-$element2[0] = "\"" . $element2[0] . ":\"";
-$element3[0] = "\"" . $element3[0] . ":\"";
+$element2_array[0] = "\"" . $element2_array[0] . ":\"";
+$element3_array[0] = "\"" . $element3_array[0] . ":\"";
 
 // implode element2 2 & 3
 $element2 = implode(" ", $element2);
