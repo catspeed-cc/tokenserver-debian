@@ -56,13 +56,13 @@ $element3 ltrim($element3);
 $element2_array = explode(" ", $element2);
 $element3_array = explode(" ", $element3);
 
-# edit element 1
+# edit element2 2 & 3
 
-# implode
+# implode element2 2 & 3
 $element2 = implode(" ", $element2);
 $element3 = implode(" ", $element3);
 
-# add left spaces back
+# add left spaces back to element 2 & 3
 $element2 = "  " . $element2;
 $element3 = "  " . $element3;
 
