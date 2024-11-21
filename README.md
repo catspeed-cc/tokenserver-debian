@@ -23,7 +23,7 @@ I am considering running a free token service, for anyone to use. It may or may 
 - Stats monitor (not started yet)
 - Token generation (completed)
 - Token server / API (completed)
-- Catspeed integration (in process)
+- Catspeed integration (in testing)
 - Arm64 / Aarch64 image for raspi (not started yet)
 
 ## Releases
