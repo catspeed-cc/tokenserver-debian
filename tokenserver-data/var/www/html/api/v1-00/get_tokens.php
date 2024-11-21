@@ -63,6 +63,7 @@ $token_data = implode("\n", $token_data_array);
 // replace these because it bothers me
 $token_data = str_replace("poToken", "po_token", $token_data);
 $token_data = str_replace("visitorData", "visitor_data", $token_data);
+$token_data = str_replace("'", "\"", $token_data);
 
 // output the JSON formatted token data
 echo $token_data;
