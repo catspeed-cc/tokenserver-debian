@@ -53,7 +53,7 @@ do
             
             # conditional sleep only if tokens empty
             # prevents high cpu usage
-            sleep 0.25
+            sleep 0.5
 
             # store the tokens in redis
         
@@ -63,7 +63,7 @@ do
 
             # conditional sleep only if tokens exist
             # prevents high cpu usage
-            sleep 0.25
+            sleep 0.5
 
         fi
 
