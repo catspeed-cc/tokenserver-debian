@@ -64,8 +64,8 @@ I deeply respect and appreciate the help from the following:
 - samantazfox 🦊
 - Fijxu my mentor
 - syeopite
-- YunzheZJU
 - techmetx11
+- YunzheZJU
 - [crystal lang matrix](https://matrix.to/#/#crystal-lang_crystal:gitter.im)
 - anyone who's been waiting patiently
 
