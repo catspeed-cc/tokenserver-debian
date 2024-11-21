@@ -49,11 +49,11 @@ do
 
                 echo "TOKEN DATA EMPTY - token_data: '${token_data}'" | tee -a /scripts/generate-tokens.log
 
-                # conditional sleep only if tokens empty
-                # prevents high cpu usage
-                sleep 0.25
-
             fi
+            
+            # conditional sleep only if tokens empty
+            # prevents high cpu usage
+            sleep 0.25
 
             # store the tokens in redis
         
