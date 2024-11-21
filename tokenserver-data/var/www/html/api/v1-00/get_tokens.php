@@ -63,6 +63,8 @@ $element2 = implode(" ", $element2);
 $element3 = implode(" ", $element3);
 
 # add left spaces back
+$element2 = "  " . $element2;
+$element3 = "  " . $element3;
 
 # swap element 2 & 3
 $token_data_array[2] = $element3;
