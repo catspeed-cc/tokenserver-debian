@@ -29,8 +29,6 @@ while(strlen($token_data) <= 25) {
     // get the tokens from redis
     $token_data = $redis->get($the_key);
 
-    sleep(1);
-
 }
 
 // delete redis key, so all keys are unique - may as well :3c
@@ -52,24 +50,24 @@ $element2 = ltrim($element2);
 $element3 = ltrim($element3);
 
 // explode each element
-//$element2_array = explode(" ", $element2);
-//$element3_array = explode(" ", $element3);
+$element2_array = explode(" ", $element2);
+$element3_array = explode(" ", $element3);
 
 // remove colon from elementX[0]
-//$element2_array[0] = str_replace(":", "", $element2_array[0]);
-//$element3_array[0] = str_replace(":", "", $element3_array[0]);
+$element2_array[0] = str_replace(":", "", $element2_array[0]);
+$element3_array[0] = str_replace(":", "", $element3_array[0]);
 
 // edit element2 2 & 3
-//$element2_array[0] = "\"" . $element2_array[0] . "\":";
-//$element3_array[0] = "\"" . $element3_array[0] . "\":";
+$element2_array[0] = "\"" . $element2_array[0] . "\":";
+$element3_array[0] = "\"" . $element3_array[0] . "\":";
 
 // implode element2 2 & 3
-//$element2 = implode(" ", $element2_array);
-//$element3 = implode(" ", $element3_array);
+$element2 = implode(" ", $element2_array);
+$element3 = implode(" ", $element3_array);
 
 // add left spaces back to element 2 & 3
-//$element2 = "  " . $element2;
-//$element3 = "  " . $element3;
+$element2 = "  " . $element2;
+$element3 = "  " . $element3;
 
 // add comma to element3
 $element3 = $element3 . ",";
