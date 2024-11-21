@@ -61,7 +61,8 @@ $element2[0] = str_replace(":", "", $element2[0]);
 $element3[0] = str_replace(":", "", $element3[0]);
 
 # edit element2 2 & 3
-
+$element2[0] = "\"" . $element2[0] . "\"";
+$element3[0] = "\"" . $element3[0] . "\"";
 
 # implode element2 2 & 3
 $element2 = implode(" ", $element2);
