@@ -59,6 +59,8 @@ $element3_array = explode(" ", $element3);
 # edit element 1
 
 # implode
+$element2 = implode(" ", $element2);
+$element3 = implode(" ", $element3);
 
 # add left spaces back
 
