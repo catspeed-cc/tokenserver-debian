@@ -38,7 +38,7 @@ $redis->del($the_key);
 $token_data_array = explode("\n", $token_data);
 
 // splice in element to the array at index 1
-$addtoarray="  server_id: '$server_id',";
+$addtoarray="  \"server_id\": '$server_id',";
 array_splice($token_data_array, 1, 0, $addtoarray);
 
 // todo: swap element 2 & 3 because it bothers me
@@ -54,7 +54,7 @@ $token_data_array[3] = $element2;
 
 // append error (OK) to end of array
 $theindex=max(array_keys($token_data_array));
-$addtoarray="  error: 'OK'";
+$addtoarray="  \"error\": 'OK'";
 array_splice($token_data_array, $theindex, 0, $addtoarray);
 
 // implode array back into string using \n
