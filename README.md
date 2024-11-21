@@ -35,7 +35,7 @@ Even if you use the dockerhub image, you still require the git repository so you
 git clone https://github.com/catspeed-cc/tokenserver-debian
 ```
 
-#### Token server will be compatible with other forks, as long as you know how to program in the request and extraction of tokens from the response.
+#### Token server will be compatible with other forks, as long as you know how to program in the API request and extraction of tokens from the JSON response.
 
 ## Documentation
 
