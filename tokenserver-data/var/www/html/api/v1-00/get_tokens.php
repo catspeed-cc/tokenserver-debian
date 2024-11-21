@@ -45,34 +45,34 @@ array_splice($token_data_array, 1, 0, $addtoarray);
 $element2 = $token_data_array[2];
 $element3 = $token_data_array[3];
 
-# ltrim element 2 & 3
+// ltrim element 2 & 3
 $element2 ltrim($element2);
 $element3 ltrim($element3);
 
-# explode each element
+// explode each element
 $element2_array = explode(" ", $element2);
 $element3_array = explode(" ", $element3);
 
-# remove semi-colon from elementX[0]
+// remove semi-colon from elementX[0]
 $element2[0] = str_replace(":", "", $element2[0]);
 $element3[0] = str_replace(":", "", $element3[0]);
 
-# edit element2 2 & 3
+// edit element2 2 & 3
 $element2[0] = "\"" . $element2[0] . ":\"";
 $element3[0] = "\"" . $element3[0] . ":\"";
 
-# implode element2 2 & 3
-#$element2 = implode(" ", $element2);
-#$element3 = implode(" ", $element3);
+// implode element2 2 & 3
+$element2 = implode(" ", $element2);
+$element3 = implode(" ", $element3);
 
-# add left spaces back to element 2 & 3
-#$element2 = "  " . $element2;
-#$element3 = "  " . $element3;
+// add left spaces back to element 2 & 3
+$element2 = "  " . $element2;
+$element3 = "  " . $element3;
 
-# add comma to element3
+// add comma to element3
 $element3 = $element3 . ",";
 
-# swap element 2 & 3
+// swap element 2 & 3
 $token_data_array[2] = $element3;
 $token_data_array[3] = $element2;
 
