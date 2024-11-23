@@ -30,6 +30,24 @@ RUN chown -R redis:redis /var/lib/redis/
 # copy the secret sauce scripts
 COPY ./scripts/ /scripts/
 
+# copy the /var/www/html directory
+COPY ./var/www/html/ /var/www/html/
+
+# copy the /etc/redis/redis.conf file
+COPY ./etc/redis/redis.conf /etc/redis/redis.conf
+
+# copy the /etc/nginx/nginx.conf file
+COPY ./etc/nginx/nginx.conf /etc/nginx/nginx.conf
+
+# copy the /etc/nginx/sites-available/default file
+COPY ./etc/nginx/sites-available/default /etc/nginx/sites-available/default
+
+# copy the /etc/php/8.2/fpm/php.ini file
+COPY ./etc/php/8.2/fpm/php.ini /etc/php/8.2/fpm/php.ini
+
+# copy the /etc/php/8.2/fpm/pool.d/www.conf file
+COPY ./etc/php/8.2/fpm/pool.d/www.conf /etc/php/8.2/fpm/pool.d/www.conf
+
 # change work directory to /scripts/
 WORKDIR /scripts/
 
