@@ -51,11 +51,14 @@ mkdir etc
 cd /scripts/etc/
 
 # git the REQUIRED token generator (using YunzheZJU until iv-org makes significant code changes, then will consider switch)
-git clone https://github.com/YunzheZJU/youtube-po-token-generator.git
+git clone https://github.com/YunzheZJU/youtube-po-token-generator.git --bare
 
 # git the catspeed projects (just do it :3c)
-git clone https://github.com/catspeed-cc/invidious
-git clone https://github.com/catspeed-cc/tokenserver-debian
+git clone https://github.com/catspeed-cc/invidious --bare
+git clone https://github.com/catspeed-cc/tokenserver-debian --bare
+
+# temporary test to see if entrypoint can git clone things
+ls -al | tee -a /scripts/entrypoint.log
 
 # change to token generator directory
 cd /scripts/etc/youtube-po-token-generator/
