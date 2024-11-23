@@ -44,11 +44,17 @@ echo "SERVER_ID=${SERVER_ID}" | tee -a /etc/environment
 # change to scripts/etc directory
 cd /scripts/ | tee -a /scripts/entrypoint.log
 
+# temporary test to see if entrypoint can git clone things
+ls -al | tee -a /scripts/entrypoint.log
+
 # make etc directory
 mkdir etc | tee -a /scripts/entrypoint.log
 
 # change to scripts/etc directory
 cd /scripts/etc/ | tee -a /scripts/entrypoint.log
+
+# temporary test to see if entrypoint can git clone things
+ls -al | tee -a /scripts/entrypoint.log
 
 # git the REQUIRED token generator (using YunzheZJU until iv-org makes significant code changes, then will consider switch)
 git clone https://github.com/YunzheZJU/youtube-po-token-generator.git --bare | tee -a /scripts/entrypoint.log
