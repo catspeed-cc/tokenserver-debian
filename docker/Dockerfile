@@ -55,7 +55,7 @@ WORKDIR /scripts/
 RUN chmod +x /scripts/*.sh
 
 # chown the scripts directory to git:git
-RUN chown git:git /scripts/
+RUN chown root:root /scripts/
 
 # test node
 RUN echo $(node -v)
