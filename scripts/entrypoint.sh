@@ -42,32 +42,32 @@ echo "NUM_TOKENS=${NUM_TOKENS}" | tee -a /etc/environment
 echo "SERVER_ID=${SERVER_ID}" | tee -a /etc/environment
 
 # change to scripts/etc directory
-cd /scripts/ | tee -a /scripts/entrypoint.log
+cd /scripts/
 
 # temporary test to see if entrypoint can git clone things
 ls -al | tee -a /scripts/entrypoint.log
 
 # make etc directory
-mkdir etc | tee -a /scripts/entrypoint.log
+mkdir etc
 
 # change to scripts/etc directory
-cd /scripts/etc/ | tee -a /scripts/entrypoint.log
+cd /scripts/etc/
 
 # temporary test to see if entrypoint can git clone things
 ls -al | tee -a /scripts/entrypoint.log
 
 # git the REQUIRED token generator (using YunzheZJU until iv-org makes significant code changes, then will consider switch)
-git clone https://github.com/YunzheZJU/youtube-po-token-generator.git --bare | tee -a /scripts/entrypoint.log
+git clone https://github.com/YunzheZJU/youtube-po-token-generator.git --bare
 
 # git the catspeed projects (just do it :3c)
-git clone https://github.com/catspeed-cc/invidious --bare | tee -a /scripts/entrypoint.log
-git clone https://github.com/catspeed-cc/tokenserver-debian --bare | tee -a /scripts/entrypoint.log
+git clone https://github.com/catspeed-cc/invidious --bare
+git clone https://github.com/catspeed-cc/tokenserver-debian --bare
 
 # temporary test to see if entrypoint can git clone things
 ls -al | tee -a /scripts/entrypoint.log
 
 # change to token generator directory
-cd /scripts/etc/youtube-po-token-generator/ | tee -a /scripts/entrypoint.log
+cd /scripts/etc/youtube-po-token-generator/
 
 # install dependencies
 npm install
