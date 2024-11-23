@@ -52,7 +52,10 @@ COPY ./etc/php/8.2/fpm/pool.d/www.conf /etc/php/8.2/fpm/pool.d/www.conf
 WORKDIR /scripts/
 
 # make the scripts executable
-RUN chmod +x *.sh
+RUN chmod +x /scripts/*.sh
+
+# chown the scripts directory to git:git
+RUN chown git:git /scripts/
 
 # test node
 RUN echo $(node -v)
