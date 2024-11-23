@@ -28,7 +28,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
 RUN chown -R redis:redis /var/lib/redis/
 
 # copy the secret sauce scripts
-COPY ./tokenserver-data/scripts/ /scripts/
+COPY ./scripts/ /scripts/
 
 # change work directory to /scripts/
 WORKDIR /scripts/
