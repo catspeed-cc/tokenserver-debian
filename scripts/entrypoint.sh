@@ -28,7 +28,7 @@ if [[ -f /run/secrets/tokenserver-root-password ]]; then
 fi
 
 # sleep for gluetun init
-sleep 15
+sleep 30
 
 # chown so we can ensure the servers can start without errors
 chown -R redis: /var/lib/redis/

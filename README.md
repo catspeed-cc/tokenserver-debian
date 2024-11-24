@@ -39,6 +39,8 @@ I have to update the code to add a few things, and add the proxy in.
 
 - v0.52 is now released. You can find it on the releases/tags page. Includes gluetun fix.
 
+The issue with gluetun was the git clone of the token generator was failing due to the VPN not being fully initialized. I have added a 30 second sleep which solves the issue. You will have to wait at least 30 seconds before tokens start to generate.
+
 **Note:** gluetun has been included in the example. Tokens must be generated from the same IP that you are accessing content from. In this case, we show example for gluetun because catspeed fork uses gluetun. You still have to select the proper server.
 
 Even if you use the dockerhub image, you still require the git repository so you may as well clone it:
