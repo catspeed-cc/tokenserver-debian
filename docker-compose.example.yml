@@ -28,8 +28,6 @@ services:
       - SERVER_ID=catspeed1
       # IMPORTANT: enter the number of ANON tokens to generate 
       - NUM_TOKENS=10000
-#      - http_proxy=http://172.54.0.5:8888
-#      - https_proxy=http://172.54.0.5:8888
     volumes:
       - ./tokenserver-data/redis-data/:/var/lib/redis/
     secrets:
@@ -47,7 +45,6 @@ services:
 #    ports:
 #      - 8888:8888/tcp # HTTP proxy (expose to host is optional)
 #      - 8080:8080/tcp # Control port (expose to host is optional)
-#      - "127.0.0.1:3001:3001" # Invidious (expose to host is required)
     volumes:
       - /docker/gluetun/data:/gluetun
     environment:
