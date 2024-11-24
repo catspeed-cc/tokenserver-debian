@@ -18,7 +18,7 @@ Currently the api requires a trailing slash (ex. https://tokenserver.catspeed.cc
 
 Turns out the tokens need to be generated from the same IP as the invidious server, and so a public token service will just not be possible.
 
-I have to update the code to add a few things, and add the proxy in.
+#### Token server will be compatible with other forks, as long as you know how to program in the API request and extraction of tokens from the JSON response.
 
 ## Features
 
@@ -50,8 +50,6 @@ Even if you use the dockerhub image, you still require the git repository so you
 git clone https://github.com/catspeed-cc/tokenserver-debian
 ```
 This is due to the volumes linking to the token-data/ directory. Nothing I can do about it.
-
-#### Token server will be compatible with other forks, as long as you know how to program in the API request and extraction of tokens from the JSON response.
 
 ## Documentation
 
