@@ -1,6 +1,6 @@
 # tokenserver-debian
 
-## Description
+## description
 
 Dockerized token server for catspeed fork found at https://github.com/catspeed-cc/invidious - based on Debian
 
@@ -20,7 +20,7 @@ Turns out the tokens need to be generated from the same IP as the invidious serv
 
 I have to update the code to add a few things, and add the proxy in.
 
-## Features
+## features
 
 - Stats monitor (not started yet)
 - Token generation (completed)
@@ -28,14 +28,14 @@ I have to update the code to add a few things, and add the proxy in.
 - Catspeed integration (in testing)
 - Arm64 / Aarch64 image for raspi (not started yet)
 
-## Docker tags
+## docker tags
 - catspeedcc/tokenserver-debian:latest - tag for latest version, can include minor version bumps (Ex. v0.50 -> v0.51)
 - catspeedcc/tokenserver-debian:stable - tag for stable version, only includes major version bumps (Ex. v1.00 -> v2.00 - COMING SOON!)
 - catspeedcc/tokenserver-debian:v0.52 - fixed gluetun - added sleep for gluetun init
 - catspeedcc/tokenserver-debian:v0.51 - fixed JSON output
 - catspeedcc/tokenserver-debian:v0.50 - initial image
 
-## Releases
+## releases
 
 - v0.52 is now released. You can find it on the releases/tags page. Includes gluetun fix.
 
@@ -51,11 +51,11 @@ git clone https://github.com/catspeed-cc/tokenserver-debian
 ```
 This is due to the volumes linking to the token-data/ directory. Nothing I can do about it.
 
-#### Token server will be compatible with other forks, as long as you know how to program in the API request and extraction of tokens from the JSON response.
+#### token server will be compatible with other forks, as long as you know how to program in the API request and extraction of tokens from the JSON response.
 
-## Documentation
+## documentation
 
-#### Installation
+#### installation
 
 - ```git clone https://github.com/catspeed-cc/tokenserver-debian```
 - ```cp docker-compose.example.yml docker-compose.yml```
