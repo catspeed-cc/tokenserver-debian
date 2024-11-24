@@ -43,6 +43,8 @@ The issue with gluetun was the git clone of the token generator was failing due 
 
 **Note:** gluetun has been included in the example. Tokens must be generated from the same IP that you are accessing content from. In this case, we show example for gluetun because catspeed fork uses gluetun. You still have to select the proper server.
 
+## dockerhub notes
+
 Even if you use the dockerhub image, you still require the git repository so you may as well clone it:
 ```
 git clone https://github.com/catspeed-cc/tokenserver-debian
