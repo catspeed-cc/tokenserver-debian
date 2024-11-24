@@ -2,11 +2,12 @@
 version: "3"
 services:
 
-  tokengenerator:
-    #build:
-      #context: .
-      #dockerfile: docker/Dockerfile
-    image: "catspeedcc/tokenserver-debian:latest"
+  tokenserver-debian-1:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+#    image: "catspeedcc/tokenserver-debian:latest"
+    network_mode: "service:gluetun-1"
     init: true
     ulimits:
       nofile:
@@ -22,35 +23,50 @@ services:
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
-    ports:
-      - "480:80"
-      - "46379:6379"
-      # to avoid conflicts, ssh is on port external 422 internal 22.
-      # only change external to 22 if you have no SSH server on host machine.
-      # command to connect is:
-      # ssh -p 4022 root@172.91.0.5
-      - "422:22"
-      # changes inside conatiner will not be saved
-      # mainly for watching 'htop', running redis-cli commands, etc.
     environment:
       # unique server identification
       - SERVER_ID=catspeed1
       # IMPORTANT: enter the number of ANON tokens to generate 
       - NUM_TOKENS=10000
+#      - http_proxy=http://172.54.0.5:8888
+#      - https_proxy=http://172.54.0.5:8888
     volumes:
       - ./tokenserver-data/redis-data/:/var/lib/redis/
     secrets:
      - tokenserver-root-password
+    depends_on:
+      - gluetun-1
+
+  gluetun-1:
+    image: ghcr.io/qdm12/gluetun
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    devices:
+      - /dev/net/tun:/dev/net/tun
+#    ports:
+#      - 8888:8888/tcp # HTTP proxy (expose to host is optional)
+#      - 8080:8080/tcp # Control port (expose to host is optional)
+#      - "127.0.0.1:3001:3001" # Invidious (expose to host is required)
+    volumes:
+      - /docker/gluetun/data:/gluetun
+    environment:
+#      - LOG_LEVEL=debug
+      - HTTPPROXY=on
+      - VPN_SERVICE_PROVIDER=protonvpn
+      - VPN_TYPE=openvpn
+      - OPENVPN_USER=YOUR_OPENVPN_USER
+      - OPENVPN_PASSWORD=YOUR_OPENVPN_PASSWORD
+      - OPENVPN_PROTOCOL=tcp
+      - OPENVPN_MSSFIX=1400
+      - SERVER_COUNTRIES=United States
+      - UPDATER_PERIOD=24h
+      - UPDATER_VPN_SERVICE_PROVIDERS=protonvpn
+      - DNS_ADDRESS=1.1.1.1
+      - TZ=America/Toronto
     networks:
-      # IMPORTANT: this is where you set the IP address. Most users can leave it as is.
-      tokengenerator-debian:
-        # IMPORTANT: this is the IP that you will use to access this docker container
-        ipv4_address: 172.95.0.5
-      # IMPORTANT: DO NOT UNCOMMENT BELOW, IT IS FOR DEVELOPMENT ONLY. WILL BE REMOVED.
-      #invidious-mooleshacat_services_network:
-        # just a formality. I always set static IP on every machine I own
-        # in the case of docker, it cuts out un-needed and un-reliable docker embedded DNS
-        #ipv4_address: 172.91.0.5
+      tokenserver-debian:
+        ipv4_address: 172.54.0.5
 
 secrets:
   tokenserver-root-password:
@@ -58,17 +74,8 @@ secrets:
 
 networks:
   # tokengenerator network for standalone usage
-  tokengenerator-debian:
+  tokenserver-debian:
     ipam:
       driver: default
       config:
-        - subnet: "172.95.0.0/24"
-  # IMPORTANT: DO NOT UNCOMMENT BELOW, IT IS FOR DEVELOPMENT ONLY. WILL BE REMOVED.
-  # This is for INVIDIOUS catspeed fork integration.
-  # Currently I've cloned catspeed fork to directory: invidious-mooleshacat/
-  # services_network is the network / subnet for services (redis, pgsql, unbound, haproxy, etc.)
-  # makes my development and integration easier, will be removed.
-  #invidious-mooleshacat_services_network:
-    #external: true
-
-# todo: remove invidious integration network, catspeed-cc/invidious will have integration example
+        - subnet: "172.54.0.0/24"
