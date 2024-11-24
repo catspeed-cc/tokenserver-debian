@@ -86,7 +86,7 @@ cd /scripts/
 
 echo "starting token generation" | tee -a /scripts/entrypoint.log
 
-#/scripts/generate-tokens.sh &
+/scripts/generate-tokens.sh &
 
 # this 'hack' will keep container awake and running
 # may remove at future date/time
