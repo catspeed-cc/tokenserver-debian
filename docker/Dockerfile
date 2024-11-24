@@ -12,10 +12,10 @@ RUN echo 'APT::Install-Suggests "0";' >> /etc/apt/apt.conf.d/00-docker
 RUN echo 'APT::Install-Recommends "0";' >> /etc/apt/apt.conf.d/00-docker
 
 # copy debian.sources
-COPY ./tokenserver-data/etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sources
+COPY ./etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sources
 
 # copy sshd_config
-COPY ./tokenserver-data/etc/ssh/sshd_config /etc/ssh/sshd_config
+COPY ./etc/ssh/sshd_config /etc/ssh/sshd_config
 
 # upgrade & install dependencies
 RUN DEBIAN_FRONTEND=noninteractive \
@@ -28,13 +28,34 @@ RUN DEBIAN_FRONTEND=noninteractive \
 RUN chown -R redis:redis /var/lib/redis/
 
 # copy the secret sauce scripts
-COPY ./tokenserver-data/scripts/ /scripts/
+COPY ./scripts/ /scripts/
+
+# copy the /var/www/html directory
+COPY ./var/www/html/ /var/www/html/
+
+# copy the /etc/redis/redis.conf file
+COPY ./etc/redis/redis.conf /etc/redis/redis.conf
+
+# copy the /etc/nginx/nginx.conf file
+COPY ./etc/nginx/nginx.conf /etc/nginx/nginx.conf
+
+# copy the /etc/nginx/sites-available/default file
+COPY ./etc/nginx/sites-available/default /etc/nginx/sites-available/default
+
+# copy the /etc/php/8.2/fpm/php.ini file
+COPY ./etc/php/8.2/fpm/php.ini /etc/php/8.2/fpm/php.ini
+
+# copy the /etc/php/8.2/fpm/pool.d/www.conf file
+COPY ./etc/php/8.2/fpm/pool.d/www.conf /etc/php/8.2/fpm/pool.d/www.conf
 
 # change work directory to /scripts/
 WORKDIR /scripts/
 
 # make the scripts executable
-RUN chmod +x *.sh
+RUN chmod +x /scripts/*.sh
+
+# chown the scripts directory to git:git
+RUN chown root:root /scripts/
 
 # test node
 RUN echo $(node -v)

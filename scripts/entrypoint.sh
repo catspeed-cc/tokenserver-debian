@@ -27,6 +27,9 @@ if [[ -f /run/secrets/tokenserver-root-password ]]; then
 
 fi
 
+# sleep for gluetun init
+sleep 30
+
 # chown so we can ensure the servers can start without errors
 chown -R redis: /var/lib/redis/
 chown -R www-data: /var/www/html/
@@ -44,18 +47,27 @@ echo "SERVER_ID=${SERVER_ID}" | tee -a /etc/environment
 # change to scripts/etc directory
 cd /scripts/
 
+# temporary test to see if entrypoint can git clone things
+ls -al | tee -a /scripts/entrypoint.log
+
 # make etc directory
 mkdir etc
 
 # change to scripts/etc directory
 cd /scripts/etc/
 
+# temporary test to see if entrypoint can git clone things
+ls -al | tee -a /scripts/entrypoint.log
+
 # git the REQUIRED token generator (using YunzheZJU until iv-org makes significant code changes, then will consider switch)
 git clone https://github.com/YunzheZJU/youtube-po-token-generator.git
 
 # git the catspeed projects (just do it :3c)
-git clone https://github.com/catspeed-cc/invidious
-git clone https://github.com/catspeed-cc/tokenserver-debian
+git clone https://github.com/catspeed-cc/invidious.git
+git clone https://github.com/catspeed-cc/tokenserver-debian.git
+
+# temporary test to see if entrypoint can git clone things
+ls -al | tee -a /scripts/entrypoint.log
 
 # change to token generator directory
 cd /scripts/etc/youtube-po-token-generator/
@@ -74,7 +86,7 @@ cd /scripts/
 
 echo "starting token generation" | tee -a /scripts/entrypoint.log
 
-/scripts/generate-tokens.sh &
+#/scripts/generate-tokens.sh &
 
 # this 'hack' will keep container awake and running
 # may remove at future date/time
