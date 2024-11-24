@@ -68,13 +68,13 @@ For now you get very basic documentation, until I have the time to move it to th
 
 Currently there is no support. I will start providing support once catspeed fork is integrated and working.
 
-## FAQ
+## faq
 
 **Why Debian?** Well the alpine image is so stripped down, I had issues with installing node and getting it to work even though I did in a different alpine image. So I chose my next favorite, Debian. From what I understand the size difference is probably ~200MB.
 
-#### Project is in development. No release dates set. Please wait patiently :3c
+#### project is in development. No release dates set. Please wait patiently :3c
 
-## Thanks
+## thanks
 I deeply respect and appreciate the help from the following:
 - unixfox 🦊
 - samantazfox 🦊
