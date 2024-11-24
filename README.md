@@ -41,7 +41,7 @@ Turns out the tokens need to be generated from the same IP as the invidious serv
 
 The issue with gluetun was the git clone of the token generator was failing due to the VPN not being fully initialized. I have added a 30 second sleep which solves the issue. You will have to wait at least 30 seconds before tokens start to generate.
 
-**Note:** gluetun has been included in the example. Tokens must be generated from the same IP that you are accessing content from. In this case, we show example for gluetun because catspeed fork uses gluetun. You still have to select the proper server.
+**Note:** gluetun has been included in the example. Tokens must be generated from the same IP that you are accessing content from. In this case, we show example for gluetun because catspeed fork uses gluetun. You still have to select the proper server. If you are using catspeed fork, it has a better example in that repository.
 
 ## Dockerhub notes
 
