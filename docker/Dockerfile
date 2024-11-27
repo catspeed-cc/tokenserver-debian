@@ -24,7 +24,8 @@ RUN DEBIAN_FRONTEND=noninteractive \
   apt dist-upgrade -y ; \
   apt install -y htop nano git wget curl cpulimit net-tools nginx php8.2-fpm php8.2-redis \
   redis-server openssh-server redis-tools nodejs npm postgresql-client python3 python3-full \
-  python3-virtualenv python3-pip ;
+  python3-virtualenv python3-pip xvfb nss freetype freetype-dev harfbuzz ca-certificates \
+  ttf-freefont chromium chromium-chromedriver ;
 
 # chown redis folder
 RUN chown -R redis:redis /var/lib/redis/
@@ -68,7 +69,7 @@ RUN echo $(node -v)
 # change work directory to /submodules/youtube-trusted-session-generator/
 WORKDIR /submodules/youtube-trusted-session-generator/
 
-RUN virtualenv venv ; source venv/bin/activate ; pip install -r requirements.txt ; python potoken-generator.py ;
+RUN virtualenv venv ; . venv/bin/activate ; pip install -r requirements.txt ; no_sandbox=True python potoken-generator.py ;
 
 # change work directory to /scripts/
 WORKDIR /scripts/
