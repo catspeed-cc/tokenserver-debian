@@ -24,8 +24,8 @@ RUN DEBIAN_FRONTEND=noninteractive \
   apt dist-upgrade -y ; \
   apt install -y htop nano git wget curl cpulimit net-tools nginx php8.2-fpm php8.2-redis \
   redis-server openssh-server redis-tools nodejs npm postgresql-client python3 python3-full \
-  python3-virtualenv python3-pip xvfb nss freetype freetype-dev harfbuzz ca-certificates \
-  ttf-freefont chromium chromium-chromedriver ;
+  python3-virtualenv python3-pip xvfb libnss3 libnss3-dev libfreetype6 libfreetype6 libfreetype6-dev libharfbuzz-bin libharfbuzz-dev ca-certificates \
+  fonts-freefont-ttf chromium ;
 
 # chown redis folder
 RUN chown -R redis:redis /var/lib/redis/
