@@ -30,7 +30,6 @@ services:
       - NUM_TOKENS=10000
     volumes:
       - ./tokenserver-data/redis-data/:/var/lib/redis/
-      - ./submodules/:/submodules/
     secrets:
      - tokenserver-root-password
     depends_on:

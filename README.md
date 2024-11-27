@@ -38,17 +38,17 @@ I have added submodules back.
 
 ## Dockerhub notes
 
-Even if you use the dockerhub image, you still require the git repository so you may as well clone it:
+Even if you use the dockerhub image, you still require the git repository:
 ```
 git clone https://github.com/catspeed-cc/tokenserver-debian
 ```
-This is due to the volumes linking to the token-data/ and submodules/ directory. Nothing I can do about it.
+This is due to the volumes linking to the token-data/ directory which you need to store data.
 
 ## Documentation
 
 #### Installation
 
-- ```git clone https://github.com/catspeed-cc/tokenserver-debian --recursive```
+- ```git clone https://github.com/catspeed-cc/tokenserver-debian```
 - ```cd tokenserver-debian```
 - ```cp docker-compose.example.yml docker-compose.yml```
 - edit the docker-compose.yml file to your liking

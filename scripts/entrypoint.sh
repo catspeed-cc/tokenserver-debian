@@ -50,34 +50,41 @@ cd /scripts/
 # temporary test to see if entrypoint can git clone things
 ls -al | tee -a /scripts/entrypoint.log
 
+
+
+# changing code back to submodules...
+
 # make etc directory
-mkdir etc
+#mkdir etc
 
 # change to scripts/etc directory
-cd /scripts/etc/
+#cd /scripts/etc/
 
 # temporary test to see if entrypoint can git clone things
-ls -al | tee -a /scripts/entrypoint.log
+#ls -al | tee -a /scripts/entrypoint.log
 
 # git the required token generator (using YunzheZJU until iv-org makes significant code changes, then will consider switch)
 # probs switching back to submodule
-git clone https://github.com/YunzheZJU/youtube-po-token-generator.git
+#git clone https://github.com/YunzheZJU/youtube-po-token-generator.git
 
 # temporary test to see if entrypoint can git clone things
-ls -al | tee -a /scripts/entrypoint.log
+#ls -al | tee -a /scripts/entrypoint.log
 
 # change to token generator directory
-cd /scripts/etc/youtube-po-token-generator/
+#cd /scripts/etc/youtube-po-token-generator/
 
 # install dependencies
-npm install
+#npm install
 
 # testrun the script
-echo "testing token generator" | tee -a /scripts/entrypoint.log
-node examples/one-shot.js | tee -a /scripts/entrypoint.log
+#echo "testing token generator" | tee -a /scripts/entrypoint.log
+#node examples/one-shot.js | tee -a /scripts/entrypoint.log
 
 # change back to scripts directory
-cd /scripts/
+#cd /scripts/
+
+
+
 
 # init token generation
 
