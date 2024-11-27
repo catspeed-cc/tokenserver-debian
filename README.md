@@ -23,6 +23,7 @@ Currently the api requires a trailing slash (ex. https://tokenserver.catspeed.cc
 ## Docker tags
 - catspeedcc/tokenserver-debian:latest - tag for latest version, can include minor version bumps (Ex. v0.50 -> v0.51)
 - catspeedcc/tokenserver-debian:stable - tag for stable version, only includes major version bumps (Ex. v1.00 -> v2.00 - COMING SOON!)
+- catspeedcc/tokenserver-debian:v0.53 - added back submodules
 - catspeedcc/tokenserver-debian:v0.52 - fixed gluetun - added sleep for gluetun init
 - catspeedcc/tokenserver-debian:v0.51 - fixed JSON output
 - catspeedcc/tokenserver-debian:v0.50 - initial image
@@ -31,7 +32,7 @@ Currently the api requires a trailing slash (ex. https://tokenserver.catspeed.cc
 
 - v0.53 is now released. You can find it on the releases/tags page. Revert back to submodules.
 
-I have removed the git clones, and added submodules back.
+I have added submodules back.
 
 **Note:** gluetun has been included in the example. Tokens must be generated from the same IP that you are accessing content from. In this case, we show example for gluetun because catspeed fork uses gluetun. You still have to select the proper server. If you are using catspeed fork, it has a better example in that repository.
 
@@ -41,7 +42,7 @@ Even if you use the dockerhub image, you still require the git repository so you
 ```
 git clone https://github.com/catspeed-cc/tokenserver-debian
 ```
-This is due to the volumes linking to the token-data/ directory. Nothing I can do about it.
+This is due to the volumes linking to the token-data/ and submodules/ directory. Nothing I can do about it.
 
 ## Documentation
 
