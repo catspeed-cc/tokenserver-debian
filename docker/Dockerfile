@@ -24,17 +24,13 @@ RUN DEBIAN_FRONTEND=noninteractive \
   apt dist-upgrade -y ; \
   apt install -y htop nano git wget curl cpulimit net-tools nginx php8.2-fpm php8.2-redis \
   redis-server openssh-server redis-tools nodejs npm postgresql-client python3 python3-full \
-  python3-virtualenv python3-pip xvfb libnss3 libnss3-dev libfreetype6 libfreetype6 libfreetype6-dev libharfbuzz-bin libharfbuzz-dev ca-certificates \
-  fonts-freefont-ttf chromium ;
+  python3-virtualenv python3-pip ;
 
 # chown redis folder
 RUN chown -R redis:redis /var/lib/redis/
 
 # copy the secret sauce scripts
 COPY ./scripts/ /scripts/
-
-# copy the secret sauce scripts
-COPY ./submodules/ /submodules/
 
 # copy the /var/www/html directory
 COPY ./var/www/html/ /var/www/html/
@@ -65,11 +61,6 @@ RUN chown root:root /scripts/
 
 # test node
 RUN echo $(node -v)
-
-# change work directory to /submodules/youtube-trusted-session-generator/
-WORKDIR /submodules/youtube-trusted-session-generator/
-
-RUN virtualenv venv ; . venv/bin/activate ; pip install -r requirements.txt ; no_sandbox=True python potoken-generator.py ;
 
 # change work directory to /scripts/
 WORKDIR /scripts/
