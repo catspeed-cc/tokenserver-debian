@@ -44,20 +44,20 @@ chown -R www-data: /var/www/html/
 echo "NUM_TOKENS=${NUM_TOKENS}" | tee -a /etc/environment
 echo "SERVER_ID=${SERVER_ID}" | tee -a /etc/environment
 
-cd /submodules/youtube-trusted-session-generator | tee -a /etc/environment
+cd /submodules/youtube-trusted-session-generator | tee -a /scripts/entrypoint.log
 
-virtualenv venv | tee -a /etc/environment
+virtualenv venv | tee -a /scripts/entrypoint.log
 
-source venv/bin/activate | tee -a /etc/environment
+source venv/bin/activate | tee -a /scripts/entrypoint.log
 
-pip install -r requirements.txt | tee -a /etc/environment
+pip install -r requirements.txt | tee -a /scripts/entrypoint.log
 
-python3 potoken-generator.py --oneshot | tee -a /etc/environment
+python3 potoken-generator.py --oneshot | tee -a /scripts/entrypoint.log
 
 python3 potoken-generator.py
 
 # localhost:8080 should be open now
-curl http://127.0.0.1:8080 | tee -a /etc/environment
+curl http://127.0.0.1:8080 | tee -a /scripts/entrypoint.log
 
 # changing code back to submodules...
 
