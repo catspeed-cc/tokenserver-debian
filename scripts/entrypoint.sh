@@ -50,7 +50,20 @@ cd /scripts/
 # temporary test to see if entrypoint can git clone things
 ls -al | tee -a /scripts/entrypoint.log
 
+cd youtube-trusted-session-generator | tee -a /etc/environment
 
+virtualenv venv | tee -a /etc/environment
+
+source venv/bin/activate | tee -a /etc/environment
+
+pip install -r requirements.txt | tee -a /etc/environment
+
+python3 potoken-generator.py --oneshot | tee -a /etc/environment
+
+python3 potoken-generator.py
+
+# localhost:8080 should be open now
+curl http://127.0.0.1:8080 | tee -a /etc/environment
 
 # changing code back to submodules...
 
@@ -88,9 +101,9 @@ ls -al | tee -a /scripts/entrypoint.log
 
 # init token generation
 
-echo "starting token generation" | tee -a /scripts/entrypoint.log
+#echo "starting token generation" | tee -a /scripts/entrypoint.log
 
-/scripts/generate-tokens.sh &
+#/scripts/generate-tokens.sh &
 
 # this 'hack' will keep container awake and running
 # may remove at future date/time
