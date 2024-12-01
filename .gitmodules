@@ -1,3 +1,6 @@
 [submodule "submodules/--force"]
 	path = submodules/--force
 	url = https://gitea.catspeed.cc/catspeed-cc/youtube-trusted-session-generator.git
+[submodule "submodules/youtube-trusted-session-generator"]
+	path = submodules/youtube-trusted-session-generator
+	url = https://github.com/iv-org/youtube-trusted-session-generator
