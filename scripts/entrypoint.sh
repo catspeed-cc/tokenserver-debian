@@ -44,13 +44,7 @@ chown -R www-data: /var/www/html/
 echo "NUM_TOKENS=${NUM_TOKENS}" | tee -a /etc/environment
 echo "SERVER_ID=${SERVER_ID}" | tee -a /etc/environment
 
-# change to scripts/etc directory
-cd /scripts/
-
-# temporary test to see if entrypoint can git clone things
-ls -al | tee -a /scripts/entrypoint.log
-
-cd youtube-trusted-session-generator | tee -a /etc/environment
+cd /submodules/youtube-trusted-session-generator | tee -a /etc/environment
 
 virtualenv venv | tee -a /etc/environment
 
@@ -93,16 +87,14 @@ curl http://127.0.0.1:8080 | tee -a /etc/environment
 #echo "testing token generator" | tee -a /scripts/entrypoint.log
 #node examples/one-shot.js | tee -a /scripts/entrypoint.log
 
+
+
+
 # change back to scripts directory
-#cd /scripts/
-
-
-
+cd /scripts/
 
 # init token generation
-
 #echo "starting token generation" | tee -a /scripts/entrypoint.log
-
 #/scripts/generate-tokens.sh &
 
 # this 'hack' will keep container awake and running

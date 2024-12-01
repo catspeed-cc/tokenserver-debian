@@ -29,6 +29,9 @@ RUN DEBIAN_FRONTEND=noninteractive \
 # chown redis folder
 RUN chown -R redis:redis /var/lib/redis/
 
+# copy the submodules
+COPY ./submodules/ /submodules/
+
 # copy the secret sauce scripts
 COPY ./scripts/ /scripts/
 
