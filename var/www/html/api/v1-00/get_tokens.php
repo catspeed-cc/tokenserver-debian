@@ -31,63 +31,66 @@ while(strlen($token_data) <= 25) {
 
 }
 
-// delete redis key, so all keys are unique - may as well :3c
-$redis->del($the_key);
+// pre-processing
+$token_data = str_replace("{", "{\n", $token_data);
+$token_data = str_replace("\"}", "\"\n}", $token_data);
+$token_data = str_replace(", ", ",\n", $token_data);
 
 // explode into an array for manipulation using \n
 $token_data_array = explode("\n", $token_data);
 
 // splice in element to the array at index 1
-$addtoarray="  \"server_id\": '$server_id',";
+$addtoarray="  \"server_id\": \"$server_id\",";
 array_splice($token_data_array, 1, 0, $addtoarray);
+
+// delete updated time
+array_splice($token_data_array, 2, 1);
 
 // swap element 2 & 3 because it bothers me
 $element2 = $token_data_array[2];
 $element3 = $token_data_array[3];
+//$element4 = $token_data_array[4];
 
 // ltrim element 2 & 3
 $element2 = ltrim($element2);
 $element3 = ltrim($element3);
+//$element4 = ltrim($element4);
 
 // explode each element
-$element2_array = explode(" ", $element2);
-$element3_array = explode(" ", $element3);
+//$element2_array = explode(" ", $element2);
+//$element3_array = explode(" ", $element3);
 
 // remove colon from elementX[0]
-$element2_array[0] = str_replace(":", "", $element2_array[0]);
-$element3_array[0] = str_replace(":", "", $element3_array[0]);
-
-// edit element2 2 & 3
-$element2_array[0] = "\"" . $element2_array[0] . "\":";
-$element3_array[0] = "\"" . $element3_array[0] . "\":";
+//$element2_array[0] = str_replace(":", "", $element2_array[0]);
+//$element3_array[0] = str_replace(":", "", $element3_array[0]);
 
 // implode element2 2 & 3
-$element2 = implode(" ", $element2_array);
-$element3 = implode(" ", $element3_array);
+//$element2 = implode(" ", $element2_array);
+//$element3 = implode(" ", $element3_array);
 
 // add left spaces back to element 2 & 3
 $element2 = "  " . $element2;
-$element3 = "  " . $element3;
+$element3 = "  " . $element3 . ",";
+//$element4 = "  " . $element4 . ",";
 
 // add comma to element3
-$element3 = $element3 . ",";
+//$element3 = $element3 . ",";
 
-// swap element 2 & 3
-$token_data_array[2] = $element3;
-$token_data_array[3] = $element2;
+// put elements back into array
+$token_data_array[2] = $element2;
+$token_data_array[3] = $element3;
+//$token_data_array[4] = $element4;
 
 // append error (OK) to end of array
 $theindex=max(array_keys($token_data_array));
-$addtoarray="  \"error\": 'OK'";
+$addtoarray="  \"error\": \"OK\"";
 array_splice($token_data_array, $theindex, 0, $addtoarray);
 
 // implode array back into string using \n
 $token_data = implode("\n", $token_data_array);
 
 // replace these because it bothers me
-$token_data = str_replace("poToken", "po_token", $token_data);
-$token_data = str_replace("visitorData", "visitor_data", $token_data);
-$token_data = str_replace("'", "\"", $token_data);
+$token_data = str_replace("potoken", "po_token", $token_data);
 
 // output the JSON formatted token data
 echo $token_data;

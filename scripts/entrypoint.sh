@@ -43,49 +43,18 @@ chown -R www-data: /var/www/html/
 # SET ENVIRONMENT VARS
 echo "NUM_TOKENS=${NUM_TOKENS}" | tee -a /etc/environment
 echo "SERVER_ID=${SERVER_ID}" | tee -a /etc/environment
+echo "TOKEN_EXPIRY=${TOKEN_EXPIRY}" | tee -a /etc/environment
 
-# change to scripts/etc directory
-cd /scripts/
+echo "Running curl cmd" | tee -a /scripts/entrypoint.log
 
-# temporary test to see if entrypoint can git clone things
-ls -al | tee -a /scripts/entrypoint.log
-
-# make etc directory
-mkdir etc
-
-# change to scripts/etc directory
-cd /scripts/etc/
-
-# temporary test to see if entrypoint can git clone things
-ls -al | tee -a /scripts/entrypoint.log
-
-# git the REQUIRED token generator (using YunzheZJU until iv-org makes significant code changes, then will consider switch)
-git clone https://github.com/YunzheZJU/youtube-po-token-generator.git
-
-# git the catspeed projects (just do it :3c)
-git clone https://github.com/catspeed-cc/invidious.git
-git clone https://github.com/catspeed-cc/tokenserver-debian.git
-
-# temporary test to see if entrypoint can git clone things
-ls -al | tee -a /scripts/entrypoint.log
-
-# change to token generator directory
-cd /scripts/etc/youtube-po-token-generator/
-
-# install dependencies
-npm install
-
-# testrun the script
-echo "testing token generator" | tee -a /scripts/entrypoint.log
-node examples/one-shot.js | tee -a /scripts/entrypoint.log
+# localhost:8080 should be open now
+curl http://127.0.0.1:8880/token | tee -a /scripts/entrypoint.log
 
 # change back to scripts directory
 cd /scripts/
 
 # init token generation
-
-echo "starting token generation" | tee -a /scripts/entrypoint.log
-
+#echo "starting token generation" | tee -a /scripts/entrypoint.log
 /scripts/generate-tokens.sh &
 
 # this 'hack' will keep container awake and running

@@ -19,10 +19,12 @@ COPY ./etc/ssh/sshd_config /etc/ssh/sshd_config
 
 # upgrade & install dependencies
 RUN DEBIAN_FRONTEND=noninteractive \
-  apt-get update \
-  && apt-get upgrade -y \
-  && apt-get dist-upgrade -y \
-  && apt-get install -y htop nano git wget curl cpulimit bash net-tools nginx php8.2-fpm php8.2-redis redis-server openssh-server redis-tools nodejs npm postgresql-client
+  apt update ; \
+  apt upgrade -y ; \
+  apt dist-upgrade -y ; \
+  apt install -y htop nano git wget curl cpulimit net-tools nginx php8.2-fpm php8.2-redis \
+  redis-server openssh-server redis-tools nodejs npm postgresql-client python3 python3-full \
+  python3-virtualenv python3-pip ;
 
 # chown redis folder
 RUN chown -R redis:redis /var/lib/redis/

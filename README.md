@@ -8,58 +8,58 @@ I am happy to announce github has restored my account :3c thank you GitHub for r
 
 Dockerized token server for catspeed fork found at https://github.com/catspeed-cc/invidious - based on Debian
 
-The project was basically finished in ~12 hours for the anonymous token pre-generator. Everything _was_ working, however something got buggered up and I could not find the problem. So I decided to move on to the token server and abandon the token pre-generator. You will still be pre-generating tokens though, because pulling them out of redis is the fastest way to get a response to the client.
+Tokenserver pre-generates and stores tokens in redis cache, allowing you to make requests to an API to get the tokens instantaneously. It is primarily designed to be used with catspeed-cc/invidious fork. Tokenserver can store many tokens and serve them randomly. Tokenserver utilizes https://github.com/catspeed-cc/youtube-trusted-session-generator a fork of https://github.com/iv-org/youtube-trusted-session-generator .
 
-I will also be moving the stats calculator here, to keep everything neat and tidy in this project, and also remove even more load off the invidious process/container. Eventually all that the invidious process/container will be doing is making redis calls.
+I will also be moving the stats calculator here, to keep everything neat and tidy in this project, and remove even more load off the invidious process/container. Eventually all that the invidious process/container will be doing is making redis calls.
 
-Invidious has enough troubles, serving content in a timely manner, and reliably as it is - after all the current recommendation is to restart it hourly, and I've even had to minutely just to stop it eating CPU and memory after the sig-helper crashes. Spawning cpu-intensive processes from within invidious when invidious is expected to make a timely response to a client is a bad idea. Invidious should be dedicated to serving users video in a timely manner. Even slight delays are unacceptable to the client.
+Tokenserver will be able to be set up behind a reverse proxy, and you will be able to have infinite number of token servers. The beautiful thing about this is the token data is only 350-500 bytes, meaning this can be set up on a relatively low bandwidth connection. I personally have only 10Mbit/sec upload, but it can handle lots at 500 bytes per request. Enough I suspect that it should sustain the catspeed invidious instance with high traffic. Worst case I can spin up a VPS with Vultr to take some load as well.
 
-So far in testing, the load on the invidious process/container has been massively reduced, because I no longer use the invidious main process to generate tokens (which was a bad idea anyways)
-
-Token server will be able to be set up behind a reverse proxy, and you will be able to have infinite number of token servers. The beautiful thing about this is the token data is only 350-500 bytes, meaning this can be set up on a relatively low bandwidth connection. I personally have only 10Mbit/sec upload, but it can handle lots at 500 bytes per request. Enough I suspect that it should sustain the catspeed invidious instance with high traffic. Worst case I can spin up a VPS with Vultr to take some load as well.
+Tokens must be generated from same VPN and/or IP address as the invidious instance (or other application needing tokens)
 
 Currently the api requires a trailing slash (ex. https://tokenserver.catspeed.cc/api/v1-00/get_tokens/) which is not a big deal, but I will try and fix this. Real API endpoint would not have a trailing slash. It's just some nginx configuration I have to work out.
-
-Turns out the tokens need to be generated from the same IP as the invidious server, and so a public token service will just not be possible.
 
 #### Token server will be compatible with other forks, as long as you know how to program in the API request and extraction of tokens from the JSON response.
 
 ## Features
 
+- Token generation
+- Redis cache
+- Token server / API
 - Stats monitor (not started yet)
-- Token generation (completed)
-- Token server / API (completed)
-- Catspeed integration (in testing)
 - Arm64 / Aarch64 image for raspi (not started yet)
+- Catspeed fork integration (in testing)
 
 ## Docker tags
 - catspeedcc/tokenserver-debian:latest - tag for latest version, can include minor version bumps (Ex. v0.50 -> v0.51)
 - catspeedcc/tokenserver-debian:stable - tag for stable version, only includes major version bumps (Ex. v1.00 -> v2.00 - COMING SOON!)
+- catspeedcc/tokenserver-debian:v0.54 - swap generators, additional docker service
+- catspeedcc/tokenserver-debian:v0.53 - revert back to submodules.
 - catspeedcc/tokenserver-debian:v0.52 - fixed gluetun - added sleep for gluetun init
 - catspeedcc/tokenserver-debian:v0.51 - fixed JSON output
 - catspeedcc/tokenserver-debian:v0.50 - initial image
 
 ## Releases
 
-- v0.52 is now released. You can find it on the releases/tags page. Includes gluetun fix.
+- v0.54 is now released. You can find it on the releases/tags page. Swapped YunzheZJU/youtube-po-token-generator for iv-org/youtube-trusted-session-generator. Added additional docker-compose service.
 
-The issue with gluetun was the git clone of the token generator was failing due to the VPN not being fully initialized. I have added a 30 second sleep which solves the issue. You will have to wait at least 30 seconds before tokens start to generate.
+I have added submodules back.
 
 **Note:** gluetun has been included in the example. Tokens must be generated from the same IP that you are accessing content from. In this case, we show example for gluetun because catspeed fork uses gluetun. You still have to select the proper server. If you are using catspeed fork, it has a better example in that repository.
 
 ## Dockerhub notes
 
-Even if you use the dockerhub image, you still require the git repository so you may as well clone it:
+Even if you use the dockerhub image, you still require the git repository:
 ```
 git clone https://github.com/catspeed-cc/tokenserver-debian
 ```
-This is due to the volumes linking to the token-data/ directory. Nothing I can do about it.
+This is due to the volumes linking to the token-data/ directory which you need to store data.
 
 ## Documentation
 
 #### Installation
 
 - ```git clone https://github.com/catspeed-cc/tokenserver-debian```
+- ```cd tokenserver-debian```
 - ```cp docker-compose.example.yml docker-compose.yml```
 - edit the docker-compose.yml file to your liking
 - ```docker-compose up -d```

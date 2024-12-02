@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile
-#    image: "catspeedcc/tokenserver-debian:latest"
+#    image: catspeedcc/tokenserver-debian:latest
     network_mode: "service:gluetun-1"
     init: true
     ulimits:
@@ -28,10 +28,19 @@ services:
       - SERVER_ID=catspeed1
       # IMPORTANT: enter the number of ANON tokens to generate 
       - NUM_TOKENS=10000
+      # IMPORTANT: enter the token expiry time 
+      - TOKEN_EXPIRY=1800
     volumes:
       - ./tokenserver-data/redis-data/:/var/lib/redis/
     secrets:
      - tokenserver-root-password
+    depends_on:
+      - gluetun-1
+      - session-generator-1
+      
+  session-generator-1:
+    image: catspeedcc/youtube-trusted-session-generator:webserver-latest
+    network_mode: "service:gluetun-1"
     depends_on:
       - gluetun-1
 
@@ -42,9 +51,11 @@ services:
     restart: unless-stopped
     devices:
       - /dev/net/tun:/dev/net/tun
-#    ports:
-#      - 8888:8888/tcp # HTTP proxy (expose to host is optional)
-#      - 8080:8080/tcp # Control port (expose to host is optional)
+    #ports:
+      #- 8880:80
+      #- 8881:8880
+      #- 8888:8888/tcp # HTTP proxy (expose to host is optional)
+      #- 8080:8080/tcp # Control port (expose to host is optional)
     volumes:
       - /docker/gluetun/data:/gluetun
     environment:
