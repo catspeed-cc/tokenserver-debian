@@ -18,11 +18,12 @@ Currently the api requires a trailing slash (ex. https://tokenserver.catspeed.cc
 
 ## Features
 
+- Token generation
+- Redis cache
+- Token server / API
 - Stats monitor (not started yet)
-- Token generation (completed)
-- Token server / API (completed)
-- Catspeed integration (in testing)
 - Arm64 / Aarch64 image for raspi (not started yet)
+- Catspeed fork integration (in testing)
 
 ## Docker tags
 - catspeedcc/tokenserver-debian:latest - tag for latest version, can include minor version bumps (Ex. v0.50 -> v0.51)
