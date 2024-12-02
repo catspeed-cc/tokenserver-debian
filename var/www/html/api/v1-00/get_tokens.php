@@ -31,9 +31,6 @@ while(strlen($token_data) <= 25) {
 
 }
 
-// delete redis key, so all keys are unique - may as well :3c
-$redis->del($the_key);
-
 // explode into an array for manipulation using \n
 $token_data_array = explode("\n", $token_data);
 

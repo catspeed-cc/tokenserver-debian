@@ -43,59 +43,19 @@ chown -R www-data: /var/www/html/
 # SET ENVIRONMENT VARS
 echo "NUM_TOKENS=${NUM_TOKENS}" | tee -a /etc/environment
 echo "SERVER_ID=${SERVER_ID}" | tee -a /etc/environment
+echo "TOKEN_EXPIRY=${TOKEN_EXPIRY}" | tee -a /etc/environment
 
-cd /submodules/youtube-trusted-session-generator | tee -a /scripts/entrypoint.log
-
-virtualenv venv | tee -a /scripts/entrypoint.log
-
-source venv/bin/activate | tee -a /scripts/entrypoint.log
-
-pip install -r requirements.txt | tee -a /scripts/entrypoint.log
-
-python3 potoken-generator.py --oneshot | tee -a /scripts/entrypoint.log
-
-python3 potoken-generator.py
+echo "Running curl cmd" | tee -a /scripts/entrypoint.log
 
 # localhost:8080 should be open now
-curl http://127.0.0.1:8080 | tee -a /scripts/entrypoint.log
-
-# changing code back to submodules...
-
-# make etc directory
-#mkdir etc
-
-# change to scripts/etc directory
-#cd /scripts/etc/
-
-# temporary test to see if entrypoint can git clone things
-#ls -al | tee -a /scripts/entrypoint.log
-
-# git the required token generator (using YunzheZJU until iv-org makes significant code changes, then will consider switch)
-# probs switching back to submodule
-#git clone https://github.com/YunzheZJU/youtube-po-token-generator.git
-
-# temporary test to see if entrypoint can git clone things
-#ls -al | tee -a /scripts/entrypoint.log
-
-# change to token generator directory
-#cd /scripts/etc/youtube-po-token-generator/
-
-# install dependencies
-#npm install
-
-# testrun the script
-#echo "testing token generator" | tee -a /scripts/entrypoint.log
-#node examples/one-shot.js | tee -a /scripts/entrypoint.log
-
-
-
+curl http://127.0.0.1:8880/token | tee -a /scripts/entrypoint.log
 
 # change back to scripts directory
 cd /scripts/
 
 # init token generation
 #echo "starting token generation" | tee -a /scripts/entrypoint.log
-#/scripts/generate-tokens.sh &
+/scripts/generate-tokens.sh &
 
 # this 'hack' will keep container awake and running
 # may remove at future date/time
