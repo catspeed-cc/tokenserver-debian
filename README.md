@@ -4,9 +4,13 @@
 
 Dockerized token server for catspeed fork found at https://github.com/catspeed-cc/invidious - based on Debian
 
+Tokenserver pre-generates and stores tokens in redis cache, allowing you to make requests to an API to get the tokens instantaneously. It is primarily designed to be used with catspeed-cc/invidious fork. Tokenserver can store many tokens and serve them randomly. Tokenserver utilizes catspeed-cc/youtube-trusted-session-generator a fork iv-org/youtube-trusted-session-generator
+
 I will also be moving the stats calculator here, to keep everything neat and tidy in this project, and also remove even more load off the invidious process/container. Eventually all that the invidious process/container will be doing is making redis calls.
 
-Token server will be able to be set up behind a reverse proxy, and you will be able to have infinite number of token servers. The beautiful thing about this is the token data is only 350-500 bytes, meaning this can be set up on a relatively low bandwidth connection. I personally have only 10Mbit/sec upload, but it can handle lots at 500 bytes per request. Enough I suspect that it should sustain the catspeed invidious instance with high traffic. Worst case I can spin up a VPS with Vultr to take some load as well.
+Tokenserver will be able to be set up behind a reverse proxy, and you will be able to have infinite number of token servers. The beautiful thing about this is the token data is only 350-500 bytes, meaning this can be set up on a relatively low bandwidth connection. I personally have only 10Mbit/sec upload, but it can handle lots at 500 bytes per request. Enough I suspect that it should sustain the catspeed invidious instance with high traffic. Worst case I can spin up a VPS with Vultr to take some load as well.
+
+Tokens must be generated from same VPN and/or IP address as the invidious instance (or other application needing tokens)
 
 Currently the api requires a trailing slash (ex. https://tokenserver.catspeed.cc/api/v1-00/get_tokens/) which is not a big deal, but I will try and fix this. Real API endpoint would not have a trailing slash. It's just some nginx configuration I have to work out.
 
@@ -23,6 +27,7 @@ Currently the api requires a trailing slash (ex. https://tokenserver.catspeed.cc
 ## Docker tags
 - catspeedcc/tokenserver-debian:latest - tag for latest version, can include minor version bumps (Ex. v0.50 -> v0.51)
 - catspeedcc/tokenserver-debian:stable - tag for stable version, only includes major version bumps (Ex. v1.00 -> v2.00 - COMING SOON!)
+- catspeedcc/tokenserver-debian:v0.54 - swap generators, additional docker service
 - catspeedcc/tokenserver-debian:v0.53 - revert back to submodules.
 - catspeedcc/tokenserver-debian:v0.52 - fixed gluetun - added sleep for gluetun init
 - catspeedcc/tokenserver-debian:v0.51 - fixed JSON output
@@ -30,7 +35,7 @@ Currently the api requires a trailing slash (ex. https://tokenserver.catspeed.cc
 
 ## Releases
 
-- v0.53 is now released. You can find it on the releases/tags page. Revert back to submodules.
+- v0.54 is now released. You can find it on the releases/tags page. Swapped YunzheZJU/youtube-po-token-generator for iv-org/youtube-trusted-session-generator. Added additional docker-compose service.
 
 I have added submodules back.
 
