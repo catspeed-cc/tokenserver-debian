@@ -4,9 +4,9 @@
 
 Dockerized token server for catspeed fork found at https://github.com/catspeed-cc/invidious - based on Debian
 
-Tokenserver pre-generates and stores tokens in redis cache, allowing you to make requests to an API to get the tokens instantaneously. It is primarily designed to be used with catspeed-cc/invidious fork. Tokenserver can store many tokens and serve them randomly. Tokenserver utilizes catspeed-cc/youtube-trusted-session-generator a fork iv-org/youtube-trusted-session-generator
+Tokenserver pre-generates and stores tokens in redis cache, allowing you to make requests to an API to get the tokens instantaneously. It is primarily designed to be used with catspeed-cc/invidious fork. Tokenserver can store many tokens and serve them randomly. Tokenserver utilizes https://github.com/catspeed-cc/youtube-trusted-session-generator a fork of https://github.com/iv-org/youtube-trusted-session-generator .
 
-I will also be moving the stats calculator here, to keep everything neat and tidy in this project, and also remove even more load off the invidious process/container. Eventually all that the invidious process/container will be doing is making redis calls.
+I will also be moving the stats calculator here, to keep everything neat and tidy in this project, and remove even more load off the invidious process/container. Eventually all that the invidious process/container will be doing is making redis calls.
 
 Tokenserver will be able to be set up behind a reverse proxy, and you will be able to have infinite number of token servers. The beautiful thing about this is the token data is only 350-500 bytes, meaning this can be set up on a relatively low bandwidth connection. I personally have only 10Mbit/sec upload, but it can handle lots at 500 bytes per request. Enough I suspect that it should sustain the catspeed invidious instance with high traffic. Worst case I can spin up a VPS with Vultr to take some load as well.
 
