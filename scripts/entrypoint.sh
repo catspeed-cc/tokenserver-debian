@@ -27,9 +27,6 @@ if [[ -f /run/secrets/tokenserver-root-password ]]; then
 
 fi
 
-# sleep for gluetun init
-sleep 30
-
 # chown so we can ensure the servers can start without errors
 chown -R redis: /var/lib/redis/
 chown -R www-data: /var/www/html/
@@ -39,6 +36,9 @@ chown -R www-data: /var/www/html/
 /etc/init.d/redis-server start &
 /etc/init.d/php8.2-fpm start &
 /etc/init.d/nginx start &
+
+# sleep for services & gluetun init
+sleep 30
 
 # SET ENVIRONMENT VARS
 echo "NUM_TOKENS=${NUM_TOKENS}" | tee -a /etc/environment
